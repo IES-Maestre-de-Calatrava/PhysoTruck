@@ -10,4 +10,7 @@ public interface SessionEventRepository extends JpaRepository<SessionEvent, Long
 
     @Query("select se from SessionEvent se where se.sesion.id = :sessionId")
     List<SessionEvent> findBySessionId(@Param("sessionId") Long sessionId);
+
+    @Query("select se from SessionEvent se where se.sesion.id in :sessionIds")
+    List<SessionEvent> findBySessionIds(@Param("sessionIds") List<Long> sessionIds);
 }

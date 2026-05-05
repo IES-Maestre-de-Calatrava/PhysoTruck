@@ -3,6 +3,7 @@ package com.physiotrack.physiotrack.controller;
 import com.physiotrack.physiotrack.entity.User;
 import com.physiotrack.physiotrack.repository.UserRepository;
 import com.physiotrack.physiotrack.security.JwtService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirements;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
+@SecurityRequirements
 public class AuthController {
 
     private final UserRepository userRepository;
