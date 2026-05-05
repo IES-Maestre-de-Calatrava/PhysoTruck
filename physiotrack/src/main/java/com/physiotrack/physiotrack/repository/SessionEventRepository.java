@@ -8,9 +8,9 @@ import org.springframework.data.repository.query.Param;
 
 public interface SessionEventRepository extends JpaRepository<SessionEvent, Long> {
 
-    @Query("select se from SessionEvent se where se.sesion.id = :sessionId")
+    @Query("select se from SessionEvent se where se.session.id = :sessionId")
     List<SessionEvent> findBySessionId(@Param("sessionId") Long sessionId);
 
-    @Query("select se from SessionEvent se where se.sesion.id in :sessionIds")
+    @Query("select se from SessionEvent se where se.session.id in :sessionIds")
     List<SessionEvent> findBySessionIds(@Param("sessionIds") List<Long> sessionIds);
 }

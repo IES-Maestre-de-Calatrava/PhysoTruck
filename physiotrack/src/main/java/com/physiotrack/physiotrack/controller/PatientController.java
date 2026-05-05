@@ -87,42 +87,48 @@ public class PatientController {
 
     public record PatientResponse(
         Long id,
-        String nombre,
-        String apellidos,
-        LocalDate fechaNacimiento,
-        String diagnostico,
-        String observaciones,
-        boolean activo
+        String fullName,
+        LocalDate birthDate,
+        String diagnosis,
+        LocalDate treatmentStart,
+        Integer currentLevel,
+        boolean active
     ) {
         private static PatientResponse from(Patient patient) {
             return new PatientResponse(
                 patient.getId(),
-                patient.getNombre(),
-                patient.getApellidos(),
-                patient.getFechaNacimiento(),
-                patient.getDiagnostico(),
-                patient.getObservaciones(),
-                patient.isActivo()
+                patient.getFullName(),
+                patient.getBirthDate(),
+                patient.getDiagnosis(),
+                patient.getTreatmentStart(),
+                patient.getCurrentLevel(),
+                patient.isActive()
             );
         }
     }
 
     public record SessionResponse(
         Long id,
-        LocalDateTime fechaInicio,
-        LocalDateTime fechaFin,
-        Integer duracionSegundos,
-        String observaciones,
-        boolean completada
+        String externalId,
+        LocalDateTime startedAt,
+        LocalDateTime endedAt,
+        Integer movementTime,
+        Double stabilityScore,
+        Double drivingScore,
+        Integer drivingLevel,
+        Integer weekNumber
     ) {
         private static SessionResponse from(Session session) {
             return new SessionResponse(
                 session.getId(),
-                session.getFechaInicio(),
-                session.getFechaFin(),
-                session.getDuracionSegundos(),
-                session.getObservaciones(),
-                session.isCompletada()
+                session.getExternalId(),
+                session.getStartedAt(),
+                session.getEndedAt(),
+                session.getMovementTime(),
+                session.getStabilityScore(),
+                session.getDrivingScore(),
+                session.getDrivingLevel(),
+                session.getWeekNumber()
             );
         }
     }

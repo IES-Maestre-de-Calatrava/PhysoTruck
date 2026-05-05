@@ -9,17 +9,17 @@ import org.springframework.data.repository.query.Param;
 
 public interface SessionRepository extends JpaRepository<Session, Long> {
 
-    @Query("select s from Session s where s.paciente.id = :patientId")
+    @Query("select s from Session s where s.patient.id = :patientId")
     List<Session> findByPatientId(@Param("patientId") Long patientId);
 
     @Query("""
         select s
         from Session s
-        where s.paciente.id = :patientId
-          and s.fisioterapeuta.email = :email
-          and s.fechaInicio >= :start
-          and s.fechaInicio < :end
-        order by s.fechaInicio
+        where s.patient.id = :patientId
+          and s.patient.therapist.email = :email
+          and s.startedAt >= :start
+          and s.startedAt < :end
+        order by s.startedAt
         """)
     List<Session> findWeeklySessionsForPatient(
         @Param("patientId") Long patientId,
