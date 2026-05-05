@@ -1,3 +1,6 @@
 .env
 target/
 *.class
+desktop.ini
+*.zip
+frontend-mockups/
