@@ -1,29 +1,26 @@
 package com.physiotrack.physiotrack.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Builder.Default;
-import lombok.Getter;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.ToString;
 
 @Entity
-@Table(
-    name = "users",
-    uniqueConstraints = {
-        @UniqueConstraint(name = "uk_user_email", columnNames = "email"),
-        @UniqueConstraint(name = "uk_user_numero_colegiado", columnNames = "numero_colegiado")
-    }
-)
-@Getter
-@Setter
+@Table(name = "users")
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -33,25 +30,25 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 80)
-    private String nombre;
-
-    @Column(nullable = false, length = 120)
-    private String apellidos;
-
-    @Column(nullable = false, length = 120)
+    @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(nullable = false, length = 255)
-    private String contrasena;
+    @Column(nullable = false)
+    private String passwordHash;
 
-    @Column(length = 20)
-    private String telefono;
+    @Column(nullable = false)
+    private String fullName;
 
-    @Column(name = "numero_colegiado", nullable = false, length = 30)
-    private String numeroColegiado;
+    @Column(nullable = false, unique = true)
+    private String sescamId;
 
     @Default
     @Column(nullable = false)
-    private boolean activo = true;
+    private boolean active = true;
+
+    @Default
+    @OneToMany(mappedBy = "therapist", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private List<Patient> patients = new ArrayList<>();
 }

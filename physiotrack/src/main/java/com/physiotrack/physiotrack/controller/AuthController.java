@@ -30,7 +30,7 @@ public class AuthController {
         }
 
         User user = userRepository.findByEmail(request.email()).orElse(null);
-        if (user == null || !passwordEncoder.matches(request.password(), user.getContrasena())) {
+        if (user == null || !passwordEncoder.matches(request.password(), user.getPasswordHash())) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
 

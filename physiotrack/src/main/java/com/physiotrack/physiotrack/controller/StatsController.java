@@ -49,34 +49,40 @@ public class StatsController {
             : sessionEventRepository.findBySessionIds(sessionIds);
 
         int totalSessions = sessions.size();
-        long completedSessions = sessions.stream().filter(Session::isCompletada).count();
-        int totalDurationSeconds = sessions.stream()
-            .map(Session::getDuracionSegundos)
+        int totalMovementTime = sessions.stream()
+            .map(Session::getMovementTime)
             .filter(Objects::nonNull)
             .mapToInt(Integer::intValue)
             .sum();
-        Double averageDurationSeconds = sessions.stream()
-            .map(Session::getDuracionSegundos)
+        Double averageMovementTime = sessions.stream()
+            .map(Session::getMovementTime)
             .filter(Objects::nonNull)
             .mapToInt(Integer::intValue)
             .average()
-            .isPresent() ? sessions.stream()
-            .map(Session::getDuracionSegundos)
+            .orElse(0.0);
+        Double averageStabilityScore = sessions.stream()
+            .map(Session::getStabilityScore)
+            .filter(Objects::nonNull)
+            .mapToDouble(Double::doubleValue)
+            .average()
+            .orElse(0.0);
+        Double averageDrivingScore = sessions.stream()
+            .map(Session::getDrivingScore)
+            .filter(Objects::nonNull)
+            .mapToDouble(Double::doubleValue)
+            .average()
+            .orElse(0.0);
+        Double averageDrivingLevel = sessions.stream()
+            .map(Session::getDrivingLevel)
             .filter(Objects::nonNull)
             .mapToInt(Integer::intValue)
             .average()
-            .orElse(0.0) : null;
-        Double averageIntensity = events.stream()
-            .map(SessionEvent::getIntensidad)
+            .orElse(0.0);
+        int totalEventCount = events.stream()
+            .map(SessionEvent::getCount)
             .filter(Objects::nonNull)
-            .mapToDouble(Double::doubleValue)
-            .average()
-            .isPresent() ? events.stream()
-            .map(SessionEvent::getIntensidad)
-            .filter(Objects::nonNull)
-            .mapToDouble(Double::doubleValue)
-            .average()
-            .orElse(0.0) : null;
+            .mapToInt(Integer::intValue)
+            .sum();
 
         return new WeeklyStatsResponse(
             patientId,
@@ -85,11 +91,13 @@ public class StatsController {
             weekWindow.start().toLocalDate(),
             weekWindow.endExclusive().minusDays(1).toLocalDate(),
             totalSessions,
-            completedSessions,
-            totalDurationSeconds,
-            averageDurationSeconds,
+            totalMovementTime,
+            averageMovementTime,
+            averageStabilityScore,
+            averageDrivingScore,
+            averageDrivingLevel,
             events.size(),
-            averageIntensity
+            totalEventCount
         );
     }
 
@@ -100,11 +108,13 @@ public class StatsController {
         LocalDate weekStart,
         LocalDate weekEnd,
         int totalSessions,
-        long completedSessions,
-        int totalDurationSeconds,
-        Double averageDurationSeconds,
+        int totalMovementTime,
+        Double averageMovementTime,
+        Double averageStabilityScore,
+        Double averageDrivingScore,
+        Double averageDrivingLevel,
         int totalEvents,
-        Double averageIntensity
+        int totalEventCount
     ) {
     }
 }
