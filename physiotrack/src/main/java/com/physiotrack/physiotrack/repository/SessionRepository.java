@@ -16,6 +16,18 @@ public interface SessionRepository extends JpaRepository<Session, Long> {
         select s
         from Session s
         where s.patient.id = :patientId
+          and s.weekNumber = :weekNumber
+        order by s.startedAt
+        """)
+    List<Session> findByPatientIdAndWeekNumber(
+        @Param("patientId") Long patientId,
+        @Param("weekNumber") Integer weekNumber
+    );
+
+    @Query("""
+        select s
+        from Session s
+        where s.patient.id = :patientId
           and s.patient.therapist.email = :email
           and s.startedAt >= :start
           and s.startedAt < :end
