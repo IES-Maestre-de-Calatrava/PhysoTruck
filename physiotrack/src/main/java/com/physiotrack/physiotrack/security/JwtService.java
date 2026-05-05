@@ -8,13 +8,16 @@ import io.jsonwebtoken.security.Keys;
 import java.nio.charset.StandardCharsets;
 import java.security.Key;
 import java.util.Date;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
 public class JwtService {
 
     private static final long EXPIRATION_TIME_MS = 24 * 60 * 60 * 1000;
-    private static final String SECRET_KEY = "physiotrack-jwt-secret-key-2026-physiotrack";
+
+    @Value("${jwt.secret}")
+    private String secretKey;
 
     public String generateToken(String email) {
         Date now = new Date();
@@ -43,6 +46,6 @@ public class JwtService {
     }
 
     private Key getSigningKey() {
-        return Keys.hmacShaKeyFor(SECRET_KEY.getBytes(StandardCharsets.UTF_8));
+        return Keys.hmacShaKeyFor(secretKey.getBytes(StandardCharsets.UTF_8));
     }
 }
