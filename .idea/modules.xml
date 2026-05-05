@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/physiotrack.iml" filepath="$PROJECT_DIR$/.idea/physiotrack.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/PhysoTruck-main.iml" filepath="$PROJECT_DIR$/.idea/PhysoTruck-main.iml" />
     </modules>
   </component>
 </project>
