@@ -1,0 +1,3194 @@
+{
+  "Alberto": {
+    "movimiento": {
+      "2026-03-24": {
+        "tiempo": 30386
+      },
+      "2026-04-09": {
+        "tiempo": 13182
+      }
+    },
+    "sesiones": {
+      "2026-03-05": {
+        "-AUTO07289": {
+          "aceleraciones_bruscas": 1,
+          "colisiones": 4,
+          "estabilidad": 78,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 76,
+          "tiempo_movimiento": 15007,
+          "timestamp": 1772668800
+        },
+        "-AUTO13526": {
+          "aceleraciones_bruscas": 24,
+          "colisiones": 0,
+          "estabilidad": 81,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 2,
+          "score": 86,
+          "tiempo_movimiento": 17026,
+          "timestamp": 1772669400
+        },
+        "-AUTO23371": {
+          "aceleraciones_bruscas": 4,
+          "colisiones": 2,
+          "estabilidad": 88,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 2,
+          "score": 81,
+          "tiempo_movimiento": 19107,
+          "timestamp": 1772670000
+        },
+        "-AUTO31294": {
+          "aceleraciones_bruscas": 19,
+          "colisiones": 3,
+          "estabilidad": 65,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 2,
+          "score": 55,
+          "tiempo_movimiento": 500,
+          "timestamp": 1772670600
+        },
+        "-AUTO45144": {
+          "aceleraciones_bruscas": 20,
+          "colisiones": 2,
+          "estabilidad": 74,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 71,
+          "tiempo_movimiento": 29841,
+          "timestamp": 1772671200
+        },
+        "-AUTO57367": {
+          "aceleraciones_bruscas": 27,
+          "colisiones": 3,
+          "estabilidad": 63,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 61,
+          "tiempo_movimiento": 13463,
+          "timestamp": 1772671800
+        },
+        "-AUTO65663": {
+          "aceleraciones_bruscas": 4,
+          "colisiones": 3,
+          "estabilidad": 83,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 77,
+          "tiempo_movimiento": 18100,
+          "timestamp": 1772672400
+        },
+        "-AUTO79446": {
+          "aceleraciones_bruscas": 17,
+          "colisiones": 3,
+          "estabilidad": 70,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 63,
+          "tiempo_movimiento": 10542,
+          "timestamp": 1772673000
+        }
+      },
+      "2026-03-06": {
+        "-AUTO02516": {
+          "aceleraciones_bruscas": 18,
+          "colisiones": 0,
+          "estabilidad": 78,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 2,
+          "score": 81,
+          "tiempo_movimiento": 16625,
+          "timestamp": 1772755200
+        },
+        "-AUTO16734": {
+          "aceleraciones_bruscas": 26,
+          "colisiones": 1,
+          "estabilidad": 68,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 73,
+          "tiempo_movimiento": 1089,
+          "timestamp": 1772755800
+        },
+        "-AUTO23247": {
+          "aceleraciones_bruscas": 20,
+          "colisiones": 3,
+          "estabilidad": 64,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 1,
+          "score": 56,
+          "tiempo_movimiento": 6872,
+          "timestamp": 1772756400
+        },
+        "-AUTO34590": {
+          "aceleraciones_bruscas": 3,
+          "colisiones": 4,
+          "estabilidad": 73,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 63,
+          "tiempo_movimiento": 12430,
+          "timestamp": 1772757000
+        },
+        "-AUTO41857": {
+          "aceleraciones_bruscas": 9,
+          "colisiones": 2,
+          "estabilidad": 85,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 1,
+          "score": 88,
+          "tiempo_movimiento": 19079,
+          "timestamp": 1772757600
+        },
+        "-AUTO53047": {
+          "aceleraciones_bruscas": 9,
+          "colisiones": 2,
+          "estabilidad": 83,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 1,
+          "score": 93,
+          "tiempo_movimiento": 22797,
+          "timestamp": 1772758200
+        },
+        "-AUTO62488": {
+          "aceleraciones_bruscas": 4,
+          "colisiones": 5,
+          "estabilidad": 69,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 64,
+          "tiempo_movimiento": 21035,
+          "timestamp": 1772758800
+        },
+        "-AUTO76444": {
+          "aceleraciones_bruscas": 28,
+          "colisiones": 4,
+          "estabilidad": 57,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 66,
+          "tiempo_movimiento": 24844,
+          "timestamp": 1772759400
+        }
+      },
+      "2026-03-07": {
+        "-AUTO09221": {
+          "aceleraciones_bruscas": 22,
+          "colisiones": 2,
+          "estabilidad": 67,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 66,
+          "tiempo_movimiento": 4947,
+          "timestamp": 1772841600
+        },
+        "-AUTO13914": {
+          "aceleraciones_bruscas": 22,
+          "colisiones": 3,
+          "estabilidad": 58,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 1,
+          "score": 56,
+          "tiempo_movimiento": 6050,
+          "timestamp": 1772842200
+        },
+        "-AUTO24738": {
+          "aceleraciones_bruscas": 32,
+          "colisiones": 4,
+          "estabilidad": 51,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 61,
+          "tiempo_movimiento": 7652,
+          "timestamp": 1772842800
+        },
+        "-AUTO39538": {
+          "aceleraciones_bruscas": 23,
+          "colisiones": 4,
+          "estabilidad": 58,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 60,
+          "tiempo_movimiento": 27708,
+          "timestamp": 1772843400
+        },
+        "-AUTO44203": {
+          "aceleraciones_bruscas": 26,
+          "colisiones": 5,
+          "estabilidad": 46,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 2,
+          "score": 50,
+          "tiempo_movimiento": 28911,
+          "timestamp": 1772844000
+        },
+        "-AUTO51780": {
+          "aceleraciones_bruscas": 19,
+          "colisiones": 3,
+          "estabilidad": 67,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 75,
+          "tiempo_movimiento": 6213,
+          "timestamp": 1772844600
+        }
+      },
+      "2026-03-08": {
+        "-AUTO09257": {
+          "aceleraciones_bruscas": 33,
+          "colisiones": 3,
+          "estabilidad": 55,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 2,
+          "score": 52,
+          "tiempo_movimiento": 24505,
+          "timestamp": 1772928000
+        },
+        "-AUTO13265": {
+          "aceleraciones_bruscas": 30,
+          "colisiones": 4,
+          "estabilidad": 49,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 0,
+          "score": 57,
+          "tiempo_movimiento": 2656,
+          "timestamp": 1772928600
+        },
+        "-AUTO22111": {
+          "aceleraciones_bruscas": 32,
+          "colisiones": 2,
+          "estabilidad": 59,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 0,
+          "score": 54,
+          "tiempo_movimiento": 12694,
+          "timestamp": 1772929200
+        },
+        "-AUTO35827": {
+          "aceleraciones_bruscas": 9,
+          "colisiones": 4,
+          "estabilidad": 70,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 71,
+          "tiempo_movimiento": 2120,
+          "timestamp": 1772929800
+        },
+        "-AUTO41333": {
+          "aceleraciones_bruscas": 1,
+          "colisiones": 4,
+          "estabilidad": 82,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 2,
+          "score": 91,
+          "tiempo_movimiento": 20954,
+          "timestamp": 1772930400
+        }
+      },
+      "2026-03-09": {
+        "-AUTO03434": {
+          "aceleraciones_bruscas": 24,
+          "colisiones": 3,
+          "estabilidad": 61,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 2,
+          "score": 52,
+          "tiempo_movimiento": 3747,
+          "timestamp": 1773014400
+        },
+        "-AUTO17673": {
+          "aceleraciones_bruscas": 5,
+          "colisiones": 1,
+          "estabilidad": 90,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 84,
+          "tiempo_movimiento": 25214,
+          "timestamp": 1773015000
+        },
+        "-AUTO22979": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 2,
+          "estabilidad": 93,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 87,
+          "tiempo_movimiento": 9699,
+          "timestamp": 1773015600
+        }
+      },
+      "2026-03-10": {
+        "-AUTO01706": {
+          "aceleraciones_bruscas": 10,
+          "colisiones": 5,
+          "estabilidad": 65,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 62,
+          "tiempo_movimiento": 1784,
+          "timestamp": 1773100800
+        },
+        "-AUTO14118": {
+          "aceleraciones_bruscas": 10,
+          "colisiones": 2,
+          "estabilidad": 79,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 73,
+          "tiempo_movimiento": 2761,
+          "timestamp": 1773101400
+        },
+        "-AUTO26661": {
+          "aceleraciones_bruscas": 14,
+          "colisiones": 5,
+          "estabilidad": 62,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 62,
+          "tiempo_movimiento": 1590,
+          "timestamp": 1773102000
+        }
+      },
+      "2026-03-11": {
+        "-AUTO04975": {
+          "aceleraciones_bruscas": 11,
+          "colisiones": 0,
+          "estabilidad": 89,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 80,
+          "tiempo_movimiento": 10536,
+          "timestamp": 1773187200
+        },
+        "-AUTO19480": {
+          "aceleraciones_bruscas": 9,
+          "colisiones": 3,
+          "estabilidad": 71,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 65,
+          "tiempo_movimiento": 15693,
+          "timestamp": 1773187800
+        },
+        "-AUTO29267": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 1,
+          "estabilidad": 90,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 1,
+          "score": 97,
+          "tiempo_movimiento": 4604,
+          "timestamp": 1773188400
+        },
+        "-AUTO38040": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 5,
+          "estabilidad": 76,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 69,
+          "tiempo_movimiento": 15327,
+          "timestamp": 1773189000
+        },
+        "-AUTO42241": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 3,
+          "estabilidad": 83,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 2,
+          "score": 81,
+          "tiempo_movimiento": 4420,
+          "timestamp": 1773189600
+        }
+      },
+      "2026-03-12": {
+        "-AUTO09196": {
+          "aceleraciones_bruscas": 12,
+          "colisiones": 4,
+          "estabilidad": 71,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 71,
+          "tiempo_movimiento": 3514,
+          "timestamp": 1773273600
+        },
+        "-AUTO18530": {
+          "aceleraciones_bruscas": 23,
+          "colisiones": 0,
+          "estabilidad": 76,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 76,
+          "tiempo_movimiento": 20980,
+          "timestamp": 1773274200
+        },
+        "-AUTO29258": {
+          "aceleraciones_bruscas": 28,
+          "colisiones": 0,
+          "estabilidad": 69,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 71,
+          "tiempo_movimiento": 18785,
+          "timestamp": 1773274800
+        },
+        "-AUTO39652": {
+          "aceleraciones_bruscas": 26,
+          "colisiones": 5,
+          "estabilidad": 54,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 60,
+          "tiempo_movimiento": 3311,
+          "timestamp": 1773275400
+        },
+        "-AUTO49165": {
+          "aceleraciones_bruscas": 5,
+          "colisiones": 2,
+          "estabilidad": 89,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 1,
+          "score": 89,
+          "tiempo_movimiento": 27032,
+          "timestamp": 1773276000
+        }
+      },
+      "2026-03-13": {
+        "-AUTO06690": {
+          "aceleraciones_bruscas": 13,
+          "colisiones": 0,
+          "estabilidad": 89,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 2,
+          "score": 87,
+          "tiempo_movimiento": 16639,
+          "timestamp": 1773360000
+        },
+        "-AUTO15010": {
+          "aceleraciones_bruscas": 29,
+          "colisiones": 3,
+          "estabilidad": 57,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 65,
+          "tiempo_movimiento": 3916,
+          "timestamp": 1773360600
+        },
+        "-AUTO22706": {
+          "aceleraciones_bruscas": 30,
+          "colisiones": 1,
+          "estabilidad": 65,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 1,
+          "score": 56,
+          "tiempo_movimiento": 4806,
+          "timestamp": 1773361200
+        },
+        "-AUTO38773": {
+          "aceleraciones_bruscas": 3,
+          "colisiones": 4,
+          "estabilidad": 76,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 69,
+          "tiempo_movimiento": 12142,
+          "timestamp": 1773361800
+        }
+      },
+      "2026-03-14": {
+        "-AUTO04844": {
+          "aceleraciones_bruscas": 31,
+          "colisiones": 5,
+          "estabilidad": 45,
+          "nivel": "Principiante",
+          "paradas_bruscas": 0,
+          "score": 39,
+          "tiempo_movimiento": 12545,
+          "timestamp": 1773446400
+        },
+        "-AUTO13769": {
+          "aceleraciones_bruscas": 18,
+          "colisiones": 4,
+          "estabilidad": 64,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 73,
+          "tiempo_movimiento": 25182,
+          "timestamp": 1773447000
+        },
+        "-AUTO22297": {
+          "aceleraciones_bruscas": 21,
+          "colisiones": 2,
+          "estabilidad": 72,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 69,
+          "tiempo_movimiento": 27824,
+          "timestamp": 1773447600
+        }
+      },
+      "2026-03-15": {
+        "-AUTO01401": {
+          "aceleraciones_bruscas": 28,
+          "colisiones": 2,
+          "estabilidad": 63,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 71,
+          "tiempo_movimiento": 27950,
+          "timestamp": 1773532800
+        },
+        "-AUTO11290": {
+          "aceleraciones_bruscas": 10,
+          "colisiones": 4,
+          "estabilidad": 72,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 79,
+          "tiempo_movimiento": 16158,
+          "timestamp": 1773533400
+        },
+        "-AUTO25151": {
+          "aceleraciones_bruscas": 18,
+          "colisiones": 2,
+          "estabilidad": 74,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 66,
+          "tiempo_movimiento": 19497,
+          "timestamp": 1773534000
+        },
+        "-AUTO36856": {
+          "aceleraciones_bruscas": 11,
+          "colisiones": 1,
+          "estabilidad": 87,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 2,
+          "score": 80,
+          "tiempo_movimiento": 18254,
+          "timestamp": 1773534600
+        },
+        "-AUTO44183": {
+          "aceleraciones_bruscas": 1,
+          "colisiones": 3,
+          "estabilidad": 88,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 82,
+          "tiempo_movimiento": 9758,
+          "timestamp": 1773535200
+        }
+      },
+      "2026-03-16": {
+        "-AUTO06256": {
+          "aceleraciones_bruscas": 2,
+          "colisiones": 2,
+          "estabilidad": 85,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 2,
+          "score": 90,
+          "tiempo_movimiento": 12365,
+          "timestamp": 1773619200
+        },
+        "-AUTO17998": {
+          "aceleraciones_bruscas": 27,
+          "colisiones": 3,
+          "estabilidad": 55,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 65,
+          "tiempo_movimiento": 26480,
+          "timestamp": 1773619800
+        },
+        "-AUTO27203": {
+          "aceleraciones_bruscas": 34,
+          "colisiones": 2,
+          "estabilidad": 60,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 1,
+          "score": 56,
+          "tiempo_movimiento": 24423,
+          "timestamp": 1773620400
+        },
+        "-AUTO36903": {
+          "aceleraciones_bruscas": 17,
+          "colisiones": 5,
+          "estabilidad": 55,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 65,
+          "tiempo_movimiento": 4174,
+          "timestamp": 1773621000
+        },
+        "-AUTO45205": {
+          "aceleraciones_bruscas": 20,
+          "colisiones": 3,
+          "estabilidad": 68,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 68,
+          "tiempo_movimiento": 1668,
+          "timestamp": 1773621600
+        },
+        "-AUTO59752": {
+          "aceleraciones_bruscas": 12,
+          "colisiones": 4,
+          "estabilidad": 66,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 64,
+          "tiempo_movimiento": 1372,
+          "timestamp": 1773622200
+        },
+        "-AUTO61574": {
+          "aceleraciones_bruscas": 29,
+          "colisiones": 1,
+          "estabilidad": 64,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 1,
+          "score": 55,
+          "tiempo_movimiento": 23485,
+          "timestamp": 1773622800
+        },
+        "-AUTO77859": {
+          "aceleraciones_bruscas": 29,
+          "colisiones": 3,
+          "estabilidad": 56,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 63,
+          "tiempo_movimiento": 16656,
+          "timestamp": 1773623400
+        }
+      },
+      "2026-03-17": {
+        "-AUTO09854": {
+          "aceleraciones_bruscas": 4,
+          "colisiones": 5,
+          "estabilidad": 72,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 70,
+          "tiempo_movimiento": 3346,
+          "timestamp": 1773705600
+        },
+        "-AUTO14243": {
+          "aceleraciones_bruscas": 29,
+          "colisiones": 4,
+          "estabilidad": 55,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 2,
+          "score": 55,
+          "tiempo_movimiento": 26127,
+          "timestamp": 1773706200
+        },
+        "-AUTO23164": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 2,
+          "estabilidad": 93,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 17002,
+          "timestamp": 1773706800
+        },
+        "-AUTO32069": {
+          "aceleraciones_bruscas": 15,
+          "colisiones": 4,
+          "estabilidad": 64,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 74,
+          "tiempo_movimiento": 16234,
+          "timestamp": 1773707400
+        }
+      },
+      "2026-03-18": {
+        "-AUTO04938": {
+          "aceleraciones_bruscas": 8,
+          "colisiones": 0,
+          "estabilidad": 90,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 1,
+          "score": 83,
+          "tiempo_movimiento": 6139,
+          "timestamp": 1773792000
+        },
+        "-AUTO16211": {
+          "aceleraciones_bruscas": 9,
+          "colisiones": 2,
+          "estabilidad": 77,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 83,
+          "tiempo_movimiento": 22784,
+          "timestamp": 1773792600
+        },
+        "-AUTO26365": {
+          "aceleraciones_bruscas": 14,
+          "colisiones": 3,
+          "estabilidad": 67,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 70,
+          "tiempo_movimiento": 18460,
+          "timestamp": 1773793200
+        },
+        "-AUTO35244": {
+          "aceleraciones_bruscas": 22,
+          "colisiones": 4,
+          "estabilidad": 58,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 0,
+          "score": 59,
+          "tiempo_movimiento": 3664,
+          "timestamp": 1773793800
+        },
+        "-AUTO49566": {
+          "aceleraciones_bruscas": 22,
+          "colisiones": 3,
+          "estabilidad": 59,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 0,
+          "score": 49,
+          "tiempo_movimiento": 19047,
+          "timestamp": 1773794400
+        },
+        "-AUTO55237": {
+          "aceleraciones_bruscas": 5,
+          "colisiones": 2,
+          "estabilidad": 80,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 2,
+          "score": 88,
+          "tiempo_movimiento": 5602,
+          "timestamp": 1773795000
+        },
+        "-AUTO61186": {
+          "aceleraciones_bruscas": 1,
+          "colisiones": 3,
+          "estabilidad": 82,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 1,
+          "score": 91,
+          "tiempo_movimiento": 3197,
+          "timestamp": 1773795600
+        },
+        "-AUTO73823": {
+          "aceleraciones_bruscas": 5,
+          "colisiones": 1,
+          "estabilidad": 90,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 97,
+          "tiempo_movimiento": 6195,
+          "timestamp": 1773796200
+        }
+      },
+      "2026-03-19": {
+        "-AUTO07304": {
+          "aceleraciones_bruscas": 18,
+          "colisiones": 1,
+          "estabilidad": 81,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 74,
+          "tiempo_movimiento": 24400,
+          "timestamp": 1773878400
+        },
+        "-AUTO12143": {
+          "aceleraciones_bruscas": 15,
+          "colisiones": 2,
+          "estabilidad": 78,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 73,
+          "tiempo_movimiento": 20317,
+          "timestamp": 1773879000
+        },
+        "-AUTO22524": {
+          "aceleraciones_bruscas": 5,
+          "colisiones": 1,
+          "estabilidad": 91,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 1,
+          "score": 90,
+          "tiempo_movimiento": 9151,
+          "timestamp": 1773879600
+        },
+        "-AUTO38869": {
+          "aceleraciones_bruscas": 1,
+          "colisiones": 2,
+          "estabilidad": 94,
+          "nivel": "Experto",
+          "paradas_bruscas": 1,
+          "score": 100,
+          "tiempo_movimiento": 12396,
+          "timestamp": 1773880200
+        },
+        "-AUTO45934": {
+          "aceleraciones_bruscas": 14,
+          "colisiones": 0,
+          "estabilidad": 85,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 1,
+          "score": 87,
+          "tiempo_movimiento": 8008,
+          "timestamp": 1773880800
+        }
+      },
+      "2026-03-20": {
+        "-AUTO07055": {
+          "aceleraciones_bruscas": 12,
+          "colisiones": 0,
+          "estabilidad": 83,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 75,
+          "tiempo_movimiento": 14121,
+          "timestamp": 1773964800
+        },
+        "-AUTO15660": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 4,
+          "estabilidad": 85,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 79,
+          "tiempo_movimiento": 12641,
+          "timestamp": 1773965400
+        },
+        "-AUTO24774": {
+          "aceleraciones_bruscas": 8,
+          "colisiones": 3,
+          "estabilidad": 72,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 73,
+          "tiempo_movimiento": 10234,
+          "timestamp": 1773966000
+        },
+        "-AUTO36526": {
+          "aceleraciones_bruscas": 18,
+          "colisiones": 2,
+          "estabilidad": 75,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 80,
+          "tiempo_movimiento": 17248,
+          "timestamp": 1773966600
+        },
+        "-AUTO46511": {
+          "aceleraciones_bruscas": 2,
+          "colisiones": 3,
+          "estabilidad": 80,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 84,
+          "tiempo_movimiento": 2305,
+          "timestamp": 1773967200
+        },
+        "-AUTO52960": {
+          "aceleraciones_bruscas": 2,
+          "colisiones": 5,
+          "estabilidad": 71,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 69,
+          "tiempo_movimiento": 19906,
+          "timestamp": 1773967800
+        }
+      },
+      "2026-03-21": {
+        "-AUTO03571": {
+          "aceleraciones_bruscas": 34,
+          "colisiones": 1,
+          "estabilidad": 62,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 1,
+          "score": 57,
+          "tiempo_movimiento": 27245,
+          "timestamp": 1774051200
+        },
+        "-AUTO17737": {
+          "aceleraciones_bruscas": 7,
+          "colisiones": 1,
+          "estabilidad": 84,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 81,
+          "tiempo_movimiento": 9141,
+          "timestamp": 1774051800
+        },
+        "-AUTO26455": {
+          "aceleraciones_bruscas": 19,
+          "colisiones": 4,
+          "estabilidad": 57,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 0,
+          "score": 49,
+          "tiempo_movimiento": 15649,
+          "timestamp": 1774052400
+        },
+        "-AUTO36195": {
+          "aceleraciones_bruscas": 14,
+          "colisiones": 3,
+          "estabilidad": 71,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 64,
+          "tiempo_movimiento": 12871,
+          "timestamp": 1774053000
+        },
+        "-AUTO46988": {
+          "aceleraciones_bruscas": 21,
+          "colisiones": 4,
+          "estabilidad": 60,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 62,
+          "tiempo_movimiento": 24922,
+          "timestamp": 1774053600
+        },
+        "-AUTO54456": {
+          "aceleraciones_bruscas": 13,
+          "colisiones": 3,
+          "estabilidad": 74,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 77,
+          "tiempo_movimiento": 7501,
+          "timestamp": 1774054200
+        },
+        "-AUTO66580": {
+          "aceleraciones_bruscas": 11,
+          "colisiones": 4,
+          "estabilidad": 73,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 77,
+          "tiempo_movimiento": 25474,
+          "timestamp": 1774054800
+        },
+        "-AUTO74152": {
+          "aceleraciones_bruscas": 18,
+          "colisiones": 3,
+          "estabilidad": 70,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 60,
+          "tiempo_movimiento": 23402,
+          "timestamp": 1774055400
+        }
+      },
+      "2026-03-22": {
+        "-AUTO04146": {
+          "aceleraciones_bruscas": 1,
+          "colisiones": 0,
+          "estabilidad": 101,
+          "nivel": "Experto",
+          "paradas_bruscas": 2,
+          "score": 100,
+          "tiempo_movimiento": 14702,
+          "timestamp": 1774137600
+        },
+        "-AUTO11131": {
+          "aceleraciones_bruscas": 19,
+          "colisiones": 1,
+          "estabilidad": 71,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 75,
+          "tiempo_movimiento": 28403,
+          "timestamp": 1774138200
+        },
+        "-AUTO23723": {
+          "aceleraciones_bruscas": 30,
+          "colisiones": 5,
+          "estabilidad": 41,
+          "nivel": "Principiante",
+          "paradas_bruscas": 1,
+          "score": 39,
+          "tiempo_movimiento": 15627,
+          "timestamp": 1774138800
+        }
+      },
+      "2026-03-23": {
+        "-AUTO02223": {
+          "aceleraciones_bruscas": 12,
+          "colisiones": 1,
+          "estabilidad": 84,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 75,
+          "tiempo_movimiento": 20187,
+          "timestamp": 1774224000
+        },
+        "-AUTO17719": {
+          "aceleraciones_bruscas": 20,
+          "colisiones": 5,
+          "estabilidad": 52,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 61,
+          "tiempo_movimiento": 2126,
+          "timestamp": 1774224600
+        },
+        "-AUTO22818": {
+          "aceleraciones_bruscas": 33,
+          "colisiones": 4,
+          "estabilidad": 49,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 0,
+          "score": 55,
+          "tiempo_movimiento": 2085,
+          "timestamp": 1774225200
+        },
+        "-AUTO37587": {
+          "aceleraciones_bruscas": 34,
+          "colisiones": 1,
+          "estabilidad": 62,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 0,
+          "score": 54,
+          "tiempo_movimiento": 9016,
+          "timestamp": 1774225800
+        },
+        "-AUTO47271": {
+          "aceleraciones_bruscas": 11,
+          "colisiones": 5,
+          "estabilidad": 64,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 65,
+          "tiempo_movimiento": 4180,
+          "timestamp": 1774226400
+        },
+        "-AUTO52547": {
+          "aceleraciones_bruscas": 12,
+          "colisiones": 3,
+          "estabilidad": 70,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 72,
+          "tiempo_movimiento": 17457,
+          "timestamp": 1774227000
+        },
+        "-AUTO63980": {
+          "aceleraciones_bruscas": 15,
+          "colisiones": 1,
+          "estabilidad": 85,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 1,
+          "score": 87,
+          "tiempo_movimiento": 23144,
+          "timestamp": 1774227600
+        }
+      },
+      "2026-03-24": {
+        "-AUTO02634": {
+          "aceleraciones_bruscas": 8,
+          "colisiones": 1,
+          "estabilidad": 83,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 2,
+          "score": 86,
+          "tiempo_movimiento": 10179,
+          "timestamp": 1774310400
+        },
+        "-AUTO11567": {
+          "aceleraciones_bruscas": 13,
+          "colisiones": 0,
+          "estabilidad": 92,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 2,
+          "score": 89,
+          "tiempo_movimiento": 27759,
+          "timestamp": 1774311000
+        },
+        "-AUTO25910": {
+          "aceleraciones_bruscas": 18,
+          "colisiones": 3,
+          "estabilidad": 71,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 67,
+          "tiempo_movimiento": 23183,
+          "timestamp": 1774311600
+        },
+        "-AUTO31150": {
+          "aceleraciones_bruscas": 20,
+          "colisiones": 5,
+          "estabilidad": 55,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 2,
+          "score": 47,
+          "tiempo_movimiento": 3812,
+          "timestamp": 1774312200
+        }
+      },
+      "2026-03-25": {
+        "-AUTO03062": {
+          "aceleraciones_bruscas": 9,
+          "colisiones": 5,
+          "estabilidad": 62,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 69,
+          "tiempo_movimiento": 14628,
+          "timestamp": 1774396800
+        },
+        "-AUTO11093": {
+          "aceleraciones_bruscas": 20,
+          "colisiones": 2,
+          "estabilidad": 72,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 72,
+          "tiempo_movimiento": 19728,
+          "timestamp": 1774397400
+        },
+        "-AUTO23680": {
+          "aceleraciones_bruscas": 10,
+          "colisiones": 2,
+          "estabilidad": 75,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 70,
+          "tiempo_movimiento": 2451,
+          "timestamp": 1774398000
+        },
+        "-AUTO38101": {
+          "aceleraciones_bruscas": 11,
+          "colisiones": 5,
+          "estabilidad": 62,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 67,
+          "tiempo_movimiento": 28573,
+          "timestamp": 1774398600
+        },
+        "-AUTO46608": {
+          "aceleraciones_bruscas": 31,
+          "colisiones": 1,
+          "estabilidad": 68,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 75,
+          "tiempo_movimiento": 3678,
+          "timestamp": 1774399200
+        },
+        "-AUTO55035": {
+          "aceleraciones_bruscas": 28,
+          "colisiones": 2,
+          "estabilidad": 67,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 63,
+          "tiempo_movimiento": 11153,
+          "timestamp": 1774399800
+        }
+      },
+      "2026-03-26": {
+        "-AUTO02225": {
+          "aceleraciones_bruscas": 20,
+          "colisiones": 2,
+          "estabilidad": 69,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 77,
+          "tiempo_movimiento": 12317,
+          "timestamp": 1774483200
+        },
+        "-AUTO13489": {
+          "aceleraciones_bruscas": 32,
+          "colisiones": 1,
+          "estabilidad": 61,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 0,
+          "score": 56,
+          "tiempo_movimiento": 17074,
+          "timestamp": 1774483800
+        },
+        "-AUTO22242": {
+          "aceleraciones_bruscas": 3,
+          "colisiones": 1,
+          "estabilidad": 94,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 1,
+          "score": 95,
+          "tiempo_movimiento": 4446,
+          "timestamp": 1774484400
+        },
+        "-AUTO37693": {
+          "aceleraciones_bruscas": 26,
+          "colisiones": 1,
+          "estabilidad": 73,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 78,
+          "tiempo_movimiento": 4363,
+          "timestamp": 1774485000
+        },
+        "-AUTO49811": {
+          "aceleraciones_bruscas": 8,
+          "colisiones": 0,
+          "estabilidad": 94,
+          "nivel": "Experto",
+          "paradas_bruscas": 1,
+          "score": 100,
+          "tiempo_movimiento": 5369,
+          "timestamp": 1774485600
+        },
+        "-AUTO53623": {
+          "aceleraciones_bruscas": 21,
+          "colisiones": 0,
+          "estabilidad": 83,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 86,
+          "tiempo_movimiento": 9032,
+          "timestamp": 1774486200
+        }
+      },
+      "2026-03-27": {
+        "-AUTO08179": {
+          "aceleraciones_bruscas": 33,
+          "colisiones": 5,
+          "estabilidad": 37,
+          "nivel": "Principiante",
+          "paradas_bruscas": 2,
+          "score": 37,
+          "tiempo_movimiento": 27071,
+          "timestamp": 1774569600
+        },
+        "-AUTO12410": {
+          "aceleraciones_bruscas": 25,
+          "colisiones": 0,
+          "estabilidad": 70,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 79,
+          "tiempo_movimiento": 15922,
+          "timestamp": 1774570200
+        },
+        "-AUTO22394": {
+          "aceleraciones_bruscas": 20,
+          "colisiones": 4,
+          "estabilidad": 64,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 73,
+          "tiempo_movimiento": 18308,
+          "timestamp": 1774570800
+        },
+        "-AUTO31935": {
+          "aceleraciones_bruscas": 31,
+          "colisiones": 5,
+          "estabilidad": 39,
+          "nivel": "Principiante",
+          "paradas_bruscas": 2,
+          "score": 35,
+          "tiempo_movimiento": 27244,
+          "timestamp": 1774571400
+        }
+      },
+      "2026-03-28": {
+        "-AUTO03951": {
+          "aceleraciones_bruscas": 11,
+          "colisiones": 3,
+          "estabilidad": 73,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 2,
+          "score": 80,
+          "tiempo_movimiento": 17920,
+          "timestamp": 1774656000
+        },
+        "-AUTO19937": {
+          "aceleraciones_bruscas": 25,
+          "colisiones": 2,
+          "estabilidad": 67,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 74,
+          "tiempo_movimiento": 28661,
+          "timestamp": 1774656600
+        },
+        "-AUTO29163": {
+          "aceleraciones_bruscas": 3,
+          "colisiones": 3,
+          "estabilidad": 81,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 89,
+          "tiempo_movimiento": 2577,
+          "timestamp": 1774657200
+        },
+        "-AUTO36409": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 1,
+          "estabilidad": 91,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 2,
+          "score": 83,
+          "tiempo_movimiento": 21219,
+          "timestamp": 1774657800
+        },
+        "-AUTO45928": {
+          "aceleraciones_bruscas": 35,
+          "colisiones": 4,
+          "estabilidad": 46,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 2,
+          "score": 51,
+          "tiempo_movimiento": 1883,
+          "timestamp": 1774658400
+        },
+        "-AUTO55185": {
+          "aceleraciones_bruscas": 9,
+          "colisiones": 3,
+          "estabilidad": 73,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 71,
+          "tiempo_movimiento": 11987,
+          "timestamp": 1774659000
+        }
+      },
+      "2026-03-29": {
+        "-AUTO08603": {
+          "aceleraciones_bruscas": 22,
+          "colisiones": 1,
+          "estabilidad": 72,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 76,
+          "tiempo_movimiento": 17065,
+          "timestamp": 1774742400
+        },
+        "-AUTO12624": {
+          "aceleraciones_bruscas": 33,
+          "colisiones": 0,
+          "estabilidad": 64,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 0,
+          "score": 57,
+          "tiempo_movimiento": 16696,
+          "timestamp": 1774743000
+        },
+        "-AUTO27960": {
+          "aceleraciones_bruscas": 34,
+          "colisiones": 1,
+          "estabilidad": 59,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 69,
+          "tiempo_movimiento": 14246,
+          "timestamp": 1774743600
+        },
+        "-AUTO32862": {
+          "aceleraciones_bruscas": 20,
+          "colisiones": 2,
+          "estabilidad": 71,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 77,
+          "tiempo_movimiento": 11117,
+          "timestamp": 1774744200
+        },
+        "-AUTO41864": {
+          "aceleraciones_bruscas": 33,
+          "colisiones": 5,
+          "estabilidad": 40,
+          "nivel": "Principiante",
+          "paradas_bruscas": 2,
+          "score": 38,
+          "tiempo_movimiento": 2612,
+          "timestamp": 1774744800
+        },
+        "-AUTO58166": {
+          "aceleraciones_bruscas": 2,
+          "colisiones": 1,
+          "estabilidad": 95,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 1,
+          "score": 91,
+          "tiempo_movimiento": 746,
+          "timestamp": 1774745400
+        },
+        "-AUTO63614": {
+          "aceleraciones_bruscas": 19,
+          "colisiones": 5,
+          "estabilidad": 61,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 61,
+          "tiempo_movimiento": 7602,
+          "timestamp": 1774746000
+        },
+        "-AUTO78687": {
+          "aceleraciones_bruscas": 31,
+          "colisiones": 0,
+          "estabilidad": 69,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 74,
+          "tiempo_movimiento": 23428,
+          "timestamp": 1774746600
+        }
+      },
+      "2026-03-30": {
+        "-AUTO05753": {
+          "aceleraciones_bruscas": 19,
+          "colisiones": 1,
+          "estabilidad": 77,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 1,
+          "score": 84,
+          "tiempo_movimiento": 10399,
+          "timestamp": 1774828800
+        },
+        "-AUTO17841": {
+          "aceleraciones_bruscas": 35,
+          "colisiones": 5,
+          "estabilidad": 38,
+          "nivel": "Principiante",
+          "paradas_bruscas": 2,
+          "score": 39,
+          "tiempo_movimiento": 27769,
+          "timestamp": 1774829400
+        },
+        "-AUTO24965": {
+          "aceleraciones_bruscas": 4,
+          "colisiones": 5,
+          "estabilidad": 76,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 73,
+          "tiempo_movimiento": 2412,
+          "timestamp": 1774830000
+        },
+        "-AUTO39026": {
+          "aceleraciones_bruscas": 29,
+          "colisiones": 3,
+          "estabilidad": 51,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 1,
+          "score": 48,
+          "tiempo_movimiento": 9959,
+          "timestamp": 1774830600
+        },
+        "-AUTO42994": {
+          "aceleraciones_bruscas": 34,
+          "colisiones": 2,
+          "estabilidad": 59,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 1,
+          "score": 54,
+          "tiempo_movimiento": 1580,
+          "timestamp": 1774831200
+        }
+      },
+      "2026-03-31": {
+        "-AUTO04386": {
+          "aceleraciones_bruscas": 28,
+          "colisiones": 5,
+          "estabilidad": 43,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 0,
+          "score": 44,
+          "tiempo_movimiento": 1283,
+          "timestamp": 1774915200
+        },
+        "-AUTO13932": {
+          "aceleraciones_bruscas": 24,
+          "colisiones": 4,
+          "estabilidad": 60,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 0,
+          "score": 56,
+          "tiempo_movimiento": 3767,
+          "timestamp": 1774915800
+        },
+        "-AUTO22305": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 1,
+          "estabilidad": 92,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 98,
+          "tiempo_movimiento": 27381,
+          "timestamp": 1774916400
+        },
+        "-AUTO38343": {
+          "aceleraciones_bruscas": 5,
+          "colisiones": 4,
+          "estabilidad": 71,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 71,
+          "tiempo_movimiento": 4764,
+          "timestamp": 1774917000
+        }
+      },
+      "2026-04-01": {
+        "-AUTO01062": {
+          "aceleraciones_bruscas": 20,
+          "colisiones": 0,
+          "estabilidad": 76,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 79,
+          "tiempo_movimiento": 14940,
+          "timestamp": 1775001600
+        },
+        "-AUTO11321": {
+          "aceleraciones_bruscas": 12,
+          "colisiones": 3,
+          "estabilidad": 77,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 73,
+          "tiempo_movimiento": 15323,
+          "timestamp": 1775002200
+        },
+        "-AUTO24865": {
+          "aceleraciones_bruscas": 22,
+          "colisiones": 4,
+          "estabilidad": 56,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 2,
+          "score": 55,
+          "tiempo_movimiento": 17457,
+          "timestamp": 1775002800
+        },
+        "-AUTO34999": {
+          "aceleraciones_bruscas": 28,
+          "colisiones": 2,
+          "estabilidad": 58,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 2,
+          "score": 59,
+          "tiempo_movimiento": 5957,
+          "timestamp": 1775003400
+        },
+        "-AUTO48235": {
+          "aceleraciones_bruscas": 23,
+          "colisiones": 3,
+          "estabilidad": 61,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 68,
+          "tiempo_movimiento": 5704,
+          "timestamp": 1775004000
+        },
+        "-AUTO52637": {
+          "aceleraciones_bruscas": 32,
+          "colisiones": 1,
+          "estabilidad": 63,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 67,
+          "tiempo_movimiento": 11300,
+          "timestamp": 1775004600
+        },
+        "-AUTO63305": {
+          "aceleraciones_bruscas": 10,
+          "colisiones": 1,
+          "estabilidad": 82,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 2,
+          "score": 91,
+          "tiempo_movimiento": 16098,
+          "timestamp": 1775005200
+        },
+        "-AUTO71468": {
+          "aceleraciones_bruscas": 2,
+          "colisiones": 3,
+          "estabilidad": 85,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 1,
+          "score": 83,
+          "tiempo_movimiento": 26044,
+          "timestamp": 1775005800
+        }
+      },
+      "2026-04-02": {
+        "-AUTO03799": {
+          "aceleraciones_bruscas": 8,
+          "colisiones": 0,
+          "estabilidad": 89,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 83,
+          "tiempo_movimiento": 4314,
+          "timestamp": 1775088000
+        },
+        "-AUTO19035": {
+          "aceleraciones_bruscas": 27,
+          "colisiones": 0,
+          "estabilidad": 75,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 68,
+          "tiempo_movimiento": 13654,
+          "timestamp": 1775088600
+        },
+        "-AUTO27184": {
+          "aceleraciones_bruscas": 3,
+          "colisiones": 3,
+          "estabilidad": 82,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 2,
+          "score": 89,
+          "tiempo_movimiento": 26156,
+          "timestamp": 1775089200
+        },
+        "-AUTO33408": {
+          "aceleraciones_bruscas": 29,
+          "colisiones": 3,
+          "estabilidad": 55,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 2,
+          "score": 49,
+          "tiempo_movimiento": 14097,
+          "timestamp": 1775089800
+        },
+        "-AUTO47882": {
+          "aceleraciones_bruscas": 32,
+          "colisiones": 3,
+          "estabilidad": 48,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 2,
+          "score": 46,
+          "tiempo_movimiento": 27687,
+          "timestamp": 1775090400
+        }
+      },
+      "2026-04-03": {
+        "-AUTO08588": {
+          "aceleraciones_bruscas": 13,
+          "colisiones": 0,
+          "estabilidad": 92,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 1,
+          "score": 91,
+          "tiempo_movimiento": 12598,
+          "timestamp": 1775174400
+        },
+        "-AUTO19614": {
+          "aceleraciones_bruscas": 9,
+          "colisiones": 0,
+          "estabilidad": 86,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 1,
+          "score": 89,
+          "tiempo_movimiento": 25124,
+          "timestamp": 1775175000
+        },
+        "-AUTO27568": {
+          "aceleraciones_bruscas": 15,
+          "colisiones": 5,
+          "estabilidad": 61,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 66,
+          "tiempo_movimiento": 28941,
+          "timestamp": 1775175600
+        },
+        "-AUTO33303": {
+          "aceleraciones_bruscas": 35,
+          "colisiones": 5,
+          "estabilidad": 43,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 1,
+          "score": 41,
+          "tiempo_movimiento": 13397,
+          "timestamp": 1775176200
+        },
+        "-AUTO45955": {
+          "aceleraciones_bruscas": 9,
+          "colisiones": 1,
+          "estabilidad": 83,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 73,
+          "tiempo_movimiento": 15267,
+          "timestamp": 1775176800
+        },
+        "-AUTO59362": {
+          "aceleraciones_bruscas": 25,
+          "colisiones": 0,
+          "estabilidad": 80,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 75,
+          "tiempo_movimiento": 3831,
+          "timestamp": 1775177400
+        },
+        "-AUTO68975": {
+          "aceleraciones_bruscas": 32,
+          "colisiones": 2,
+          "estabilidad": 54,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 2,
+          "score": 50,
+          "tiempo_movimiento": 12839,
+          "timestamp": 1775178000
+        },
+        "-AUTO77013": {
+          "aceleraciones_bruscas": 33,
+          "colisiones": 4,
+          "estabilidad": 47,
+          "nivel": "Principiante",
+          "paradas_bruscas": 0,
+          "score": 38,
+          "tiempo_movimiento": 25441,
+          "timestamp": 1775178600
+        }
+      },
+      "2026-04-04": {
+        "-AUTO01133": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 98,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 95,
+          "tiempo_movimiento": 21669,
+          "timestamp": 1775260800
+        },
+        "-AUTO17778": {
+          "aceleraciones_bruscas": 3,
+          "colisiones": 2,
+          "estabilidad": 83,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 81,
+          "tiempo_movimiento": 26887,
+          "timestamp": 1775261400
+        },
+        "-AUTO26279": {
+          "aceleraciones_bruscas": 9,
+          "colisiones": 0,
+          "estabilidad": 87,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 91,
+          "tiempo_movimiento": 20523,
+          "timestamp": 1775262000
+        }
+      },
+      "2026-04-05": {
+        "-AUTO07631": {
+          "aceleraciones_bruscas": 26,
+          "colisiones": 5,
+          "estabilidad": 50,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 60,
+          "tiempo_movimiento": 1242,
+          "timestamp": 1775347200
+        },
+        "-AUTO15677": {
+          "aceleraciones_bruscas": 2,
+          "colisiones": 2,
+          "estabilidad": 89,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 82,
+          "tiempo_movimiento": 24290,
+          "timestamp": 1775347800
+        },
+        "-AUTO24592": {
+          "aceleraciones_bruscas": 12,
+          "colisiones": 3,
+          "estabilidad": 78,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 69,
+          "tiempo_movimiento": 17669,
+          "timestamp": 1775348400
+        }
+      },
+      "2026-04-06": {
+        "-AUTO02891": {
+          "aceleraciones_bruscas": 28,
+          "colisiones": 1,
+          "estabilidad": 72,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 76,
+          "tiempo_movimiento": 3802,
+          "timestamp": 1775433600
+        },
+        "-AUTO11258": {
+          "aceleraciones_bruscas": 4,
+          "colisiones": 2,
+          "estabilidad": 86,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 90,
+          "tiempo_movimiento": 21297,
+          "timestamp": 1775434200
+        },
+        "-AUTO26488": {
+          "aceleraciones_bruscas": 21,
+          "colisiones": 4,
+          "estabilidad": 64,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 72,
+          "tiempo_movimiento": 18684,
+          "timestamp": 1775434800
+        }
+      },
+      "2026-04-07": {
+        "-AUTO08964": {
+          "aceleraciones_bruscas": 30,
+          "colisiones": 4,
+          "estabilidad": 53,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 2,
+          "score": 43,
+          "tiempo_movimiento": 20237,
+          "timestamp": 1775520000
+        },
+        "-AUTO15203": {
+          "aceleraciones_bruscas": 14,
+          "colisiones": 2,
+          "estabilidad": 80,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 2,
+          "score": 80,
+          "tiempo_movimiento": 26756,
+          "timestamp": 1775520600
+        },
+        "-AUTO23829": {
+          "aceleraciones_bruscas": 11,
+          "colisiones": 1,
+          "estabilidad": 79,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 69,
+          "tiempo_movimiento": 21465,
+          "timestamp": 1775521200
+        }
+      },
+      "2026-04-08": {
+        "-AUTO06475": {
+          "aceleraciones_bruscas": 33,
+          "colisiones": 4,
+          "estabilidad": 52,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 0,
+          "score": 47,
+          "tiempo_movimiento": 1606,
+          "timestamp": 1775606400
+        },
+        "-AUTO13290": {
+          "aceleraciones_bruscas": 15,
+          "colisiones": 1,
+          "estabilidad": 84,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 1,
+          "score": 90,
+          "tiempo_movimiento": 9329,
+          "timestamp": 1775607000
+        },
+        "-AUTO23924": {
+          "aceleraciones_bruscas": 29,
+          "colisiones": 1,
+          "estabilidad": 65,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 70,
+          "tiempo_movimiento": 5517,
+          "timestamp": 1775607600
+        }
+      },
+      "2026-04-09": {
+        "-AUTO08751": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 3,
+          "estabilidad": 87,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 2,
+          "score": 81,
+          "tiempo_movimiento": 24632,
+          "timestamp": 1775692800
+        },
+        "-AUTO14262": {
+          "aceleraciones_bruscas": 23,
+          "colisiones": 3,
+          "estabilidad": 63,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 73,
+          "tiempo_movimiento": 11738,
+          "timestamp": 1775693400
+        },
+        "-AUTO21381": {
+          "aceleraciones_bruscas": 32,
+          "colisiones": 0,
+          "estabilidad": 66,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 0,
+          "score": 57,
+          "tiempo_movimiento": 4961,
+          "timestamp": 1775694000
+        },
+        "-AUTO35214": {
+          "aceleraciones_bruscas": 17,
+          "colisiones": 5,
+          "estabilidad": 62,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 1,
+          "score": 55,
+          "tiempo_movimiento": 29372,
+          "timestamp": 1775694600
+        },
+        "-AUTO44641": {
+          "aceleraciones_bruscas": 13,
+          "colisiones": 1,
+          "estabilidad": 78,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 1,
+          "score": 88,
+          "tiempo_movimiento": 23079,
+          "timestamp": 1775695200
+        },
+        "-AUTO55806": {
+          "aceleraciones_bruscas": 18,
+          "colisiones": 3,
+          "estabilidad": 71,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 67,
+          "tiempo_movimiento": 20988,
+          "timestamp": 1775695800
+        },
+        "-AUTO62810": {
+          "aceleraciones_bruscas": 30,
+          "colisiones": 0,
+          "estabilidad": 72,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 70,
+          "tiempo_movimiento": 5240,
+          "timestamp": 1775696400
+        }
+      },
+      "2026-04-10": {
+        "-AUTO06990": {
+          "aceleraciones_bruscas": 16,
+          "colisiones": 3,
+          "estabilidad": 68,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 78,
+          "tiempo_movimiento": 1422,
+          "timestamp": 1775779200
+        },
+        "-AUTO19490": {
+          "aceleraciones_bruscas": 35,
+          "colisiones": 2,
+          "estabilidad": 53,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 0,
+          "score": 55,
+          "tiempo_movimiento": 12463,
+          "timestamp": 1775779800
+        },
+        "-AUTO21053": {
+          "aceleraciones_bruscas": 24,
+          "colisiones": 3,
+          "estabilidad": 60,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 69,
+          "tiempo_movimiento": 14901,
+          "timestamp": 1775780400
+        },
+        "-AUTO33828": {
+          "aceleraciones_bruscas": 13,
+          "colisiones": 5,
+          "estabilidad": 59,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 69,
+          "tiempo_movimiento": 6878,
+          "timestamp": 1775781000
+        },
+        "-AUTO43934": {
+          "aceleraciones_bruscas": 10,
+          "colisiones": 0,
+          "estabilidad": 85,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 87,
+          "tiempo_movimiento": 9082,
+          "timestamp": 1775781600
+        }
+      },
+      "2026-04-11": {
+        "-AUTO06120": {
+          "aceleraciones_bruscas": 32,
+          "colisiones": 4,
+          "estabilidad": 53,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 2,
+          "score": 47,
+          "tiempo_movimiento": 29079,
+          "timestamp": 1775865600
+        },
+        "-AUTO14347": {
+          "aceleraciones_bruscas": 1,
+          "colisiones": 4,
+          "estabilidad": 81,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 2,
+          "score": 81,
+          "tiempo_movimiento": 19857,
+          "timestamp": 1775866200
+        },
+        "-AUTO29339": {
+          "aceleraciones_bruscas": 17,
+          "colisiones": 0,
+          "estabilidad": 79,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 2,
+          "score": 84,
+          "tiempo_movimiento": 5068,
+          "timestamp": 1775866800
+        },
+        "-AUTO39413": {
+          "aceleraciones_bruscas": 8,
+          "colisiones": 3,
+          "estabilidad": 76,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 72,
+          "tiempo_movimiento": 28393,
+          "timestamp": 1775867400
+        },
+        "-AUTO42432": {
+          "aceleraciones_bruscas": 23,
+          "colisiones": 1,
+          "estabilidad": 75,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 76,
+          "tiempo_movimiento": 7869,
+          "timestamp": 1775868000
+        }
+      },
+      "2026-04-12": {
+        "-AUTO02899": {
+          "aceleraciones_bruscas": 29,
+          "colisiones": 3,
+          "estabilidad": 61,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 61,
+          "tiempo_movimiento": 2471,
+          "timestamp": 1775952000
+        },
+        "-AUTO12772": {
+          "aceleraciones_bruscas": 6,
+          "colisiones": 2,
+          "estabilidad": 84,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 75,
+          "tiempo_movimiento": 20915,
+          "timestamp": 1775952600
+        },
+        "-AUTO26870": {
+          "aceleraciones_bruscas": 18,
+          "colisiones": 3,
+          "estabilidad": 72,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 77,
+          "tiempo_movimiento": 17746,
+          "timestamp": 1775953200
+        },
+        "-AUTO33744": {
+          "aceleraciones_bruscas": 35,
+          "colisiones": 3,
+          "estabilidad": 45,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 2,
+          "score": 46,
+          "tiempo_movimiento": 14268,
+          "timestamp": 1775953800
+        }
+      },
+      "2026-04-13": {
+        "-AUTO03233": {
+          "aceleraciones_bruscas": 25,
+          "colisiones": 1,
+          "estabilidad": 66,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 76,
+          "tiempo_movimiento": 15986,
+          "timestamp": 1776038400
+        },
+        "-AUTO16421": {
+          "aceleraciones_bruscas": 13,
+          "colisiones": 1,
+          "estabilidad": 82,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 1,
+          "score": 84,
+          "tiempo_movimiento": 16734,
+          "timestamp": 1776039000
+        },
+        "-AUTO26269": {
+          "aceleraciones_bruscas": 1,
+          "colisiones": 0,
+          "estabilidad": 98,
+          "nivel": "Experto",
+          "paradas_bruscas": 1,
+          "score": 100,
+          "tiempo_movimiento": 10675,
+          "timestamp": 1776039600
+        },
+        "-AUTO31381": {
+          "aceleraciones_bruscas": 14,
+          "colisiones": 4,
+          "estabilidad": 63,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 72,
+          "tiempo_movimiento": 8999,
+          "timestamp": 1776040200
+        },
+        "-AUTO48555": {
+          "aceleraciones_bruscas": 34,
+          "colisiones": 1,
+          "estabilidad": 66,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 2,
+          "score": 58,
+          "tiempo_movimiento": 6699,
+          "timestamp": 1776040800
+        },
+        "-AUTO57009": {
+          "aceleraciones_bruscas": 2,
+          "colisiones": 1,
+          "estabilidad": 93,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 2,
+          "score": 91,
+          "tiempo_movimiento": 5132,
+          "timestamp": 1776041400
+        }
+      }
+    }
+  },
+  "Alonso": {
+    "movimiento": {
+      "2001-11-02": {
+        "tiempo": 20777
+      },
+      "2026-03-10": {
+        "tiempo": 100000
+      },
+      "2026-03-11": {
+        "tiempo": 110000
+      },
+      "2026-03-12": {
+        "tiempo": 98000
+      },
+      "2026-03-13": {
+        "tiempo": 111000
+      },
+      "2026-03-14": {
+        "tiempo": 75000
+      },
+      "2026-03-15": {
+        "tiempo": 99100
+      },
+      "2026-03-16": {
+        "tiempo": 120000
+      },
+      "2026-03-17": {
+        "tiempo": 1151233
+      },
+      "2026-03-18": {
+        "tiempo": 115000
+      },
+      "2026-03-19": {
+        "tiempo": 1145874
+      },
+      "2026-03-20": {
+        "tiempo": 215478
+      },
+      "2026-03-21": {
+        "tiempo": 1500000
+      },
+      "2026-03-22": {
+        "tiempo": 132000
+      },
+      "2026-03-23": {
+        "tiempo": 136522
+      },
+      "2026-03-24": {
+        "tiempo": 33797
+      },
+      "2026-03-25": {
+        "tiempo": 100223
+      },
+      "2026-03-26": {
+        "tiempo": 110021
+      },
+      "2026-03-27": {
+        "tiempo": 980000
+      },
+      "2026-03-28": {
+        "tiempo": 110254
+      },
+      "2026-03-29": {
+        "tiempo": 145223
+      },
+      "2026-03-30": {
+        "tiempo": 51200
+      },
+      "2026-03-31": {
+        "tiempo": 110000
+      },
+      "2026-04-01": {
+        "tiempo": 123654
+      },
+      "2026-04-02": {
+        "tiempo": 142536
+      },
+      "2026-04-03": {
+        "tiempo": 124536
+      },
+      "2026-04-04": {
+        "tiempo": 142365
+      },
+      "2026-04-05": {
+        "tiempo": 96541
+      },
+      "2026-04-06": {
+        "tiempo": 102365
+      },
+      "2026-04-09": {
+        "tiempo": 69492
+      },
+      "2026-04-10": {
+        "tiempo": 1505
+      }
+    },
+    "perfil": {
+      "codigo": "0689"
+    },
+    "sesiones": {
+      "2001-11-02": {
+        "-Ops0Tbb6koeBd_nu4ET": {
+          "aceleraciones_bruscas": 4,
+          "colisiones": 1,
+          "estabilidad": 89,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 4052,
+          "timestamp": 1775835145
+        },
+        "-Ops0h7uZ27Tde6t_IY2": {
+          "aceleraciones_bruscas": 14,
+          "colisiones": 0,
+          "estabilidad": 72,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 93,
+          "tiempo_movimiento": 16725,
+          "timestamp": 1775835205
+        }
+      },
+      "2026-03-25": {
+        "-OoVgoJeGCLu1o8UE28q": {
+          "aceleraciones_bruscas": 16,
+          "colisiones": 6,
+          "estabilidad": 50,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 0,
+          "score": 53,
+          "tiempo_movimiento": 13682,
+          "timestamp": 1774370111
+        },
+        "-OoVh1tCYFX2GEC19QHZ": {
+          "aceleraciones_bruscas": 13,
+          "colisiones": 7,
+          "estabilidad": 53,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 0,
+          "score": 54,
+          "tiempo_movimiento": 13786,
+          "timestamp": 1774370171
+        },
+        "-OoVhGZBVPVFedhWtgxi": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 501,
+          "timestamp": 1774370231
+        },
+        "-OoVhjQ5gx6yResWd_TC": {
+          "aceleraciones_bruscas": 6,
+          "colisiones": 1,
+          "estabilidad": 85,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 4056,
+          "timestamp": 1774370351
+        },
+        "-OoVhxW5DDmSiRXbzVVh": {
+          "aceleraciones_bruscas": 16,
+          "colisiones": 6,
+          "estabilidad": 50,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 0,
+          "score": 53,
+          "tiempo_movimiento": 17847,
+          "timestamp": 1774370411
+        },
+        "-OoViBBM_frYmLubW2rw": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 502,
+          "timestamp": 1774370471
+        },
+        "-OoVytaQcBabQgB8ioQ2": {
+          "aceleraciones_bruscas": 6,
+          "colisiones": 0,
+          "estabilidad": 88,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 7601,
+          "timestamp": 1774374851
+        },
+        "-OoVz75u7DoyhJWQ13A-": {
+          "aceleraciones_bruscas": 13,
+          "colisiones": 2,
+          "estabilidad": 68,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 84,
+          "tiempo_movimiento": 12563,
+          "timestamp": 1774374911
+        },
+        "-OoVzLj889yrbZm3Z7xc": {
+          "aceleraciones_bruscas": 11,
+          "colisiones": 2,
+          "estabilidad": 72,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 89,
+          "tiempo_movimiento": 8595,
+          "timestamp": 1774374971
+        },
+        "-OoVzo3aiB0ERKwK11LV": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 502,
+          "timestamp": 1774375091
+        },
+        "-OoW-1kSjmBGXQlkWMkq": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 502,
+          "timestamp": 1774375151
+        },
+        "-OoW-V-0ZT5H8_9xOO3o": {
+          "aceleraciones_bruscas": 4,
+          "colisiones": 1,
+          "estabilidad": 89,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 2519,
+          "timestamp": 1774375271
+        },
+        "-OoW-xIR2NZ4ZCwMadR3": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 1013,
+          "timestamp": 1774375391
+        },
+        "-OoW0AvcoXOU-HgAIoEr": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 502,
+          "timestamp": 1774375451
+        }
+      },
+      "2026-03-26": {
+        "-OpmvetnWgllidK5TryE": {
+          "aceleraciones_bruscas": 33,
+          "colisiones": 3,
+          "estabilidad": 25,
+          "nivel": "Novato curioso",
+          "paradas_bruscas": 0,
+          "score": 26,
+          "tiempo_movimiento": 27911,
+          "timestamp": 1775749736
+        },
+        "-Opmx1fSsBqtyX-c4L5R": {
+          "aceleraciones_bruscas": 30,
+          "colisiones": 2,
+          "estabilidad": 34,
+          "nivel": "Principiante",
+          "paradas_bruscas": 0,
+          "score": 40,
+          "tiempo_movimiento": 25363,
+          "timestamp": 1775750096
+        },
+        "-OpmyAwPSjyUsB-Ra6z-": {
+          "aceleraciones_bruscas": 19,
+          "colisiones": 2,
+          "estabilidad": 56,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 68,
+          "tiempo_movimiento": 15215,
+          "timestamp": 1775750396
+        },
+        "-Opn0Nz9jjVj__AzOORH": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 502,
+          "timestamp": 1775751236
+        },
+        "-Opn0q_N76_jG-5QGrTJ": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 501,
+          "timestamp": 1775751356
+        }
+      },
+      "2026-03-27": {
+        "-OpmvetnWgllidK5TryE": {
+          "aceleraciones_bruscas": 33,
+          "colisiones": 3,
+          "estabilidad": 25,
+          "nivel": "Novato curioso",
+          "paradas_bruscas": 0,
+          "score": 26,
+          "tiempo_movimiento": 27911,
+          "timestamp": 1775749736
+        },
+        "-Opmx1fSsBqtyX-c4L5R": {
+          "aceleraciones_bruscas": 30,
+          "colisiones": 2,
+          "estabilidad": 34,
+          "nivel": "Principiante",
+          "paradas_bruscas": 0,
+          "score": 40,
+          "tiempo_movimiento": 25363,
+          "timestamp": 1775750096
+        },
+        "-OpmyAwPSjyUsB-Ra6z-": {
+          "aceleraciones_bruscas": 19,
+          "colisiones": 2,
+          "estabilidad": 56,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 68,
+          "tiempo_movimiento": 15215,
+          "timestamp": 1775750396
+        },
+        "-Opn0Nz9jjVj__AzOORH": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 502,
+          "timestamp": 1775751236
+        },
+        "-Opn0q_N76_jG-5QGrTJ": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 501,
+          "timestamp": 1775751356
+        }
+      },
+      "2026-03-28": {
+        "-OpmvetnWgllidK5TryE": {
+          "aceleraciones_bruscas": 33,
+          "colisiones": 3,
+          "estabilidad": 25,
+          "nivel": "Novato curioso",
+          "paradas_bruscas": 0,
+          "score": 26,
+          "tiempo_movimiento": 27911,
+          "timestamp": 1775749736
+        },
+        "-Opmx1fSsBqtyX-c4L5R": {
+          "aceleraciones_bruscas": 30,
+          "colisiones": 2,
+          "estabilidad": 34,
+          "nivel": "Principiante",
+          "paradas_bruscas": 0,
+          "score": 40,
+          "tiempo_movimiento": 25363,
+          "timestamp": 1775750096
+        },
+        "-OpmyAwPSjyUsB-Ra6z-": {
+          "aceleraciones_bruscas": 19,
+          "colisiones": 2,
+          "estabilidad": 56,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 68,
+          "tiempo_movimiento": 15215,
+          "timestamp": 1775750396
+        },
+        "-Opn0Nz9jjVj__AzOORH": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 502,
+          "timestamp": 1775751236
+        },
+        "-Opn0q_N76_jG-5QGrTJ": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 501,
+          "timestamp": 1775751356
+        }
+      },
+      "2026-03-29": {
+        "-OpmvetnWgllidK5TryE": {
+          "aceleraciones_bruscas": 33,
+          "colisiones": 3,
+          "estabilidad": 25,
+          "nivel": "Novato curioso",
+          "paradas_bruscas": 0,
+          "score": 26,
+          "tiempo_movimiento": 27911,
+          "timestamp": 1775749736
+        },
+        "-Opmx1fSsBqtyX-c4L5R": {
+          "aceleraciones_bruscas": 30,
+          "colisiones": 2,
+          "estabilidad": 34,
+          "nivel": "Principiante",
+          "paradas_bruscas": 0,
+          "score": 40,
+          "tiempo_movimiento": 25363,
+          "timestamp": 1775750096
+        },
+        "-OpmyAwPSjyUsB-Ra6z-": {
+          "aceleraciones_bruscas": 19,
+          "colisiones": 2,
+          "estabilidad": 56,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 68,
+          "tiempo_movimiento": 15215,
+          "timestamp": 1775750396
+        },
+        "-Opn0Nz9jjVj__AzOORH": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 502,
+          "timestamp": 1775751236
+        },
+        "-Opn0q_N76_jG-5QGrTJ": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 501,
+          "timestamp": 1775751356
+        }
+      },
+      "2026-03-30": {
+        "-OpmvetnWgllidK5TryE": {
+          "aceleraciones_bruscas": 33,
+          "colisiones": 3,
+          "estabilidad": 25,
+          "nivel": "Novato curioso",
+          "paradas_bruscas": 0,
+          "score": 26,
+          "tiempo_movimiento": 27911,
+          "timestamp": 1775749736
+        },
+        "-Opmx1fSsBqtyX-c4L5R": {
+          "aceleraciones_bruscas": 30,
+          "colisiones": 2,
+          "estabilidad": 34,
+          "nivel": "Principiante",
+          "paradas_bruscas": 0,
+          "score": 40,
+          "tiempo_movimiento": 25363,
+          "timestamp": 1775750096
+        },
+        "-OpmyAwPSjyUsB-Ra6z-": {
+          "aceleraciones_bruscas": 19,
+          "colisiones": 2,
+          "estabilidad": 56,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 68,
+          "tiempo_movimiento": 15215,
+          "timestamp": 1775750396
+        },
+        "-Opn0Nz9jjVj__AzOORH": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 502,
+          "timestamp": 1775751236
+        },
+        "-Opn0q_N76_jG-5QGrTJ": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 501,
+          "timestamp": 1775751356
+        }
+      },
+      "2026-03-31": {
+        "-OpmvetnWgllidK5TryE": {
+          "aceleraciones_bruscas": 33,
+          "colisiones": 3,
+          "estabilidad": 25,
+          "nivel": "Novato curioso",
+          "paradas_bruscas": 0,
+          "score": 26,
+          "tiempo_movimiento": 27911,
+          "timestamp": 1775749736
+        },
+        "-Opmx1fSsBqtyX-c4L5R": {
+          "aceleraciones_bruscas": 30,
+          "colisiones": 2,
+          "estabilidad": 34,
+          "nivel": "Principiante",
+          "paradas_bruscas": 0,
+          "score": 40,
+          "tiempo_movimiento": 25363,
+          "timestamp": 1775750096
+        },
+        "-OpmyAwPSjyUsB-Ra6z-": {
+          "aceleraciones_bruscas": 19,
+          "colisiones": 2,
+          "estabilidad": 56,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 68,
+          "tiempo_movimiento": 15215,
+          "timestamp": 1775750396
+        },
+        "-Opn0Nz9jjVj__AzOORH": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 502,
+          "timestamp": 1775751236
+        },
+        "-Opn0q_N76_jG-5QGrTJ": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 501,
+          "timestamp": 1775751356
+        }
+      },
+      "2026-04-10": {
+        "-Ops2pSpFA44BqZO4SIm": {
+          "aceleraciones_bruscas": 14,
+          "colisiones": 1,
+          "estabilidad": 69,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 87,
+          "tiempo_movimiento": 24858,
+          "timestamp": 1775835763
+        },
+        "-Ops4R6mKZue6Gk8qSnr": {
+          "aceleraciones_bruscas": 16,
+          "colisiones": 2,
+          "estabilidad": 62,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 76,
+          "tiempo_movimiento": 14192,
+          "timestamp": 1775836183
+        },
+        "-Ops4ee9-WLBp-NSzhTW": {
+          "aceleraciones_bruscas": 18,
+          "colisiones": 4,
+          "estabilidad": 52,
+          "nivel": "Principiante perfeccionado",
+          "paradas_bruscas": 0,
+          "score": 59,
+          "tiempo_movimiento": 23112,
+          "timestamp": 1775836243
+        },
+        "-Ops5_CVPlbB2qi_xKTp": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 501,
+          "timestamp": 1775836483
+        },
+        "-Ops61V7KvBw5Rl0iV3Z": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 502,
+          "timestamp": 1775836603
+        },
+        "-Ops6Zf7y2FKyk11vin3": {
+          "aceleraciones_bruscas": 11,
+          "colisiones": 1,
+          "estabilidad": 75,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 95,
+          "tiempo_movimiento": 23332,
+          "timestamp": 1775836743
+        },
+        "-Ops6nHbPEz4XjFDmHd6": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 502,
+          "timestamp": 1775836803
+        },
+        "-Ops7UJ6Iw-f2ZHZZM3h": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 1511,
+          "timestamp": 1775836983
+        },
+        "-Ops7i3RPFKJ4nyiUVi0": {
+          "aceleraciones_bruscas": 2,
+          "colisiones": 0,
+          "estabilidad": 96,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 502,
+          "timestamp": 1775837043
+        },
+        "-Ops7wa2LzM8KQl1MkuF": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 502,
+          "timestamp": 1775837103
+        },
+        "-Ops94opcJ75ykhtIMkE": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 501,
+          "timestamp": 1775837403
+        },
+        "-Ops9Y1IJfO5gL5KxB-j": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 501,
+          "timestamp": 1775837523
+        },
+        "-OpsAE2rV6z54LTdxzh7": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 502,
+          "timestamp": 1775837703
+        },
+        "-OpsB8hf1Aua3ZWORTEy": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 502,
+          "timestamp": 1775837943
+        },
+        "-OpsBauPEcCdwyvp-XsN": {
+          "aceleraciones_bruscas": 2,
+          "colisiones": 0,
+          "estabilidad": 96,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 2021,
+          "timestamp": 1775838063
+        },
+        "-OpsC3N9qupKHC8MNOCf": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 3021,
+          "timestamp": 1775838183
+        },
+        "-OpsCHyViRIuiw1Aysbs": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 502,
+          "timestamp": 1775838243
+        },
+        "-OpsDtPBR3JZLWO8-qRR": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 1004,
+          "timestamp": 1775838663
+        },
+        "-OpsF1a8KLeAqgWLOEIO": {
+          "aceleraciones_bruscas": 2,
+          "colisiones": 0,
+          "estabilidad": 96,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 1013,
+          "timestamp": 1775838963
+        },
+        "-OpsGd818HeiQQdakMFK": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 1004,
+          "timestamp": 1775839383
+        },
+        "-OpsH5Nnc11kF799kfJU": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 1004,
+          "timestamp": 1775839503
+        },
+        "-OpsHK9nAg-LhaZh__A2": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 1506,
+          "timestamp": 1775839563
+        },
+        "-OpsHYmEsQPZ63N-JHIP": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 502,
+          "timestamp": 1775839623
+        },
+        "-OpsI00BSki4tWyWr8DT": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 502,
+          "timestamp": 1775839743
+        },
+        "-OpsIh431Lyq5DS7rkb1": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 502,
+          "timestamp": 1775839923
+        },
+        "-OpsIvf7useSqdi-yu-3": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 502,
+          "timestamp": 1775839983
+        },
+        "-OpsJqHlE0eduXJyqGL9": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 502,
+          "timestamp": 1775840223
+        },
+        "-OpsLD4NmcOUSPHvU8Ei": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 502,
+          "timestamp": 1775840583
+        },
+        "-OpsLuDFXnLghv-pD5M7": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 501,
+          "timestamp": 1775840763
+        },
+        "-OpsNjEm0brA4cKUSbsU": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 502,
+          "timestamp": 1775841243
+        },
+        "-OpsOQAkH4_NJETieHZz": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 502,
+          "timestamp": 1775841423
+        },
+        "-OpsOsUJ9SDTNWT0aWEL": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 501,
+          "timestamp": 1775841543
+        },
+        "-OpsU64e3G2Pd4CLRdo8": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 505,
+          "timestamp": 1775842913
+        },
+        "-OpsUKhn9-k9Ur_qXqZi": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 502,
+          "timestamp": 1775842973
+        },
+        "-OpsVTw_np5gu7PtB8Eo": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 1516,
+          "timestamp": 1775843273
+        },
+        "-OpsVhZI0vYXTG6bacGW": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 502,
+          "timestamp": 1775843333
+        },
+        "-OpsWOZ0A2weqW0EBuDh": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 502,
+          "timestamp": 1775843513
+        },
+        "-OpsWcEfWvXTURPL8hO9": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 502,
+          "timestamp": 1775843573
+        },
+        "-OpsXXjKEUFjgaMF8hbn": {
+          "aceleraciones_bruscas": 28,
+          "colisiones": 7,
+          "estabilidad": 23,
+          "nivel": "Novato",
+          "paradas_bruscas": 0,
+          "score": 15,
+          "tiempo_movimiento": 16734,
+          "timestamp": 1775843813
+        },
+        "-OpsY-FcLn-BcJvl3XoM": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 502,
+          "timestamp": 1775843933
+        },
+        "-OpsYDh5H49lSDh-t0r2": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 501,
+          "timestamp": 1775843993
+        },
+        "-Ops_jsWnd2AJAJ0JPu-": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 100,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 100,
+          "tiempo_movimiento": 502,
+          "timestamp": 1775844653
+        }
+      }
+    }
+  }
+}
