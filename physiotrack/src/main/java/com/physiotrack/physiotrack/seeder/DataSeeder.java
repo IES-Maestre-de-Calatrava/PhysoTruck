@@ -62,7 +62,7 @@ public class DataSeeder implements CommandLineRunner {
             Map.Entry<String, JsonNode> patientEntry = patients.next();
             JsonNode sessionsByDate = patientEntry.getValue().path("sesiones");
             LocalDate treatmentStart = resolveTreatmentStart(sessionsByDate);
-            List<Session> sessions = buildSessions(sessionsByDate, treatmentStart);
+            List<Session> sessions = buildSessions(patientEntry.getKey(), sessionsByDate, treatmentStart);
 
             Integer currentLevel = sessions.stream()
                 .max(Comparator.comparing(Session::getStartedAt))
@@ -108,7 +108,7 @@ public class DataSeeder implements CommandLineRunner {
         return earliestDate;
     }
 
-    private List<Session> buildSessions(JsonNode sessionsByDate, LocalDate treatmentStart) {
+    private List<Session> buildSessions(String patientName, JsonNode sessionsByDate, LocalDate treatmentStart) {
         List<Session> sessions = new ArrayList<>();
         Iterator<Map.Entry<String, JsonNode>> dateEntries = sessionsByDate.fields();
 
@@ -125,7 +125,7 @@ public class DataSeeder implements CommandLineRunner {
                 LocalDateTime startedAt = resolveStartedAt(sessionDate, sessionNode.path("timestamp").asLong(0L));
 
                 Session session = Session.builder()
-                    .externalId(sessionEntry.getKey())
+                    .externalId(buildExternalId(patientName, sessionDate, sessionEntry.getKey()))
                     .startedAt(startedAt)
                     .endedAt(startedAt.plus(movementTime, ChronoUnit.MILLIS))
                     .movementTime(movementTime)
@@ -150,6 +150,10 @@ public class DataSeeder implements CommandLineRunner {
 
         sessions.sort(Comparator.comparing(Session::getStartedAt));
         return sessions;
+    }
+
+    private String buildExternalId(String patientName, LocalDate sessionDate, String sourceId) {
+        return patientName + "-" + sessionDate + "-" + sourceId;
     }
 
     private LocalDateTime resolveStartedAt(LocalDate sessionDate, long timestampSeconds) {
