@@ -64,7 +64,7 @@ public class DataSeeder implements CommandLineRunner {
             LocalDate treatmentStart = resolveTreatmentStart(sessionsByDate);
             List<Session> sessions = buildSessions(patientEntry.getKey(), sessionsByDate, treatmentStart);
 
-            Integer currentLevel = sessions.stream()
+            String currentLevel = sessions.stream()
                 .max(Comparator.comparing(Session::getStartedAt))
                 .map(Session::getDrivingLevel)
                 .orElse(null);
@@ -170,27 +170,27 @@ public class DataSeeder implements CommandLineRunner {
         if (treatmentStart == null) {
             return 1;
         }
-
-        return (int) ChronoUnit.WEEKS.between(treatmentStart, sessionDate) + 1;
+        int week = (int) ChronoUnit.WEEKS.between(treatmentStart, sessionDate) + 1;
+        return Math.min(Math.max(week, 1), 12);
     }
 
-    private int resolveDrivingLevel(int score) {
+    private String resolveDrivingLevel(int score) {
         if (score <= 20) {
-            return 1;
+            return "Novato";
         }
         if (score <= 40) {
-            return 2;
+            return "Principiante";
         }
         if (score <= 50) {
-            return 3;
+            return "Principiante perfeccionando";
         }
         if (score <= 75) {
-            return 4;
+            return "Competente";
         }
         if (score <= 89) {
-            return 5;
+            return "Aventajado";
         }
-        return 6;
+        return "Experto";
     }
 
     private SessionEvent buildEvent(String eventType, int count, Session session) {

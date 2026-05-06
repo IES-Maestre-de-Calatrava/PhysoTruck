@@ -4,3 +4,4 @@ target/
 desktop.ini
 *.zip
 frontend-mockups/
+.claude/

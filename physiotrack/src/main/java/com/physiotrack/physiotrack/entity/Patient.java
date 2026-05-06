@@ -44,7 +44,7 @@ public class Patient {
 
     private LocalDate treatmentStart;
 
-    private Integer currentLevel;
+    private String currentLevel;
 
     @Default
     @Column(nullable = false)

@@ -31,6 +31,15 @@ public class PatientController {
             .toList();
     }
 
+    @GetMapping("/{id}")
+    public PatientResponse getPatient(
+        @PathVariable Long id,
+        @Parameter(hidden = true) Authentication authentication
+    ) {
+        String therapistEmail = patientAccessHelper.getAuthenticatedEmail(authentication);
+        return PatientResponse.from(patientAccessHelper.getAuthorizedPatient(id, therapistEmail));
+    }
+
     @GetMapping("/{id}/sessions/week/{week}")
     public List<SessionResponse> getPatientSessionsByWeek(
         @PathVariable Long id,
@@ -38,8 +47,8 @@ public class PatientController {
         @Parameter(hidden = true) Authentication authentication
     ) {
         String therapistEmail = patientAccessHelper.getAuthenticatedEmail(authentication);
-        patientAccessHelper.ensurePatientBelongsToTherapist(id, therapistEmail);
-        WeekWindow weekWindow = patientAccessHelper.resolveWeekWindow(week);
+        Patient patient = patientAccessHelper.getAuthorizedPatient(id, therapistEmail);
+        WeekWindow weekWindow = patientAccessHelper.resolveWeekWindow(week, patient.getTreatmentStart());
 
         return sessionRepository.findWeeklySessionsForPatient(
             id,
@@ -55,7 +64,7 @@ public class PatientController {
         LocalDate birthDate,
         String diagnosis,
         LocalDate treatmentStart,
-        Integer currentLevel,
+        String currentLevel,
         boolean active
     ) {
         private static PatientResponse from(Patient patient) {
@@ -79,7 +88,7 @@ public class PatientController {
         Integer movementTime,
         Double stabilityScore,
         Double drivingScore,
-        Integer drivingLevel,
+        String drivingLevel,
         Integer weekNumber
     ) {
         private static SessionResponse from(Session session) {

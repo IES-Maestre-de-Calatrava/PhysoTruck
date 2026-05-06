@@ -47,7 +47,7 @@ public class Session {
 
     private Double drivingScore;
 
-    private Integer drivingLevel;
+    private String drivingLevel;
 
     private Integer weekNumber;
 

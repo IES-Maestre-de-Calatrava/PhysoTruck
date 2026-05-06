@@ -39,4 +39,16 @@ public interface SessionRepository extends JpaRepository<Session, Long> {
         @Param("start") LocalDateTime start,
         @Param("end") LocalDateTime end
     );
+
+    @Query("""
+        select s
+        from Session s
+        where s.patient.id = :patientId
+          and s.patient.therapist.email = :email
+        order by s.weekNumber, s.startedAt
+        """)
+    List<Session> findAllForPatient(
+        @Param("patientId") Long patientId,
+        @Param("email") String email
+    );
 }

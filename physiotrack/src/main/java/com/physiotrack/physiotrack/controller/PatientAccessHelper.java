@@ -2,11 +2,8 @@ package com.physiotrack.physiotrack.controller;
 
 import com.physiotrack.physiotrack.entity.Patient;
 import com.physiotrack.physiotrack.repository.PatientRepository;
-import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.temporal.ChronoField;
-import java.time.temporal.IsoFields;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -24,10 +21,13 @@ public class PatientAccessHelper {
         return patientRepository.findByTherapistEmail(therapistEmail);
     }
 
+    public Patient getAuthorizedPatient(Long patientId, String therapistEmail) {
+        return patientRepository.findAuthorizedPatient(patientId, therapistEmail)
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Paciente no encontrado"));
+    }
+
     public void ensurePatientBelongsToTherapist(Long patientId, String therapistEmail) {
-        if (patientRepository.findAuthorizedPatient(patientId, therapistEmail).isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Paciente no encontrado");
-        }
+        getAuthorizedPatient(patientId, therapistEmail);
     }
 
     public String getAuthenticatedEmail(Authentication authentication) {
@@ -37,22 +37,13 @@ public class PatientAccessHelper {
         return authentication.getName();
     }
 
-    public WeekWindow resolveWeekWindow(int week) {
-        int currentWeekBasedYear = LocalDate.now().get(IsoFields.WEEK_BASED_YEAR);
-        int maxWeek = LocalDate.of(currentWeekBasedYear, 12, 28).get(IsoFields.WEEK_OF_WEEK_BASED_YEAR);
-
-        if (week < 1 || week > maxWeek) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Semana no valida");
+    public WeekWindow resolveWeekWindow(int week, LocalDate treatmentStart) {
+        if (week < 1 || week > 12) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Semana no valida: debe estar entre 1 y 12");
         }
-
-        try {
-            LocalDate startDate = LocalDate.of(currentWeekBasedYear, 1, 4)
-                .with(IsoFields.WEEK_OF_WEEK_BASED_YEAR, week)
-                .with(ChronoField.DAY_OF_WEEK, 1);
-            return new WeekWindow(startDate.atStartOfDay(), startDate.plusWeeks(1).atStartOfDay());
-        } catch (DateTimeException exception) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Semana no valida");
-        }
+        LocalDateTime start = treatmentStart.plusWeeks(week - 1).atStartOfDay();
+        LocalDateTime end = treatmentStart.plusWeeks(week).atStartOfDay();
+        return new WeekWindow(start, end);
     }
 
     public record WeekWindow(LocalDateTime start, LocalDateTime endExclusive) {

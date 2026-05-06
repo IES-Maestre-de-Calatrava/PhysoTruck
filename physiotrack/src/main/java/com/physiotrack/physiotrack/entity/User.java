@@ -42,7 +42,7 @@ public class User {
     @Column(nullable = false, unique = true)
     private String sescamId;
 
-    @Default
+    @Builder.Default
     @Column(nullable = false)
     private boolean active = true;
 
