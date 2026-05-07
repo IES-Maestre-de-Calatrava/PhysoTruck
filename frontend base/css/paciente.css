@@ -1,0 +1,424 @@
+@import url('./design-system.css');
+
+body { background: var(--c-bg); }
+
+/* ── Layout: sidebar + main ──────────────────────────────── */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── Sidebar ─────────────────────────────────────────────── */
+.sidebar {
+  width: 234px;
+  flex-shrink: 0;
+  background: var(--c-surface);
+  border-right: 1px solid var(--c-border);
+  display: flex;
+  flex-direction: column;
+  padding: 1.3rem 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--c-primary);
+  padding: 0 1.25rem 1.25rem;
+  border-bottom: 1px solid var(--c-border-light);
+  letter-spacing: -0.2px;
+}
+
+.sidebar-logo-icon { font-size: 1.2rem; }
+
+/* Perfil del fisio */
+.sidebar-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--c-border-light);
+}
+
+.sidebar-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--c-primary), var(--c-primary-dark));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.sidebar-profile-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.sidebar-profile-info strong {
+  font-size: 0.83rem;
+  font-weight: 700;
+  color: var(--c-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-profile-info span {
+  font-size: 0.71rem;
+  color: var(--c-text-muted);
+  font-weight: 500;
+}
+
+/* Nav links */
+.sidebar-nav {
+  flex: 1;
+  padding: 0.8rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 0.82rem;
+  border-radius: var(--r-sm);
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--c-text-mid);
+  text-decoration: none;
+  transition: background var(--t-fast), color var(--t-fast);
+  border: none;
+  background: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  font-family: var(--font);
+}
+
+.sidebar-link:hover {
+  background: var(--c-primary-light);
+  color: var(--c-primary);
+}
+
+.sidebar-link-active {
+  background: var(--c-primary-light);
+  color: var(--c-primary);
+  font-weight: 600;
+}
+
+.sidebar-link-icon {
+  font-size: 0.95rem;
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* Zona inferior */
+.sidebar-bottom {
+  padding: 0.6rem;
+  border-top: 1px solid var(--c-border-light);
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+}
+
+.sidebar-logout { color: var(--c-danger); }
+
+.sidebar-logout:hover {
+  background: var(--c-danger-bg);
+  color: var(--c-danger);
+}
+
+/* ── Main content ────────────────────────────────────────── */
+.pt-main {
+  flex: 1;
+  padding: 2.2rem 2.4rem 3rem;
+  min-width: 0;
+  overflow-y: auto;
+}
+
+/* ── Cabecera paciente ───────────────────────────────────── */
+.pt-patient-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.35rem;
+}
+
+.pt-patient-title {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.pt-patient-title h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--c-text);
+  line-height: 1.2;
+  letter-spacing: -0.4px;
+}
+
+.pt-level-badge {
+  background: var(--c-primary-light);
+  color: var(--c-primary);
+  border: 1px solid rgba(13,138,115,0.25);
+  border-radius: var(--r-full);
+  padding: 0.26rem 0.82rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.pt-back-btn {
+  background: var(--c-primary);
+  color: white;
+  border: none;
+  border-radius: var(--r-sm);
+  padding: 0.52rem 1.15rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--t-fast), transform var(--t-fast);
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-family: var(--font);
+}
+
+.pt-back-btn:hover {
+  background: var(--c-primary-dark);
+  transform: translateY(-1px);
+}
+
+.pt-patient-meta {
+  font-size: 0.85rem;
+  color: var(--c-text-muted);
+  margin-bottom: 1.7rem;
+}
+
+.pt-patient-meta strong { color: var(--c-text-mid); }
+
+/* ── Secciones ───────────────────────────────────────────── */
+.pt-section {
+  background: var(--c-surface);
+  border-radius: var(--r-lg);
+  border: 1px solid var(--c-border-light);
+  padding: 1.25rem 1.45rem;
+  margin-bottom: 1.3rem;
+  box-shadow: var(--sh-xs);
+}
+
+.pt-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.pt-section-label {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  color: var(--c-text-muted);
+  text-transform: uppercase;
+}
+
+.pt-section-right {
+  font-size: 0.82rem;
+  color: var(--c-text-muted);
+  font-weight: 500;
+}
+
+/* ── Timeline de semanas ─────────────────────────────────── */
+.pt-timeline {
+  display: flex;
+  gap: 0.42rem;
+  flex-wrap: wrap;
+}
+
+.pt-week-pill {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 1.5px solid var(--c-border);
+  background: white;
+  color: var(--c-text-muted);
+  font-size: 0.83rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--t-fast);
+  user-select: none;
+}
+
+.pt-week-pill:hover:not(.pt-week-active) {
+  border-color: rgba(13,138,115,0.5);
+  color: var(--c-primary);
+  background: var(--c-primary-light);
+}
+
+.pt-week-pill.pt-week-active {
+  background: var(--c-primary);
+  color: white;
+  border-color: var(--c-primary);
+  box-shadow: 0 3px 10px var(--c-primary-glow);
+}
+
+.pt-week-pill.pt-week-future {
+  opacity: 0.28;
+  cursor: default;
+}
+
+/* ── Tarjetas de estadísticas ────────────────────────────── */
+.pt-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.1rem;
+  margin-bottom: 1.3rem;
+}
+
+@media (max-width: 1100px) { .pt-stats-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px)  { .pt-stats-grid { grid-template-columns: 1fr; } }
+
+.pt-stat-card {
+  background: var(--c-surface);
+  border-radius: var(--r-lg);
+  border: 1px solid var(--c-border-light);
+  padding: 1.15rem 1.25rem;
+  box-shadow: var(--sh-xs);
+  transition: box-shadow var(--t-normal), transform var(--t-normal);
+}
+
+.pt-stat-card:hover {
+  box-shadow: var(--sh-md);
+  transform: translateY(-2px);
+}
+
+.pt-stat-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  color: var(--c-text-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.55rem;
+}
+
+.pt-stat-value {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--c-text);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.5px;
+}
+
+.pt-stat-sub {
+  font-size: 0.76rem;
+  color: var(--c-text-muted);
+  font-weight: 500;
+}
+
+.pt-stat-sub-good { color: var(--c-primary); }
+
+.pt-stat-progress {
+  height: 5px;
+  background: var(--c-border-light);
+  border-radius: var(--r-full);
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.pt-stat-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--c-primary), var(--c-blue));
+  border-radius: var(--r-full);
+  transition: width 0.8s ease;
+}
+
+/* ── Gráfica ─────────────────────────────────────────────── */
+.pt-chart-legend {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.79rem;
+  color: var(--c-text-mid);
+  font-weight: 500;
+}
+
+.pt-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.pt-legend-blue { background: var(--c-blue); }
+
+.pt-legend-line {
+  display: inline-block;
+  width: 16px;
+  height: 2px;
+  background: var(--c-primary);
+  vertical-align: middle;
+  margin-left: 0.35rem;
+}
+
+.pt-chart-wrap {
+  height: 260px;
+  position: relative;
+}
+
+/* ── Error / utilidades ──────────────────────────────────── */
+.pt-error {
+  background: var(--c-danger-bg);
+  border: 1px solid var(--c-danger-bdr);
+  border-radius: var(--r-md);
+  padding: 0.88rem 1.25rem;
+  color: var(--c-danger);
+  font-weight: 500;
+  font-size: 0.86rem;
+}
+
+.d-none { display: none !important; }
+
+/* ── Loading ─────────────────────────────────────────────── */
+.pt-loading-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 3rem;
+  color: var(--c-text-muted);
+  font-size: 0.9rem;
+}
+
+.pt-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2.5px solid var(--c-border);
+  border-top-color: var(--c-primary);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }

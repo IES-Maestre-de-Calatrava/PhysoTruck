@@ -1,0 +1,194 @@
+@import url('./design-system.css');
+
+body {
+  background: var(--c-bg);
+}
+
+/* ── Navbar ──────────────────────────────────────────────── */
+.navbar {
+  background: var(--c-surface) !important;
+  border-bottom: 1px solid var(--c-border) !important;
+  padding: 0.85rem 1.8rem !important;
+  box-shadow: var(--sh-xs) !important;
+}
+
+.navbar-brand {
+  font-weight: 700 !important;
+  font-size: 1.15rem !important;
+  color: var(--c-primary) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.4rem !important;
+  letter-spacing: -0.2px !important;
+}
+
+.navbar-nav {
+  gap: 0.15rem;
+  align-items: center;
+}
+
+.navbar-collapse {
+  justify-content: flex-start;
+  padding-left: 1.2rem;
+}
+
+.nav-link {
+  font-size: 0.88rem !important;
+  font-weight: 500 !important;
+  color: var(--c-text-mid) !important;
+  transition: color var(--t-fast), background var(--t-fast) !important;
+  padding: 0.42rem 0.85rem !important;
+  border-radius: var(--r-sm) !important;
+}
+
+.nav-link:hover {
+  color: var(--c-primary) !important;
+  background: var(--c-primary-light) !important;
+}
+
+.nav-link.active {
+  color: var(--c-primary) !important;
+  font-weight: 600 !important;
+  background: var(--c-primary-light) !important;
+}
+
+/* Botón resumen (destacado) */
+.btn-resumen {
+  background: var(--c-primary) !important;
+  color: white !important;
+  border-radius: var(--r-sm) !important;
+  padding: 0.42rem 1.1rem !important;
+  font-weight: 600 !important;
+  transition: background var(--t-fast), box-shadow var(--t-fast) !important;
+  border: none !important;
+}
+
+.btn-resumen:hover {
+  background: var(--c-primary-dark) !important;
+  color: white !important;
+  box-shadow: 0 4px 14px var(--c-primary-glow) !important;
+}
+
+/* Dropdown */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0.2rem;
+  animation: slideDown 0.16s ease-out;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-menu {
+  border: 1px solid var(--c-border) !important;
+  box-shadow: var(--sh-md) !important;
+  border-radius: var(--r-md) !important;
+  padding: 0.45rem !important;
+  background: var(--c-surface) !important;
+}
+
+.dropdown-item {
+  border-radius: var(--r-xs) !important;
+  transition: background var(--t-fast), color var(--t-fast) !important;
+  font-weight: 500 !important;
+  color: var(--c-text-mid) !important;
+  font-size: 0.86rem !important;
+  padding: 0.45rem 0.85rem !important;
+}
+
+.dropdown-item:hover {
+  background: var(--c-primary) !important;
+  color: white !important;
+}
+
+/* ── Botón logout (fixed) ───────────────────────────────── */
+.logout-btn {
+  position: fixed;
+  top: 15px;
+  right: 18px;
+  z-index: 2000;
+  border-radius: var(--r-sm);
+  font-weight: 600;
+  font-size: 0.82rem;
+  background: white;
+  border: 1.5px solid var(--c-danger);
+  color: var(--c-danger) !important;
+  padding: 0.4rem 0.9rem;
+  transition: background var(--t-fast), color var(--t-fast), box-shadow var(--t-fast);
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: var(--c-danger) !important;
+  color: white !important;
+  box-shadow: 0 4px 12px rgba(192,57,43,0.22) !important;
+}
+
+/* ── Cards genéricas ────────────────────────────────────── */
+.card {
+  border-radius: var(--r-lg) !important;
+  box-shadow: var(--sh-sm) !important;
+  border: 1px solid var(--c-border-light) !important;
+  transition: box-shadow var(--t-normal), transform var(--t-normal) !important;
+  background: var(--c-surface) !important;
+}
+
+.card:hover {
+  box-shadow: var(--sh-md) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* ── Badges de estado ───────────────────────────────────── */
+.badge-status {
+  display: inline-block;
+  font-size: 0.8rem;
+  padding: 0.32rem 0.8rem;
+  border-radius: var(--r-full);
+  font-weight: 600;
+}
+
+.badge-good {
+  background: var(--c-primary-light);
+  color: var(--c-primary);
+  border: 1px solid rgba(13,138,115,0.2);
+}
+
+.badge-warning {
+  background: var(--c-warning-bg);
+  color: var(--c-warning);
+  border: 1px solid rgba(212,134,42,0.2);
+}
+
+.badge-bad {
+  background: var(--c-danger-bg);
+  color: var(--c-danger);
+  border: 1px solid var(--c-danger-bdr);
+}
+
+/* ── Estados ────────────────────────────────────────────── */
+.spinner-wrap {
+  text-align: center;
+  padding: 3rem;
+  color: var(--c-text-muted);
+}
+
+.error-msg {
+  background: var(--c-danger-bg);
+  color: var(--c-danger);
+  border-radius: var(--r-md);
+  padding: 0.9rem 1.3rem;
+  border: 1px solid var(--c-danger-bdr);
+  font-weight: 500;
+  font-size: 0.88rem;
+}
+
+.empty-msg {
+  text-align: center;
+  color: var(--c-text-muted);
+  padding: 3rem 2rem;
+  font-weight: 500;
+}
+
+.page-main { padding-top: 100px; }

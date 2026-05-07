@@ -124,6 +124,7 @@ public class DataSeeder implements CommandLineRunner {
                 int movementTime = sessionNode.path("tiempo_movimiento").asInt(0);
                 LocalDateTime startedAt = resolveStartedAt(sessionDate, sessionNode.path("timestamp").asLong(0L));
 
+                String nivel = sessionNode.path("nivel").asText(null);
                 Session session = Session.builder()
                     .externalId(buildExternalId(patientName, sessionDate, sessionEntry.getKey()))
                     .startedAt(startedAt)
@@ -131,7 +132,7 @@ public class DataSeeder implements CommandLineRunner {
                     .movementTime(movementTime)
                     .stabilityScore(sessionNode.path("estabilidad").asDouble(0))
                     .drivingScore((double) score)
-                    .drivingLevel(resolveDrivingLevel(score))
+                    .drivingLevel(nivel != null && !nivel.isBlank() ? nivel : resolveDrivingLevel(score))
                     .weekNumber(resolveWeekNumber(treatmentStart, sessionDate))
                     .sessionEvents(new ArrayList<>())
                     .build();

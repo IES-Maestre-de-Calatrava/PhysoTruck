@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhysioTrack - Paciente</title>
+  <link rel="stylesheet" href="css/paciente.css">
+</head>
+<body data-default-name="Alonso">
+
+<div class="app-layout">
+
+  <!-- ── Sidebar ─────────────────────────────── -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="sidebar-logo-icon">⚕</span>
+      PhysioTrack
+    </div>
+
+    <div class="sidebar-profile">
+      <div class="sidebar-avatar" id="sidebarAvatar">?</div>
+      <div class="sidebar-profile-info">
+        <strong id="sidebarName">Cargando...</strong>
+        <span id="sidebarSescam">SESCAM</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-link" href="inicio.html">
+        <span class="sidebar-link-icon">⊞</span> Pacientes
+      </a>
+      <a class="sidebar-link sidebar-link-active" href="#">
+        <span class="sidebar-link-icon">👤</span> Resumen
+      </a>
+      <a class="sidebar-link" href="#">
+        <span class="sidebar-link-icon">📊</span> Informes
+      </a>
+      <a class="sidebar-link" href="#">
+        <span class="sidebar-link-icon">📅</span> Agenda
+      </a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <a class="sidebar-link" href="#">
+        <span class="sidebar-link-icon">⚙</span> Configuración
+      </a>
+      <button class="sidebar-logout" id="logoutBtn">
+        <span class="sidebar-link-icon">↩</span> Cerrar sesión
+      </button>
+    </div>
+  </aside>
+
+  <!-- ── Contenido principal ────────────────── -->
+  <main class="pt-main" id="mainContent">
+
+    <div class="pt-patient-header">
+      <div class="pt-patient-title">
+        <h1 id="patientName">Cargando...</h1>
+        <span class="pt-level-badge" id="levelBadge">—</span>
+      </div>
+      <button class="pt-back-btn" onclick="history.back()">← Volver</button>
+    </div>
+    <p class="pt-patient-meta">
+      ID: <strong id="patientId">—</strong>
+      &nbsp;·&nbsp;
+      Inicio tratamiento: <strong id="treatmentStart">—</strong>
+    </p>
+
+    <div class="pt-section">
+      <div class="pt-section-header">
+        <span class="pt-section-label">LÍNEA DE RECUPERACIÓN</span>
+        <span class="pt-section-right" id="weekLabel">Semana 1 de 12</span>
+      </div>
+      <div class="pt-timeline" id="weekTimeline"></div>
+    </div>
+
+    <div class="pt-stats-grid">
+      <div class="pt-stat-card">
+        <div class="pt-stat-label">TIEMPO TOTAL</div>
+        <div class="pt-stat-value" id="statTotalTime">—</div>
+        <div class="pt-stat-sub" id="statTimesSub"></div>
+      </div>
+      <div class="pt-stat-card">
+        <div class="pt-stat-label">TIEMPO MEDIO</div>
+        <div class="pt-stat-value" id="statAvgTime">—</div>
+        <div class="pt-stat-sub">por sesión</div>
+      </div>
+      <div class="pt-stat-card">
+        <div class="pt-stat-label">SESIONES</div>
+        <div class="pt-stat-value" id="statSessions">—</div>
+        <div class="pt-stat-progress">
+          <div class="pt-stat-progress-bar" id="statSessionsBar"></div>
+        </div>
+      </div>
+      <div class="pt-stat-card">
+        <div class="pt-stat-label">SCORE MEDIO</div>
+        <div class="pt-stat-value" id="statScore">—</div>
+        <div class="pt-stat-sub pt-stat-sub-good" id="statScoreSub"></div>
+      </div>
+    </div>
+
+    <div class="pt-section pt-chart-section">
+      <div class="pt-section-header">
+        <span class="pt-section-label">ANÁLISIS DE PROGRESO — SEMANAS</span>
+        <div class="pt-chart-legend">
+          <span class="pt-legend-dot pt-legend-blue"></span> Score
+          <span class="pt-legend-line"></span> Estabilidad
+        </div>
+      </div>
+      <div class="pt-chart-wrap">
+        <canvas id="progressChart"></canvas>
+      </div>
+    </div>
+
+    <p class="pt-error d-none" id="pageError"></p>
+  </main>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/common.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+<script src="js/paciente.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* ── Paleta principal ── */
+  --c-primary:        #0d8a73;
+  --c-primary-dark:   #0a6e5c;
+  --c-primary-light:  #e8f5f2;
+  --c-primary-mid:    rgba(13,138,115,0.10);
+  --c-primary-glow:   rgba(13,138,115,0.25);
+
+  --c-blue:           #2f6f9f;
+  --c-blue-dark:      #245780;
+  --c-blue-light:     #e8f1f8;
+  --c-blue-mid:       rgba(47,111,159,0.10);
+
+  /* ── Fondos y superficies ── */
+  --c-bg:             #f4f6f8;
+  --c-surface:        #ffffff;
+  --c-surface-alt:    #fafbfc;
+
+  /* ── Bordes ── */
+  --c-border:         #dce3ea;
+  --c-border-light:   #edf1f5;
+
+  /* ── Textos ── */
+  --c-text:           #1a2332;
+  --c-text-mid:       #4a5568;
+  --c-text-light:     #718096;
+  --c-text-muted:     #a0aec0;
+
+  /* ── Estados ── */
+  --c-danger:         #c0392b;
+  --c-danger-bg:      #fef2f2;
+  --c-danger-bdr:     #fecaca;
+  --c-warning:        #d4862a;
+  --c-warning-bg:     #fff8f0;
+
+  /* ── Radios ── */
+  --r-xs:  5px;
+  --r-sm:  8px;
+  --r-md:  12px;
+  --r-lg:  16px;
+  --r-xl:  20px;
+  --r-2xl: 24px;
+  --r-full: 999px;
+
+  /* ── Sombras ── */
+  --sh-xs: 0 1px 3px rgba(26,35,50,0.05), 0 1px 2px rgba(26,35,50,0.04);
+  --sh-sm: 0 2px 8px rgba(26,35,50,0.07), 0 1px 3px rgba(26,35,50,0.05);
+  --sh-md: 0 4px 16px rgba(26,35,50,0.09), 0 2px 6px rgba(26,35,50,0.06);
+  --sh-lg: 0 10px 36px rgba(26,35,50,0.13), 0 4px 12px rgba(26,35,50,0.08);
+
+  /* ── Tipografía ── */
+  --font: 'Inter', 'Roboto', system-ui, -apple-system, sans-serif;
+
+  /* ── Transiciones ── */
+  --t-fast:   0.15s ease;
+  --t-normal: 0.22s ease;
+  --t-slow:   0.35s ease;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  color: var(--c-text);
+  background: var(--c-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+a { text-decoration: none; }
+
+button { font-family: var(--font); }

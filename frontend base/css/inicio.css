@@ -1,0 +1,352 @@
+@import url('./design-system.css');
+
+body {
+  min-height: 100vh;
+  background: var(--c-bg);
+}
+
+/* ── Header ──────────────────────────────────────────────── */
+.pt-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--c-surface);
+  border-bottom: 1px solid var(--c-border);
+  box-shadow: var(--sh-xs);
+}
+
+.pt-header-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0.85rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pt-logo {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--c-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: -0.2px;
+}
+
+.pt-logo-icon { font-size: 1.25rem; }
+
+.pt-header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.pt-user-badge {
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: var(--c-primary);
+  background: var(--c-primary-light);
+  padding: 0.32rem 0.9rem;
+  border-radius: var(--r-full);
+  border: 1px solid rgba(13,138,115,0.2);
+}
+
+.pt-logout-btn {
+  background: white;
+  color: var(--c-danger);
+  border: 1.5px solid var(--c-danger);
+  border-radius: var(--r-sm);
+  padding: 0.38rem 0.95rem;
+  font-weight: 600;
+  font-size: 0.83rem;
+  cursor: pointer;
+  font-family: var(--font);
+  transition: background var(--t-fast), color var(--t-fast), box-shadow var(--t-fast);
+}
+
+.pt-logout-btn:hover {
+  background: var(--c-danger);
+  color: white;
+  box-shadow: 0 3px 10px rgba(192,57,43,0.2);
+}
+
+/* ── Main ────────────────────────────────────────────────── */
+.pt-main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2.4rem 2rem 4rem;
+}
+
+.pt-page-title { margin-bottom: 1.8rem; }
+
+.pt-page-title h1 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--c-text);
+  margin-bottom: 0.28rem;
+  letter-spacing: -0.3px;
+}
+
+.pt-page-title p {
+  color: var(--c-text-light);
+  font-size: 0.92rem;
+}
+
+/* ── Buscador ────────────────────────────────────────────── */
+.pt-search-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  background: var(--c-surface);
+  border-radius: var(--r-md);
+  border: 1.5px solid var(--c-border);
+  box-shadow: var(--sh-xs);
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+  overflow: hidden;
+}
+
+.pt-search-wrap:focus-within {
+  border-color: var(--c-primary);
+  box-shadow: 0 0 0 3px var(--c-primary-mid);
+}
+
+.pt-search-icon {
+  padding: 0 0.7rem 0 1.1rem;
+  font-size: 1rem;
+  flex-shrink: 0;
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+.pt-search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.93rem;
+  font-family: var(--font);
+  color: var(--c-text);
+  padding: 0.82rem 0;
+  background: transparent;
+}
+
+.pt-search-input::placeholder { color: var(--c-text-muted); }
+.pt-search-input::-webkit-search-cancel-button { display: none; }
+
+.pt-search-count {
+  padding: 0 1rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--c-text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── Tarjeta oculta por filtro ───────────────────────────── */
+.pt-card.hidden { display: none; }
+
+/* ── Grid de carnets ─────────────────────────────────────── */
+.pt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(385px, 1fr));
+  gap: 1.75rem;
+}
+
+@media (max-width: 500px) { .pt-grid { grid-template-columns: 1fr; } }
+
+/* ── Carnet sanitario ────────────────────────────────────── */
+.pt-card {
+  background: var(--c-surface);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--sh-sm);
+  border: 1px solid var(--c-border-light);
+  cursor: pointer;
+  transition: transform var(--t-normal), box-shadow var(--t-normal);
+  animation: fadeUp 0.35s ease-out both;
+}
+
+.pt-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--sh-lg);
+}
+
+.pt-card:active { transform: translateY(-1px); }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Cabecera del carnet */
+.pt-card-header {
+  background: linear-gradient(100deg, var(--c-primary) 0%, #0b7a65 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+}
+
+.pt-card-header-logo {
+  font-size: 1.75rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.pt-card-header-text h4 {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.pt-card-header-text p {
+  margin: 0;
+  font-size: 0.67rem;
+  opacity: 0.82;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Cuerpo: foto + datos */
+.pt-card-body {
+  display: flex;
+  padding: 14px 16px;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.pt-photo-box {
+  width: 86px;
+  height: 106px;
+  border: 1.5px solid var(--c-border);
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #edf1f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Paleta de avatares — tonos médicos */
+.pt-color-0 .pt-photo-box { background: linear-gradient(135deg, #0d8a73, #0a6e5c); }
+.pt-color-1 .pt-photo-box { background: linear-gradient(135deg, #2f6f9f, #1e5580); }
+.pt-color-2 .pt-photo-box { background: linear-gradient(135deg, #5a6fa8, #3d5280); }
+.pt-color-3 .pt-photo-box { background: linear-gradient(135deg, #5e8a6e, #3e5f4c); }
+.pt-color-4 .pt-photo-box { background: linear-gradient(135deg, #7a6f9a, #5a5078); }
+.pt-color-5 .pt-photo-box { background: linear-gradient(135deg, #4a8595, #346070); }
+
+.pt-avatar-initials {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: white;
+  letter-spacing: -1px;
+  user-select: none;
+}
+
+.pt-card-data {
+  flex: 1;
+  font-size: 0.82rem;
+  color: var(--c-text-mid);
+}
+
+.pt-card-data p {
+  margin: 0 0 6px;
+  line-height: 1.45;
+  border-bottom: 1px solid var(--c-border-light);
+  padding-bottom: 5px;
+}
+
+.pt-card-data p:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.pt-card-data strong {
+  color: var(--c-primary);
+  font-weight: 600;
+  min-width: 80px;
+  display: inline-block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.pt-card-data .pt-level-val {
+  display: inline-block;
+  background: var(--c-primary-light);
+  color: var(--c-primary);
+  border: 1px solid rgba(13,138,115,0.2);
+  border-radius: var(--r-xs);
+  padding: 0.1rem 0.5rem;
+  font-weight: 600;
+  font-size: 0.76rem;
+}
+
+/* Pie del carnet */
+.pt-card-footer {
+  background: #f6f8fa;
+  border-top: 1px solid var(--c-border-light);
+  text-align: center;
+  font-size: 0.67rem;
+  color: var(--c-text-muted);
+  padding: 5px 0;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.pt-badge-inactive {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--c-text-muted);
+  background: var(--c-bg);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-xs);
+  padding: 0.1rem 0.48rem;
+}
+
+/* ── Estados ─────────────────────────────────────────────── */
+.pt-loading {
+  grid-column: 1/-1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 4rem;
+  color: var(--c-text-muted);
+  font-size: 0.93rem;
+}
+
+.pt-msg {
+  margin-top: 1.4rem;
+  text-align: center;
+  font-weight: 500;
+  min-height: 1.4rem;
+  color: var(--c-text-light);
+}
+
+.pt-error {
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 3rem 2rem;
+  color: var(--c-danger);
+  background: var(--c-danger-bg);
+  border: 1px solid var(--c-danger-bdr);
+  border-radius: var(--r-lg);
+  font-weight: 500;
+}
+
+.pt-empty {
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--c-text-muted);
+  font-size: 0.93rem;
+}
