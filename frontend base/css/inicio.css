@@ -5,36 +5,36 @@ body {
   background: var(--c-bg);
 }
 
-/* ── Header ──────────────────────────────────────────────── */
+/* ── Header — azul institucional ────────────────────────── */
 .pt-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--c-surface);
-  border-bottom: 1px solid var(--c-border);
-  box-shadow: var(--sh-xs);
+  background: var(--c-primary);
+  border-bottom: 1px solid var(--c-primary-dark);
+  box-shadow: 0 2px 8px rgba(13,27,46,0.2);
 }
 
 .pt-header-inner {
-  max-width: 1280px;
+  max-width: 1320px;
   margin: 0 auto;
-  padding: 0.85rem 2rem;
+  padding: 0.82rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .pt-logo {
-  font-size: 1.18rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  color: var(--c-primary);
+  color: white;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   letter-spacing: -0.2px;
 }
 
-.pt-logo-icon { font-size: 1.25rem; }
+.pt-logo-icon { font-size: 1.2rem; }
 
 .pt-header-right {
   display: flex;
@@ -43,37 +43,36 @@ body {
 }
 
 .pt-user-badge {
-  font-size: 0.83rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  color: var(--c-primary);
-  background: var(--c-primary-light);
-  padding: 0.32rem 0.9rem;
-  border-radius: var(--r-full);
-  border: 1px solid rgba(13,138,115,0.2);
+  color: white;
+  background: rgba(255,255,255,0.15);
+  padding: 0.3rem 0.9rem;
+  border-radius: var(--r-sm);
+  border: 1px solid rgba(255,255,255,0.25);
 }
 
 .pt-logout-btn {
-  background: white;
-  color: var(--c-danger);
-  border: 1.5px solid var(--c-danger);
+  background: rgba(255,255,255,0.12);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.3);
   border-radius: var(--r-sm);
-  padding: 0.38rem 0.95rem;
+  padding: 0.35rem 0.9rem;
   font-weight: 600;
-  font-size: 0.83rem;
+  font-size: 0.82rem;
   cursor: pointer;
   font-family: var(--font);
-  transition: background var(--t-fast), color var(--t-fast), box-shadow var(--t-fast);
+  transition: background var(--t-fast), border-color var(--t-fast);
 }
 
 .pt-logout-btn:hover {
-  background: var(--c-danger);
-  color: white;
-  box-shadow: 0 3px 10px rgba(192,57,43,0.2);
+  background: rgba(255,255,255,0.22);
+  border-color: rgba(255,255,255,0.5);
 }
 
 /* ── Main ────────────────────────────────────────────────── */
 .pt-main {
-  max-width: 1280px;
+  max-width: 1320px;
   margin: 0 auto;
   padding: 2.4rem 2rem 4rem;
 }
@@ -81,7 +80,7 @@ body {
 .pt-page-title { margin-bottom: 1.8rem; }
 
 .pt-page-title h1 {
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: var(--c-text);
   margin-bottom: 0.28rem;
@@ -90,7 +89,7 @@ body {
 
 .pt-page-title p {
   color: var(--c-text-light);
-  font-size: 0.92rem;
+  font-size: 0.9rem;
 }
 
 /* ── Buscador ────────────────────────────────────────────── */
@@ -109,7 +108,7 @@ body {
 
 .pt-search-wrap:focus-within {
   border-color: var(--c-primary);
-  box-shadow: 0 0 0 3px var(--c-primary-mid);
+  box-shadow: 0 0 0 3px var(--c-primary-faint);
 }
 
 .pt-search-icon {
@@ -117,14 +116,14 @@ body {
   font-size: 1rem;
   flex-shrink: 0;
   pointer-events: none;
-  opacity: 0.45;
+  opacity: 0.4;
 }
 
 .pt-search-input {
   flex: 1;
   border: none;
   outline: none;
-  font-size: 0.93rem;
+  font-size: 0.92rem;
   font-family: var(--font);
   color: var(--c-text);
   padding: 0.82rem 0;
@@ -149,8 +148,8 @@ body {
 /* ── Grid de carnets ─────────────────────────────────────── */
 .pt-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(385px, 1fr));
-  gap: 1.75rem;
+  grid-template-columns: repeat(auto-fill, minmax(390px, 1fr));
+  gap: 1.6rem;
 }
 
 @media (max-width: 500px) { .pt-grid { grid-template-columns: 1fr; } }
@@ -164,59 +163,60 @@ body {
   border: 1px solid var(--c-border-light);
   cursor: pointer;
   transition: transform var(--t-normal), box-shadow var(--t-normal);
-  animation: fadeUp 0.35s ease-out both;
+  animation: fadeUp 0.3s ease-out both;
 }
 
 .pt-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
   box-shadow: var(--sh-lg);
+  border-color: var(--c-border);
 }
 
 .pt-card:active { transform: translateY(-1px); }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(14px); }
+  from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
 /* Cabecera del carnet */
 .pt-card-header {
-  background: linear-gradient(100deg, var(--c-primary) 0%, #0b7a65 100%);
+  background: linear-gradient(95deg, var(--c-primary) 0%, var(--c-primary-mid) 100%);
   color: white;
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 15px;
+  padding: 9px 15px;
 }
 
 .pt-card-header-logo {
-  font-size: 1.75rem;
+  font-size: 1.7rem;
   line-height: 1;
   flex-shrink: 0;
 }
 
 .pt-card-header-text h4 {
   margin: 0;
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   font-weight: 800;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 .pt-card-header-text p {
   margin: 0;
-  font-size: 0.67rem;
-  opacity: 0.82;
+  font-size: 0.66rem;
+  opacity: 0.8;
   font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
 }
 
 /* Cuerpo: foto + datos */
 .pt-card-body {
   display: flex;
   padding: 14px 16px;
-  gap: 15px;
+  gap: 14px;
   align-items: flex-start;
 }
 
@@ -227,19 +227,19 @@ body {
   border-radius: var(--r-sm);
   overflow: hidden;
   flex-shrink: 0;
-  background: #edf1f5;
+  background: var(--c-surface-alt);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Paleta de avatares — tonos médicos */
-.pt-color-0 .pt-photo-box { background: linear-gradient(135deg, #0d8a73, #0a6e5c); }
-.pt-color-1 .pt-photo-box { background: linear-gradient(135deg, #2f6f9f, #1e5580); }
-.pt-color-2 .pt-photo-box { background: linear-gradient(135deg, #5a6fa8, #3d5280); }
-.pt-color-3 .pt-photo-box { background: linear-gradient(135deg, #5e8a6e, #3e5f4c); }
-.pt-color-4 .pt-photo-box { background: linear-gradient(135deg, #7a6f9a, #5a5078); }
-.pt-color-5 .pt-photo-box { background: linear-gradient(135deg, #4a8595, #346070); }
+/* Paleta de avatares — azules institucionales */
+.pt-color-0 .pt-photo-box { background: linear-gradient(135deg, #1a56a0, #134185); }
+.pt-color-1 .pt-photo-box { background: linear-gradient(135deg, #0d2b5e, #163a78); }
+.pt-color-2 .pt-photo-box { background: linear-gradient(135deg, #1d64bb, #1a56a0); }
+.pt-color-3 .pt-photo-box { background: linear-gradient(135deg, #2563a8, #1a4a8a); }
+.pt-color-4 .pt-photo-box { background: linear-gradient(135deg, #1e4f9c, #163d7a); }
+.pt-color-5 .pt-photo-box { background: linear-gradient(135deg, #1b5ea5, #124490); }
 
 .pt-avatar-initials {
   font-size: 1.85rem;
@@ -273,7 +273,7 @@ body {
   font-weight: 600;
   min-width: 80px;
   display: inline-block;
-  font-size: 0.75rem;
+  font-size: 0.74rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
@@ -282,22 +282,22 @@ body {
   display: inline-block;
   background: var(--c-primary-light);
   color: var(--c-primary);
-  border: 1px solid rgba(13,138,115,0.2);
+  border: 1px solid rgba(26,86,160,0.2);
   border-radius: var(--r-xs);
   padding: 0.1rem 0.5rem;
   font-weight: 600;
-  font-size: 0.76rem;
+  font-size: 0.75rem;
 }
 
 /* Pie del carnet */
 .pt-card-footer {
-  background: #f6f8fa;
+  background: var(--c-surface-alt);
   border-top: 1px solid var(--c-border-light);
   text-align: center;
-  font-size: 0.67rem;
+  font-size: 0.66rem;
   color: var(--c-text-muted);
   padding: 5px 0;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
   font-weight: 600;
 }
@@ -309,7 +309,7 @@ body {
   background: var(--c-bg);
   border: 1px solid var(--c-border);
   border-radius: var(--r-xs);
-  padding: 0.1rem 0.48rem;
+  padding: 0.1rem 0.45rem;
 }
 
 /* ── Estados ─────────────────────────────────────────────── */
@@ -321,7 +321,7 @@ body {
   gap: 1rem;
   padding: 4rem;
   color: var(--c-text-muted);
-  font-size: 0.93rem;
+  font-size: 0.92rem;
 }
 
 .pt-msg {
@@ -348,5 +348,5 @@ body {
   text-align: center;
   padding: 4rem 2rem;
   color: var(--c-text-muted);
-  font-size: 0.93rem;
+  font-size: 0.92rem;
 }

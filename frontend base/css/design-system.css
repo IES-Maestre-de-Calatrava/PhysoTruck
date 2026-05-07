@@ -1,54 +1,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  /* ── Paleta principal ── */
-  --c-primary:        #0d8a73;
-  --c-primary-dark:   #0a6e5c;
-  --c-primary-light:  #e8f5f2;
-  --c-primary-mid:    rgba(13,138,115,0.10);
-  --c-primary-glow:   rgba(13,138,115,0.25);
+  /* ── Azul institucional ── */
+  --c-primary:        #1a56a0;
+  --c-primary-dark:   #134185;
+  --c-primary-mid:    #1d64bb;
+  --c-primary-light:  #e8f1fb;
+  --c-primary-faint:  rgba(26,86,160,0.08);
+  --c-primary-glow:   rgba(26,86,160,0.22);
 
-  --c-blue:           #2f6f9f;
-  --c-blue-dark:      #245780;
-  --c-blue-light:     #e8f1f8;
-  --c-blue-mid:       rgba(47,111,159,0.10);
+  /* ── Azul marino (sidebar, cabeceras) ── */
+  --c-navy:           #0d2b5e;
+  --c-navy-mid:       #163a78;
+  --c-navy-light:     rgba(255,255,255,0.10);
+  --c-navy-hover:     rgba(255,255,255,0.08);
 
   /* ── Fondos y superficies ── */
-  --c-bg:             #f4f6f8;
+  --c-bg:             #f0f4f9;
   --c-surface:        #ffffff;
-  --c-surface-alt:    #fafbfc;
+  --c-surface-alt:    #f7f9fc;
 
   /* ── Bordes ── */
-  --c-border:         #dce3ea;
-  --c-border-light:   #edf1f5;
+  --c-border:         #ccd4e4;
+  --c-border-light:   #e2eaf5;
 
   /* ── Textos ── */
-  --c-text:           #1a2332;
-  --c-text-mid:       #4a5568;
-  --c-text-light:     #718096;
-  --c-text-muted:     #a0aec0;
+  --c-text:           #0d1b2e;
+  --c-text-mid:       #2d4163;
+  --c-text-light:     #5a7098;
+  --c-text-muted:     #8fa3bc;
 
   /* ── Estados ── */
-  --c-danger:         #c0392b;
+  --c-danger:         #b91c1c;
   --c-danger-bg:      #fef2f2;
   --c-danger-bdr:     #fecaca;
-  --c-warning:        #d4862a;
-  --c-warning-bg:     #fff8f0;
+  --c-warning:        #c2620e;
+  --c-warning-bg:     #fff7ed;
+  --c-success:        #15803d;
+  --c-success-bg:     #f0fdf4;
 
-  /* ── Radios ── */
-  --r-xs:  5px;
-  --r-sm:  8px;
-  --r-md:  12px;
-  --r-lg:  16px;
-  --r-xl:  20px;
-  --r-2xl: 24px;
+  /* ── Radios — formales y sobrios ── */
+  --r-xs:   4px;
+  --r-sm:   6px;
+  --r-md:   8px;
+  --r-lg:   12px;
+  --r-xl:   16px;
   --r-full: 999px;
 
   /* ── Sombras ── */
-  --sh-xs: 0 1px 3px rgba(26,35,50,0.05), 0 1px 2px rgba(26,35,50,0.04);
-  --sh-sm: 0 2px 8px rgba(26,35,50,0.07), 0 1px 3px rgba(26,35,50,0.05);
-  --sh-md: 0 4px 16px rgba(26,35,50,0.09), 0 2px 6px rgba(26,35,50,0.06);
-  --sh-lg: 0 10px 36px rgba(26,35,50,0.13), 0 4px 12px rgba(26,35,50,0.08);
+  --sh-xs: 0 1px 3px rgba(13,27,46,0.07), 0 1px 2px rgba(13,27,46,0.05);
+  --sh-sm: 0 2px 8px rgba(13,27,46,0.09), 0 1px 3px rgba(13,27,46,0.06);
+  --sh-md: 0 4px 16px rgba(13,27,46,0.11), 0 2px 6px rgba(13,27,46,0.07);
+  --sh-lg: 0 10px 36px rgba(13,27,46,0.15), 0 4px 12px rgba(13,27,46,0.09);
 
   /* ── Tipografía ── */
   --font: 'Inter', 'Roboto', system-ui, -apple-system, sans-serif;
@@ -56,7 +59,6 @@
   /* ── Transiciones ── */
   --t-fast:   0.15s ease;
   --t-normal: 0.22s ease;
-  --t-slow:   0.35s ease;
 }
 
 *, *::before, *::after {
@@ -75,5 +77,4 @@ body {
 }
 
 a { text-decoration: none; }
-
 button { font-family: var(--font); }
