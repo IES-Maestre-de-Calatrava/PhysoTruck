@@ -2,7 +2,7 @@ package com.physiotrack.physiotrack.controller;
 
 import com.physiotrack.physiotrack.entity.Patient;
 import com.physiotrack.physiotrack.entity.Session;
-import com.physiotrack.physiotrack.controller.PatientAccessHelper.WeekWindow;
+import com.physiotrack.physiotrack.entity.SessionEvent;
 import com.physiotrack.physiotrack.repository.SessionRepository;
 import io.swagger.v3.oas.annotations.Parameter;
 import java.time.LocalDate;
@@ -47,14 +47,11 @@ public class PatientController {
         @Parameter(hidden = true) Authentication authentication
     ) {
         String therapistEmail = patientAccessHelper.getAuthenticatedEmail(authentication);
-        Patient patient = patientAccessHelper.getAuthorizedPatient(id, therapistEmail);
-        WeekWindow weekWindow = patientAccessHelper.resolveWeekWindow(week, patient.getTreatmentStart());
-
-        return sessionRepository.findWeeklySessionsForPatient(
+        patientAccessHelper.getAuthorizedPatient(id, therapistEmail);
+        return sessionRepository.findWeeklySessionsForPatientByWeekNumber(
             id,
             therapistEmail,
-            weekWindow.start(),
-            weekWindow.endExclusive()
+            week
         ).stream().map(SessionResponse::from).toList();
     }
 
@@ -89,7 +86,8 @@ public class PatientController {
         Double stabilityScore,
         Double drivingScore,
         String drivingLevel,
-        Integer weekNumber
+        Integer weekNumber,
+        List<SessionEventResponse> sessionEvents
     ) {
         private static SessionResponse from(Session session) {
             return new SessionResponse(
@@ -101,8 +99,20 @@ public class PatientController {
                 session.getStabilityScore(),
                 session.getDrivingScore(),
                 session.getDrivingLevel(),
-                session.getWeekNumber()
+                session.getWeekNumber(),
+                session.getSessionEvents().stream()
+                    .map(SessionEventResponse::from)
+                    .toList()
             );
+        }
+    }
+
+    public record SessionEventResponse(
+        String eventType,
+        Integer count
+    ) {
+        private static SessionEventResponse from(SessionEvent event) {
+            return new SessionEventResponse(event.getEventType(), event.getCount());
         }
     }
 }

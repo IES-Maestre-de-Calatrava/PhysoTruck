@@ -61,8 +61,13 @@ public class DataSeeder implements CommandLineRunner {
         while (patients.hasNext()) {
             Map.Entry<String, JsonNode> patientEntry = patients.next();
             JsonNode sessionsByDate = patientEntry.getValue().path("sesiones");
-            LocalDate treatmentStart = resolveTreatmentStart(sessionsByDate);
-            List<Session> sessions = buildSessions(patientEntry.getKey(), sessionsByDate, treatmentStart);
+            List<Session> sessions = buildSessions(patientEntry.getKey(), sessionsByDate);
+            LocalDate treatmentStart = sessions.stream()
+                .map(Session::getStartedAt)
+                .filter(startedAt -> startedAt != null)
+                .map(LocalDateTime::toLocalDate)
+                .min(LocalDate::compareTo)
+                .orElse(resolveTreatmentStart(sessionsByDate));
 
             String currentLevel = sessions.stream()
                 .max(Comparator.comparing(Session::getStartedAt))
@@ -108,7 +113,7 @@ public class DataSeeder implements CommandLineRunner {
         return earliestDate;
     }
 
-    private List<Session> buildSessions(String patientName, JsonNode sessionsByDate, LocalDate treatmentStart) {
+    private List<Session> buildSessions(String patientName, JsonNode sessionsByDate) {
         List<Session> sessions = new ArrayList<>();
         Iterator<Map.Entry<String, JsonNode>> dateEntries = sessionsByDate.fields();
 
@@ -133,7 +138,7 @@ public class DataSeeder implements CommandLineRunner {
                     .stabilityScore(sessionNode.path("estabilidad").asDouble(0))
                     .drivingScore((double) score)
                     .drivingLevel(nivel != null && !nivel.isBlank() ? nivel : resolveDrivingLevel(score))
-                    .weekNumber(resolveWeekNumber(treatmentStart, sessionDate))
+                    .weekNumber(1)
                     .sessionEvents(new ArrayList<>())
                     .build();
 
@@ -150,6 +155,10 @@ public class DataSeeder implements CommandLineRunner {
         }
 
         sessions.sort(Comparator.comparing(Session::getStartedAt));
+        if (!sessions.isEmpty()) {
+            LocalDate treatmentStart = sessions.get(0).getStartedAt().toLocalDate();
+            sessions.forEach(session -> session.setWeekNumber(resolveWeekNumber(treatmentStart, session.getStartedAt())));
+        }
         return sessions;
     }
 
@@ -167,10 +176,11 @@ public class DataSeeder implements CommandLineRunner {
             .toLocalDateTime();
     }
 
-    private int resolveWeekNumber(LocalDate treatmentStart, LocalDate sessionDate) {
+    private int resolveWeekNumber(LocalDate treatmentStart, LocalDateTime startedAt) {
         if (treatmentStart == null) {
             return 1;
         }
+        LocalDate sessionDate = startedAt != null ? startedAt.toLocalDate() : treatmentStart;
         int week = (int) ChronoUnit.WEEKS.between(treatmentStart, sessionDate) + 1;
         return Math.min(Math.max(week, 1), 12);
     }

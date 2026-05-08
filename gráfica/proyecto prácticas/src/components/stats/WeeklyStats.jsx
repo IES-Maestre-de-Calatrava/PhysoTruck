@@ -1,24 +1,68 @@
-import React from 'react';
-
-export const WeeklyStats = ({ data }) => {
-  const totalTiempo = data.reduce((acc, curr) => acc + curr.tiempo, 0);
-  const totalSesiones = data.reduce((acc, curr) => acc + curr.sesiones, 0);
-  const scoreMedio = Math.round(data.reduce((acc, curr) => acc + curr.score, 0) / data.length);
-
+function StatCard({ label, value, accent }) {
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px' }}>
-      <div style={{ background: '#fff', padding: '20px', borderRadius: '12px', textAlign: 'center', boxShadow: '0 2px 4px rgba(0,0,0,0.05)' }}>
-        <p style={{ margin: 0, color: '#6b7280', fontSize: '14px' }}>Tiempo total</p>
-        <h3 style={{ margin: '5px 0 0', fontSize: '20px' }}>{totalTiempo} min</h3>
-      </div>
-      <div style={{ background: '#fff', padding: '20px', borderRadius: '12px', textAlign: 'center', boxShadow: '0 2px 4px rgba(0,0,0,0.05)' }}>
-        <p style={{ margin: 0, color: '#6b7280', fontSize: '14px' }}>Nº Sesiones</p>
-        <h3 style={{ margin: '5px 0 0', fontSize: '20px' }}>{totalSesiones}</h3>
-      </div>
-      <div style={{ background: '#fff', padding: '20px', borderRadius: '12px', textAlign: 'center', boxShadow: '0 2px 4px rgba(0,0,0,0.05)' }}>
-        <p style={{ margin: 0, color: '#6b7280', fontSize: '14px' }}>Score Medio</p>
-        <h3 style={{ margin: '5px 0 0', fontSize: '20px' }}>{scoreMedio} / 100</h3>
-      </div>
+    <div
+      style={{
+        background: '#ffffff',
+        border: '1px solid #dbe4f0',
+        borderRadius: '16px',
+        padding: '18px 20px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '6px',
+        borderTop: `4px solid ${accent}`,
+        boxShadow: '0 8px 20px rgba(15, 23, 42, 0.05)',
+      }}
+    >
+      <span
+        style={{
+          fontSize: '11px',
+          fontWeight: 700,
+          color: '#94a3b8',
+          letterSpacing: '0.08em',
+          textTransform: 'uppercase',
+        }}
+      >
+        {label}
+      </span>
+      <span style={{ fontSize: '26px', fontWeight: 800, color: '#10233c', lineHeight: 1.1 }}>
+        {value}
+      </span>
     </div>
   );
-};
+}
+
+export function WeeklyStats({ data }) {
+  if (!data?.length) {
+    return null;
+  }
+
+  const totalMinutes = data.reduce((sum, week) => sum + week.tiempo, 0);
+  const averageScore = Math.round(
+    data.reduce((sum, week) => sum + week.score, 0) / data.length,
+  );
+  const bestScore = Math.max(...data.map((week) => week.score));
+  const totalSessions = data.reduce((sum, week) => sum + week.sesiones, 0);
+  const lastScore = data[data.length - 1].score;
+  const previousScore = data[data.length - 2]?.score ?? lastScore;
+  const trend = lastScore - previousScore;
+
+  return (
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))',
+        gap: '12px',
+      }}
+    >
+      <StatCard
+        label="Score actual"
+        value={`${lastScore} ${trend >= 0 ? `▲${trend}` : `▼${Math.abs(trend)}`}`}
+        accent="#2563eb"
+      />
+      <StatCard label="Score medio" value={averageScore} accent="#8b5cf6" />
+      <StatCard label="Mejor score" value={bestScore} accent="#f59e0b" />
+      <StatCard label="Tiempo total" value={`${totalMinutes}m`} accent="#14b8a6" />
+      <StatCard label="Sesiones" value={totalSessions} accent="#f43f5e" />
+    </div>
+  );
+}

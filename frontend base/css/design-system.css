@@ -1,57 +1,58 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  /* ── Azul institucional ── */
-  --c-primary:        #1a56a0;
-  --c-primary-dark:   #134185;
-  --c-primary-mid:    #1d64bb;
-  --c-primary-light:  #e8f1fb;
-  --c-primary-faint:  rgba(26,86,160,0.08);
-  --c-primary-glow:   rgba(26,86,160,0.22);
+  /* ── Premium Medical UI ── */
+  --c-primary:        #0052cc;
+  --c-primary-dark:   #003f9e;
+  --c-primary-mid:    #0072f0;
+  --c-primary-light:  #e9f1ff;
+  --c-primary-faint:  rgba(0, 82, 204, 0.09);
+  --c-primary-glow:   rgba(0, 82, 204, 0.22);
+  --c-secondary:      #00b8d9;
 
-  /* ── Azul marino (sidebar, cabeceras) ── */
-  --c-navy:           #0d2b5e;
-  --c-navy-mid:       #163a78;
+  /* ── Azul oscuro de soporte ── */
+  --c-navy:           #0f223d;
+  --c-navy-mid:       #172b4d;
   --c-navy-light:     rgba(255,255,255,0.10);
   --c-navy-hover:     rgba(255,255,255,0.08);
 
   /* ── Fondos y superficies ── */
-  --c-bg:             #f0f4f9;
+  --c-bg:             #f4f7fa;
   --c-surface:        #ffffff;
-  --c-surface-alt:    #f7f9fc;
+  --c-surface-alt:    #f8fbff;
 
   /* ── Bordes ── */
-  --c-border:         #ccd4e4;
-  --c-border-light:   #e2eaf5;
+  --c-border:         #d6e0ef;
+  --c-border-light:   #e8eef7;
 
   /* ── Textos ── */
-  --c-text:           #0d1b2e;
-  --c-text-mid:       #2d4163;
-  --c-text-light:     #5a7098;
-  --c-text-muted:     #8fa3bc;
+  --c-text:           #172b4d;
+  --c-text-mid:       #2f466d;
+  --c-text-light:     #5c7194;
+  --c-text-muted:     #8da1be;
 
   /* ── Estados ── */
-  --c-danger:         #b91c1c;
-  --c-danger-bg:      #fef2f2;
-  --c-danger-bdr:     #fecaca;
+  --c-danger:         #ff5630;
+  --c-danger-bg:      #fff2ef;
+  --c-danger-bdr:     #ffd4cc;
   --c-warning:        #c2620e;
   --c-warning-bg:     #fff7ed;
-  --c-success:        #15803d;
-  --c-success-bg:     #f0fdf4;
+  --c-success:        #36b37e;
+  --c-success-bg:     #f1fcf7;
 
   /* ── Radios — formales y sobrios ── */
   --r-xs:   4px;
-  --r-sm:   6px;
-  --r-md:   8px;
-  --r-lg:   12px;
+  --r-sm:   8px;
+  --r-md:   12px;
+  --r-lg:   14px;
   --r-xl:   16px;
   --r-full: 999px;
 
   /* ── Sombras ── */
-  --sh-xs: 0 1px 3px rgba(13,27,46,0.07), 0 1px 2px rgba(13,27,46,0.05);
-  --sh-sm: 0 2px 8px rgba(13,27,46,0.09), 0 1px 3px rgba(13,27,46,0.06);
-  --sh-md: 0 4px 16px rgba(13,27,46,0.11), 0 2px 6px rgba(13,27,46,0.07);
-  --sh-lg: 0 10px 36px rgba(13,27,46,0.15), 0 4px 12px rgba(13,27,46,0.09);
+  --sh-xs: 0 4px 20px rgba(0, 82, 204, 0.05);
+  --sh-sm: 0 6px 24px rgba(0, 82, 204, 0.06);
+  --sh-md: 0 10px 30px rgba(0, 82, 204, 0.08);
+  --sh-lg: 0 18px 48px rgba(0, 82, 204, 0.12);
 
   /* ── Tipografía ── */
   --font: 'Inter', 'Roboto', system-ui, -apple-system, sans-serif;

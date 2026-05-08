@@ -29,7 +29,7 @@ async function loadSidebar() {
     const initials = getInitials(user.fullName);
     document.getElementById("sidebarAvatar").textContent = initials;
     document.getElementById("sidebarName").textContent   = user.fullName;
-    document.getElementById("sidebarSescam").textContent = user.sescamId || "SESCAM";
+    document.getElementById("sidebarProfessionalId").textContent = "Clinician";
   } catch (_) { /* no bloquea */ }
 }
 

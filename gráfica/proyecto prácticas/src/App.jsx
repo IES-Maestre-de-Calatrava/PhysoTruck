@@ -1,207 +1,272 @@
-import React, { useState, useEffect } from 'react';
-import { LevelBadge } from './components/ui/LevelBadge';
-import { ExportButton } from './components/ui/ExportButton';
-import { WeeklyStats } from './components/stats/WeeklyStats';
-import { WeeklyHistory } from './components/stats/WeeklyHistory';
-import { RecentSessions } from './components/stats/RecentSessions';
-import { UsageChart } from './components/charts/UsageChart';
+import { useEffect, useState } from 'react';
+import { GlobalChart } from './components/charts/GlobalChart';
 import { ChartModal } from './components/charts/ChartModal';
 import { ProgressChart } from './components/charts/ProgressChart';
-import { WeeklyStatsTable } from './components/charts/WeeklyStatsTable';
-import { apiGetPatients, apiGetProgress, apiGetSessions } from './api';
+import { WeeklyHistory } from './components/stats/WeeklyHistory';
+import { WeeklyStats } from './components/stats/WeeklyStats';
+import { WeeklyStatsTable } from './components/stats/WeeklyStatsTable';
+import { DataFilter } from './components/ui/DataFilter';
+import { ExportButton } from './components/ui/ExportButton';
+import { LevelBadge } from './components/ui/LevelBadge';
+import { useAuth } from './context/AuthContext';
+import { getSesiones } from './services/api';
 
-function getParamPatient() {
-  return new URLSearchParams(window.location.search).get('patient') || 'Paciente';
-}
+const pageStyle = {
+  padding: '40px 20px',
+  background: 'linear-gradient(180deg, #f7faff 0%, #f4f7fa 100%)',
+  minHeight: '100vh',
+  boxSizing: 'border-box',
+};
 
-function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [weekData, setWeekData] = useState([]);
-  const [progressData, setProgressData] = useState([]);
-  const [recentSessions, setRecentSessions] = useState([]);
-  const [patientName, setPatientName] = useState(getParamPatient());
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+const shellStyle = {
+  maxWidth: '1120px',
+  margin: '0 auto',
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '24px',
+};
 
-  useEffect(() => {
-    const name = getParamPatient();
-    setPatientName(name);
-    loadData(name);
-  }, []);
+const cardStyle = {
+  background: '#ffffff',
+  border: '1px solid #d6e0ef',
+  borderRadius: '16px',
+  boxShadow: '0 4px 20px rgba(0, 82, 204, 0.05)',
+};
 
-  async function loadData(name) {
-    try {
-      const patients = await apiGetPatients();
-      const patient = patients.find(p =>
-        p.fullName.toLowerCase().includes(name.toLowerCase())
-      );
-      if (!patient) throw new Error(`Paciente "${name}" no encontrado`);
-
-      const progress = await apiGetProgress(patient.id);
-      const weeks = progress.weeks || [];
-
-      const mapped = weeks.map(w => ({
-        id: w.week,
-        semana: w.week,
-        sesiones: w.totalSessions || 0,
-        score: Math.round(w.avgDrivingScore || 0),
-        tiempo: Math.round((w.avgMovementTime || 0) / 60000),
-      }));
-
-      const chartMapped = weeks.map(w => ({
-        name: `Sem ${w.week}`,
-        puntos: Math.round(w.avgDrivingScore || 0),
-      }));
-
-      setWeekData(mapped);
-      setProgressData(chartMapped);
-
-      // Cargar sesiones de la última semana disponible
-      if (weeks.length > 0) {
-        const lastWeek = weeks[weeks.length - 1].week;
-        try {
-          const sessions = await apiGetSessions(patient.id, lastWeek);
-          const mappedSessions = sessions.map(s => ({
-            id: s.id,
-            tipo: s.drivingLevel || 'Sesión',
-            semana: s.weekNumber || lastWeek,
-            fecha: s.startedAt
-              ? new Date(s.startedAt).toLocaleDateString('es-ES')
-              : '—',
-          }));
-          setRecentSessions(mappedSessions);
-        } catch (_) {
-          setRecentSessions([]);
-        }
-      }
-
-      setLoading(false);
-    } catch (err) {
-      setError(err.message);
-      setLoading(false);
-    }
-  }
-
-  const ultimoScore = weekData.length > 0 ? weekData[weekData.length - 1].score : 0;
-
-  const tableData = weekData.map(w => ({ semana: w.semana, scoreMedio: w.score }));
-
-  const pageStyle = {
-    padding: '40px 20px',
-    backgroundColor: '#f0f4f9',
-    minHeight: '100vh',
-    fontFamily: "'Inter', 'Segoe UI', sans-serif",
-  };
-
-  const cardStyle = {
-    background: '#fff',
-    padding: '24px',
-    borderRadius: '16px',
-    boxShadow: '0 4px 6px -1px rgba(0,0,0,0.06)',
-    border: '1px solid #e8eef5',
-    marginBottom: '24px',
-  };
-
-  if (loading) {
-    return (
-      <div style={{ ...pageStyle, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <div style={{ textAlign: 'center', color: '#8fa3bc' }}>
-          <div style={{ fontSize: '2rem', marginBottom: '12px' }}>⏳</div>
-          <p style={{ margin: 0 }}>Cargando datos...</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div style={{ ...pageStyle, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <div style={{
-          background: '#fef2f2', border: '1px solid #fca5a5', borderRadius: '12px',
-          padding: '24px 32px', color: '#b91c1c', textAlign: 'center', maxWidth: '400px',
-        }}>
-          <p style={{ margin: '0 0 12px', fontWeight: '600' }}>Error: {error}</p>
-          <a href="../index.html" style={{ color: '#1a56a0', fontSize: '14px' }}>← Volver al inicio</a>
-        </div>
-      </div>
-    );
-  }
-
+function LoadingView(message) {
   return (
-    <div style={pageStyle}>
-      <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-
-        {/* ── Header ── */}
-        <header style={{ marginBottom: '32px', display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
-          <div>
-            <h1 style={{ margin: '0 0 4px', fontSize: '1.75rem', fontWeight: '800', color: '#0d1b2e', letterSpacing: '-0.3px' }}>
-              {patientName}
-            </h1>
-            <p style={{ margin: '0 0 10px', color: '#8fa3bc', fontSize: '0.9rem' }}>Dashboard de progreso</p>
-            <LevelBadge score={ultimoScore} />
-          </div>
-          <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start', flexWrap: 'wrap' }}>
-            <ExportButton data={weekData} patientName={patientName} />
-            <a
-              href="javascript:history.back()"
-              style={{
-                background: '#1a56a0', color: 'white', borderRadius: '8px',
-                padding: '8px 16px', fontSize: '14px', fontWeight: '600',
-                textDecoration: 'none', whiteSpace: 'nowrap',
-              }}
-            >
-              ← Volver
-            </a>
-          </div>
-        </header>
-
-        {/* ── Tiles de estadísticas ── */}
-        <section style={{ marginBottom: '24px' }}>
-          <WeeklyStats data={weekData} />
-        </section>
-
-        {/* ── Evolución del score (AreaChart) ── */}
-        <section>
-          <ProgressChart data={progressData} />
-        </section>
-
-        {/* ── Evolución de sesiones y tiempo (ComposedChart) ── */}
-        <section style={cardStyle}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-            <h3 style={{ margin: 0, color: '#0d1b2e', fontWeight: '700' }}>Evolución de sesiones y tiempo</h3>
-            <span style={{ fontSize: '12px', color: '#8fa3bc' }}>Clic para ampliar</span>
-          </div>
-          <UsageChart data={weekData} onClick={() => setIsModalOpen(true)} />
-        </section>
-
-        {/* ── Dos columnas: tabla historial + sesiones recientes ── */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', marginBottom: '24px' }}>
-          <section>
-            <WeeklyStatsTable data={tableData} />
-          </section>
-          <section>
-            {recentSessions.length > 0
-              ? <RecentSessions sessions={recentSessions} />
-              : (
-                <div style={{ ...cardStyle, marginBottom: 0 }}>
-                  <h3 style={{ margin: '0 0 12px', color: '#0d1b2e', fontWeight: '700' }}>Sesiones recientes</h3>
-                  <p style={{ color: '#8fa3bc', fontSize: '14px', margin: 0 }}>No hay sesiones registradas</p>
-                </div>
-              )
-            }
-          </section>
-        </div>
-
-        {/* ── Historial semanal completo ── */}
-        <section style={{ marginBottom: '24px' }}>
-          <WeeklyHistory data={weekData} />
-        </section>
-
+    <div style={{ ...pageStyle, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div style={{ textAlign: 'center', color: '#64748b' }}>
+        <div style={{ fontSize: '2rem', marginBottom: '12px' }}>Cargando...</div>
+        <p style={{ margin: 0 }}>{message}</p>
       </div>
-
-      <ChartModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} data={weekData} />
     </div>
   );
 }
 
-export default App;
+function ErrorView({ message }) {
+  return (
+    <div style={{ ...pageStyle, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div
+        style={{
+          background: '#ffffff',
+          border: '1px solid #fecaca',
+          borderRadius: '16px',
+          padding: '26px 32px',
+          color: '#991b1b',
+          textAlign: 'center',
+          maxWidth: '440px',
+          boxShadow: '0 16px 30px rgba(127, 29, 29, 0.08)',
+        }}
+      >
+        <p style={{ margin: '0 0 12px', fontWeight: 700 }}>No se pudo abrir el dashboard</p>
+        <p style={{ margin: '0 0 18px', lineHeight: 1.5 }}>{message}</p>
+        <a href="../inicio.html" style={{ color: '#1d4ed8', fontSize: '14px', fontWeight: 700 }}>
+          Volver al listado de pacientes
+        </a>
+      </div>
+    </div>
+  );
+}
+
+function EmptyView() {
+  return (
+    <div style={{ ...cardStyle, padding: '28px', textAlign: 'center' }}>
+      <h3 style={{ margin: '0 0 8px', color: '#10233c' }}>Sin sesiones registradas</h3>
+      <p style={{ margin: 0, color: '#64748b' }}>
+        Este paciente todavia no tiene actividad suficiente para mostrar estadisticas.
+      </p>
+    </div>
+  );
+}
+
+export default function App() {
+  const { patient, loading: authLoading, error: authError } = useAuth();
+  const [weeks, setWeeks] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [selectedWeek, setSelectedWeek] = useState('todas');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    if (!patient?.id) {
+      return undefined;
+    }
+
+    let isCancelled = false;
+
+    async function loadDashboard() {
+      try {
+        setLoading(true);
+        const dashboardWeeks = await getSesiones(patient.id);
+        if (!isCancelled) {
+          setWeeks(dashboardWeeks);
+          setError(null);
+        }
+      } catch (currentError) {
+        if (!isCancelled) {
+          setError(currentError.message);
+          setWeeks([]);
+        }
+      } finally {
+        if (!isCancelled) {
+          setLoading(false);
+        }
+      }
+    }
+
+    loadDashboard();
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [patient?.id]);
+
+  if (authLoading) {
+    return LoadingView('Resolviendo paciente y sesion activa...');
+  }
+
+  if (authError) {
+    return <ErrorView message={authError} />;
+  }
+
+  if (loading) {
+    return LoadingView('Cargando sesiones y estadisticas semanales...');
+  }
+
+  if (error) {
+    return <ErrorView message={error} />;
+  }
+
+  const filteredWeeks = selectedWeek === 'todas'
+    ? weeks
+    : weeks.filter((week) => String(week.semana) === selectedWeek);
+
+  const latestScore = weeks.at(-1)?.score ?? 0;
+  const patientName = patient?.fullName ?? 'Paciente';
+
+  return (
+    <div style={pageStyle} className="app-enter">
+      <div style={shellStyle}>
+        <header
+          style={{
+            ...cardStyle,
+            padding: '28px',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'flex-start',
+            gap: '16px',
+            flexWrap: 'wrap',
+          }}
+        >
+          <div>
+            <p
+              style={{
+                margin: '0 0 8px',
+                fontSize: '11px',
+                textTransform: 'uppercase',
+                letterSpacing: '0.14em',
+                color: '#6b83ab',
+                fontWeight: 700,
+              }}
+            >
+              PhysioTrack
+            </p>
+            <h1
+              style={{
+                margin: '0 0 6px',
+                fontSize: '2rem',
+                fontWeight: 800,
+                color: '#172b4d',
+                letterSpacing: '-0.03em',
+              }}
+            >
+              {patientName}
+            </h1>
+            <p style={{ margin: '0 0 14px', color: '#5c7194', fontSize: '14px' }}>
+              Dashboard de progreso diario y semanal
+            </p>
+            <LevelBadge score={latestScore} />
+          </div>
+
+          <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
+            <ExportButton data={filteredWeeks} patientName={patientName} />
+            <DataFilter
+              semanas={weeks.map((week) => week.semana)}
+              value={selectedWeek}
+              onFilterChange={setSelectedWeek}
+            />
+            <a
+              href="../inicio.html"
+              style={{
+                background: '#e9f1ff',
+                color: '#0052cc',
+                borderRadius: '10px',
+                padding: '9px 16px',
+                fontSize: '13px',
+                fontWeight: 700,
+                textDecoration: 'none',
+                border: '1px solid #c6d8f8',
+              }}
+            >
+              Volver
+            </a>
+          </div>
+        </header>
+
+        {filteredWeeks.length === 0 ? <EmptyView /> : (
+          <>
+            <section className="app-stagger" style={{ animationDelay: '0.06s' }}>
+              <WeeklyStats data={filteredWeeks} />
+            </section>
+
+            <section
+              className="app-stagger"
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+                gap: '24px',
+                animationDelay: '0.12s',
+              }}
+            >
+              <ProgressChart data={filteredWeeks} />
+              <WeeklyStatsTable data={filteredWeeks} />
+            </section>
+
+            <section className="app-stagger" style={{ ...cardStyle, padding: '24px', animationDelay: '0.2s' }}>
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  marginBottom: '18px',
+                  gap: '12px',
+                  flexWrap: 'wrap',
+                }}
+              >
+                <div>
+                  <h3 style={{ margin: '0 0 4px', color: '#172b4d' }}>Evolucion global</h3>
+                  <p style={{ margin: 0, color: '#5c7194', fontSize: '13px' }}>
+                    Tendencia del score por semana. Pulsa para ampliar.
+                  </p>
+                </div>
+                <span style={{ fontSize: '12px', color: '#6b83ab' }}>Vista interactiva</span>
+              </div>
+              <GlobalChart data={filteredWeeks} onClick={() => setIsModalOpen(true)} />
+            </section>
+
+            <section className="app-stagger" style={{ animationDelay: '0.28s' }}>
+              <WeeklyHistory data={filteredWeeks} />
+            </section>
+          </>
+        )}
+      </div>
+
+      <ChartModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        data={filteredWeeks}
+      />
+    </div>
+  );
+}

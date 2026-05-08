@@ -30,21 +30,31 @@ loginForm.addEventListener("submit", async (event) => {
   try {
     const token = await apiLogin(email, password);
     saveAuth(token, email, rememberInput.checked);
-    renderMessage("Login correcto, redirigiendo...", "success");
+    renderMessage("Acceso correcto. Preparando dashboard...", "success");
+    document.body.classList.add("login-success");
+    await delay(650);
     window.location.href = "inicio.html";
   } catch (error) {
     renderMessage(error.message || "No se pudo iniciar sesion", "danger");
+    document.body.classList.remove("login-shake");
+    void loginForm.offsetWidth;
+    document.body.classList.add("login-shake");
+    setTimeout(() => document.body.classList.remove("login-shake"), 420);
   } finally {
     setLoading(false);
   }
 });
 
 function renderMessage(text, type) {
-  msg.className = `text-center mt-3 mb-0 text-${type}`;
+  msg.className = `text-center mt-3 mb-0 text-${type} is-visible`;
   msg.textContent = text;
 }
 
 function setLoading(isLoading) {
   loginBtn.disabled = isLoading;
-  loginBtn.textContent = isLoading ? "Entrando..." : "Entrar";
+  loginBtn.textContent = isLoading ? "Validando..." : "Acceder al sistema";
+}
+
+function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }

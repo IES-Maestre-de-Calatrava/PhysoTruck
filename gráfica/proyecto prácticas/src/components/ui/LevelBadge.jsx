@@ -1,36 +1,43 @@
-import React from 'react';
+function getLevelInfo(score) {
+  if (score < 60) {
+    return { label: 'Necesita apoyo', color: '#ef4444' };
+  }
+  if (score < 80) {
+    return { label: 'En progreso', color: '#3b82f6' };
+  }
+  if (score < 90) {
+    return { label: 'Buen avance', color: '#14b8a6' };
+  }
+  return { label: 'Alto rendimiento', color: '#22c55e' };
+}
 
-export const LevelBadge = ({ score }) => {
-  const getLevelInfo = (s) => {
-    if (s < 50) return { label: 'En progreso', color: '#ef4444' }; // Rojo
-    if (s < 80) return { label: 'Competente', color: '#3b82f6' }; // Azul
-    return { label: 'Experto', color: '#22c55e' }; // Verde
-  };
-
+export function LevelBadge({ score = 0 }) {
   const { label, color } = getLevelInfo(score);
 
   return (
-    // He añadido marginTop aquí para separarlo del título de arriba
-    <div style={{ 
-      display: 'inline-flex', 
-      alignItems: 'center', 
-      padding: '8px 16px', 
-      borderRadius: '20px', 
-      backgroundColor: `${color}15`, 
-      border: `1px solid ${color}`,
-      color: color,
-      fontWeight: 'bold',
-      fontSize: '14px',
-      marginTop: '15px' // <--- ESTO ES LO NUEVO
-    }}>
-      <span style={{ 
-        width: '8px', 
-        height: '8px', 
-        borderRadius: '50%', 
-        backgroundColor: color, 
-        marginRight: '8px' 
-      }}></span>
+    <div
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        padding: '8px 14px',
+        borderRadius: '999px',
+        backgroundColor: `${color}16`,
+        border: `1px solid ${color}55`,
+        color,
+        fontWeight: 700,
+        fontSize: '13px',
+      }}
+    >
+      <span
+        style={{
+          width: '8px',
+          height: '8px',
+          borderRadius: '50%',
+          backgroundColor: color,
+          marginRight: '8px',
+        }}
+      />
       {label} ({score} pts)
     </div>
   );
-};
+}

@@ -1,9 +1,12 @@
-const grid        = document.getElementById("patientsGrid");
-const msg         = document.getElementById("msg");
+const grid = document.getElementById("patientsGrid");
+const msg = document.getElementById("msg");
 const searchInput = document.getElementById("searchInput");
 const searchCount = document.getElementById("searchCount");
+const openStatsBtn = document.getElementById("openStatsBtn");
+const LAST_PATIENT_KEY = "physiotrack_last_patient";
 
 let allPatients = [];
+let selectedPatientId = null;
 
 if (requireAuth()) {
   bindLogout();
@@ -12,6 +15,7 @@ if (requireAuth()) {
 }
 
 searchInput.addEventListener("input", () => filterCards(searchInput.value));
+openStatsBtn?.addEventListener("click", openStatsDashboard);
 
 async function loadUserInfo() {
   try {
@@ -59,10 +63,10 @@ function filterCards(query) {
 
   let visible = 0;
   grid.querySelectorAll(".pt-card").forEach((card) => {
-    const name      = normalize(card.dataset.name);
+    const name = normalize(card.dataset.name);
     const diagnosis = normalize(card.dataset.diagnosis);
-    const level     = normalize(card.dataset.level);
-    const matches   = name.includes(term) || diagnosis.includes(term) || level.includes(term);
+    const level = normalize(card.dataset.level);
+    const matches = name.includes(term) || diagnosis.includes(term) || level.includes(term);
     card.classList.toggle("hidden", !matches);
     if (matches) visible++;
   });
@@ -85,12 +89,12 @@ function normalize(str) {
   return (str ?? "")
     .toLowerCase()
     .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "");
+    .replace(/[\u0300-\u036f]/g, "");
 }
 
 function buildCard(patient, index) {
-  const colorClass    = `pt-color-${index % 6}`;
-  const initials      = getInitials(patient.fullName);
+  const colorClass = `pt-color-${index % 6}`;
+  const initials = getInitials(patient.fullName);
   const treatmentDate = patient.treatmentStart
     ? new Date(patient.treatmentStart).toLocaleDateString("es-ES") : "—";
   const levelVal = patient.currentLevel
@@ -109,7 +113,7 @@ function buildCard(patient, index) {
         <div class="pt-card-header-logo">⚕</div>
         <div class="pt-card-header-text">
           <h4>PhysioTrack</h4>
-          <p>SESCAM · Fisioterapia Infantil</p>
+          <p>Premium Medical Tracking</p>
         </div>
       </div>
       <div class="pt-card-body">
@@ -119,21 +123,41 @@ function buildCard(patient, index) {
         <div class="pt-card-data">
           <p><strong>Nombre:</strong> ${escapeHtml(patient.fullName)} ${statusHtml}</p>
           <p><strong>ID Paciente:</strong> ${patient.id}</p>
-          <p><strong>Diagnóstico:</strong> ${escapeHtml(patient.diagnosis || "Sin registrar")}</p>
+          <p><strong>Diagnostico:</strong> ${escapeHtml(patient.diagnosis || "Sin registrar")}</p>
           <p><strong>Nivel actual:</strong> ${levelVal}</p>
           <p><strong>Inicio trat.:</strong> ${treatmentDate}</p>
         </div>
       </div>
-      <div class="pt-card-footer">Tarjeta de seguimiento fisioterapéutico</div>
+      <div class="pt-card-footer">Tarjeta de seguimiento fisioterapeutico</div>
     </div>`;
 }
 
 function navigateToPatient(id, name) {
-  const normalized = name.toLowerCase();
-  if (normalized.includes("alberto")) { window.location.href = "alberto.html"; return; }
-  if (normalized.includes("alonso"))  { window.location.href = "alonso.html";  return; }
-  msg.className = "pt-msg text-warning";
-  msg.textContent = `Página de detalle para "${name}" aún no disponible`;
+  if (!id) {
+    msg.className = "pt-msg text-warning";
+    msg.textContent = `No se pudo abrir el dashboard de "${name}" porque falta el ID del paciente`;
+    return;
+  }
+
+  selectedPatientId = String(id);
+  localStorage.setItem(LAST_PATIENT_KEY, selectedPatientId);
+  window.location.href = `charts/?patient=${encodeURIComponent(id)}`;
+}
+
+function openStatsDashboard() {
+  const rememberedId = localStorage.getItem(LAST_PATIENT_KEY);
+  const fallbackId = selectedPatientId
+    || rememberedId
+    || (allPatients[0] ? String(allPatients[0].id) : null);
+
+  if (!fallbackId) {
+    msg.className = "pt-msg text-warning";
+    msg.textContent = "No hay pacientes disponibles para abrir el dashboard.";
+    return;
+  }
+
+  localStorage.setItem(LAST_PATIENT_KEY, fallbackId);
+  window.location.href = `charts/?patient=${encodeURIComponent(fallbackId)}`;
 }
 
 function getInitials(fullName) {
