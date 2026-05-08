@@ -1,3 +1,4 @@
+import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { GlobalChart } from './components/charts/GlobalChart';
 import { ChartModal } from './components/charts/ChartModal';
@@ -10,35 +11,16 @@ import { ExportButton } from './components/ui/ExportButton';
 import { LevelBadge } from './components/ui/LevelBadge';
 import { useAuth } from './context/AuthContext';
 import { getSesiones } from './services/api';
-
-const pageStyle = {
-  padding: '40px 20px',
-  background: 'linear-gradient(180deg, #f7faff 0%, #f4f7fa 100%)',
-  minHeight: '100vh',
-  boxSizing: 'border-box',
-};
-
-const shellStyle = {
-  maxWidth: '1120px',
-  margin: '0 auto',
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '24px',
-};
-
-const cardStyle = {
-  background: '#ffffff',
-  border: '1px solid #d6e0ef',
-  borderRadius: '16px',
-  boxShadow: '0 4px 20px rgba(0, 82, 204, 0.05)',
-};
+import { Sidebar } from './components/Sidebar/Sidebar';
 
 function LoadingView(message) {
   return (
-    <div style={{ ...pageStyle, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <div style={{ textAlign: 'center', color: '#64748b' }}>
-        <div style={{ fontSize: '2rem', marginBottom: '12px' }}>Cargando...</div>
-        <p style={{ margin: 0 }}>{message}</p>
+    <div className="min-h-screen bg-slate-100 px-4 py-10 text-slate-900 dark:bg-slate-900 dark:text-slate-100">
+      <div className="mx-auto flex max-w-[1200px] items-center justify-center py-24">
+        <div className="pt-card p-8 text-center dark:border-slate-700 dark:bg-slate-800">
+          <div className="text-2xl font-extrabold font-display">Cargando…</div>
+          <p className="mt-2 text-sm font-semibold text-slate-600 dark:text-slate-300">{message}</p>
+        </div>
       </div>
     </div>
   );
@@ -46,24 +28,15 @@ function LoadingView(message) {
 
 function ErrorView({ message }) {
   return (
-    <div style={{ ...pageStyle, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <div
-        style={{
-          background: '#ffffff',
-          border: '1px solid #fecaca',
-          borderRadius: '16px',
-          padding: '26px 32px',
-          color: '#991b1b',
-          textAlign: 'center',
-          maxWidth: '440px',
-          boxShadow: '0 16px 30px rgba(127, 29, 29, 0.08)',
-        }}
-      >
-        <p style={{ margin: '0 0 12px', fontWeight: 700 }}>No se pudo abrir el dashboard</p>
-        <p style={{ margin: '0 0 18px', lineHeight: 1.5 }}>{message}</p>
-        <a href="../inicio.html" style={{ color: '#1d4ed8', fontSize: '14px', fontWeight: 700 }}>
-          Volver al listado de pacientes
-        </a>
+    <div className="min-h-screen bg-slate-100 px-4 py-10 text-slate-900 dark:bg-slate-900 dark:text-slate-100">
+      <div className="mx-auto flex max-w-[1200px] items-center justify-center py-24">
+        <div className="max-w-[520px] rounded-2xl border border-red-200 bg-white p-8 text-center shadow-xl dark:border-red-400/30 dark:bg-slate-800">
+          <div className="text-lg font-extrabold font-display text-red-600">No se pudo abrir el dashboard</div>
+          <p className="mt-2 text-sm font-semibold text-slate-600 dark:text-slate-300">{message}</p>
+          <a href="../inicio.html" className="mt-4 inline-flex rounded-xl bg-blue-600 px-4 py-2 text-sm font-extrabold text-white hover:bg-blue-700">
+            Volver a pacientes
+          </a>
+        </div>
       </div>
     </div>
   );
@@ -71,10 +44,10 @@ function ErrorView({ message }) {
 
 function EmptyView() {
   return (
-    <div style={{ ...cardStyle, padding: '28px', textAlign: 'center' }}>
-      <h3 style={{ margin: '0 0 8px', color: '#10233c' }}>Sin sesiones registradas</h3>
-      <p style={{ margin: 0, color: '#64748b' }}>
-        Este paciente todavia no tiene actividad suficiente para mostrar estadisticas.
+    <div className="pt-card p-8 text-center dark:border-slate-700 dark:bg-slate-800">
+      <h3 className="font-display text-lg font-extrabold">Sin sesiones registradas</h3>
+      <p className="mt-2 text-sm font-semibold text-slate-600 dark:text-slate-300">
+        Este paciente todavía no tiene actividad suficiente para mostrar estadísticas.
       </p>
     </div>
   );
@@ -87,6 +60,7 @@ export default function App() {
   const [error, setError] = useState(null);
   const [selectedWeek, setSelectedWeek] = useState('todas');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [navKey, setNavKey] = useState('dashboard');
 
   useEffect(() => {
     if (!patient?.id) {
@@ -122,6 +96,13 @@ export default function App() {
     };
   }, [patient?.id]);
 
+  const filteredWeeks = selectedWeek === 'todas'
+    ? weeks
+    : weeks.filter((week) => String(week.semana) === selectedWeek);
+
+  const latestScore = weeks.at(-1)?.score ?? 0;
+  const patientName = patient?.fullName ?? 'Paciente';
+
   if (authLoading) {
     return LoadingView('Resolviendo paciente y sesion activa...');
   }
@@ -138,128 +119,101 @@ export default function App() {
     return <ErrorView message={error} />;
   }
 
-  const filteredWeeks = selectedWeek === 'todas'
-    ? weeks
-    : weeks.filter((week) => String(week.semana) === selectedWeek);
-
-  const latestScore = weeks.at(-1)?.score ?? 0;
-  const patientName = patient?.fullName ?? 'Paciente';
-
   return (
-    <div style={pageStyle} className="app-enter">
-      <div style={shellStyle}>
-        <header
-          style={{
-            ...cardStyle,
-            padding: '28px',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'flex-start',
-            gap: '16px',
-            flexWrap: 'wrap',
-          }}
-        >
-          <div>
-            <p
-              style={{
-                margin: '0 0 8px',
-                fontSize: '11px',
-                textTransform: 'uppercase',
-                letterSpacing: '0.14em',
-                color: '#6b83ab',
-                fontWeight: 700,
-              }}
-            >
-              PhysioTrack
-            </p>
-            <h1
-              style={{
-                margin: '0 0 6px',
-                fontSize: '2rem',
-                fontWeight: 800,
-                color: '#172b4d',
-                letterSpacing: '-0.03em',
-              }}
-            >
-              {patientName}
-            </h1>
-            <p style={{ margin: '0 0 14px', color: '#5c7194', fontSize: '14px' }}>
-              Dashboard de progreso diario y semanal
-            </p>
-            <LevelBadge score={latestScore} />
-          </div>
+    <div className="min-h-screen bg-slate-100 text-slate-900 dark:bg-slate-900 dark:text-slate-100">
+      <div className="mx-auto flex max-w-[1400px]">
+        <Sidebar activeKey={navKey} onNavigate={setNavKey} />
 
-          <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
-            <ExportButton data={filteredWeeks} patientName={patientName} />
-            <DataFilter
-              semanas={weeks.map((week) => week.semana)}
-              value={selectedWeek}
-              onFilterChange={setSelectedWeek}
-            />
-            <a
-              href="../inicio.html"
-              style={{
-                background: '#e9f1ff',
-                color: '#0052cc',
-                borderRadius: '10px',
-                padding: '9px 16px',
-                fontSize: '13px',
-                fontWeight: 700,
-                textDecoration: 'none',
-                border: '1px solid #c6d8f8',
-              }}
+        <main className="flex-1 px-4 py-8 md:px-8">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={navKey}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.45, ease: 'easeOut' }}
             >
-              Volver
-            </a>
-          </div>
-        </header>
+              <header className="pt-card dark:bg-dark-surface dark:border-dark-border p-6 md:p-7">
+                <div className="flex flex-wrap items-start justify-between gap-5">
+                  <div className="min-w-[220px]">
+                    <div className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-slate-600 dark:text-slate-300">
+                      PhysioTrack
+                    </div>
+                    <h1 className="mt-2 font-display text-3xl font-extrabold tracking-tight">
+                      {patientName}
+                    </h1>
+                    <p className="mt-1 text-sm font-semibold text-slate-600 dark:text-slate-300">
+                      Deep Ocean & Cyan · Dashboard de progreso
+                    </p>
+                    <div className="mt-4">
+                      <LevelBadge score={latestScore} />
+                    </div>
+                  </div>
 
-        {filteredWeeks.length === 0 ? <EmptyView /> : (
-          <>
-            <section className="app-stagger" style={{ animationDelay: '0.06s' }}>
-              <WeeklyStats data={filteredWeeks} />
-            </section>
-
-            <section
-              className="app-stagger"
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-                gap: '24px',
-                animationDelay: '0.12s',
-              }}
-            >
-              <ProgressChart data={filteredWeeks} />
-              <WeeklyStatsTable data={filteredWeeks} />
-            </section>
-
-            <section className="app-stagger" style={{ ...cardStyle, padding: '24px', animationDelay: '0.2s' }}>
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  marginBottom: '18px',
-                  gap: '12px',
-                  flexWrap: 'wrap',
-                }}
-              >
-                <div>
-                  <h3 style={{ margin: '0 0 4px', color: '#172b4d' }}>Evolucion global</h3>
-                  <p style={{ margin: 0, color: '#5c7194', fontSize: '13px' }}>
-                    Tendencia del score por semana. Pulsa para ampliar.
-                  </p>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <ExportButton data={filteredWeeks} patientName={patientName} />
+                    <DataFilter
+                      semanas={weeks.map((week) => week.semana)}
+                      value={selectedWeek}
+                      onFilterChange={setSelectedWeek}
+                    />
+                    <a href="../inicio.html" className="pt-btn-primary">
+                      Volver
+                    </a>
+                  </div>
                 </div>
-                <span style={{ fontSize: '12px', color: '#6b83ab' }}>Vista interactiva</span>
-              </div>
-              <GlobalChart data={filteredWeeks} onClick={() => setIsModalOpen(true)} />
-            </section>
+              </header>
 
-            <section className="app-stagger" style={{ animationDelay: '0.28s' }}>
-              <WeeklyHistory data={filteredWeeks} />
-            </section>
-          </>
-        )}
+              <div className="mt-6">
+                {filteredWeeks.length === 0 ? <EmptyView /> : (
+                  <motion.div
+                    initial="hidden"
+                    animate="show"
+                    variants={{
+                      hidden: { opacity: 0 },
+                      show: { opacity: 1, transition: { staggerChildren: 0.08 } },
+                    }}
+                    className="flex flex-col gap-6"
+                  >
+                    <motion.section variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } }}>
+                      <WeeklyStats data={filteredWeeks} />
+                    </motion.section>
+
+                    <motion.section
+                      variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } }}
+                      className="grid grid-cols-1 gap-6 lg:grid-cols-2"
+                    >
+                      <ProgressChart data={filteredWeeks} />
+                      <WeeklyStatsTable data={filteredWeeks} />
+                    </motion.section>
+
+                    <motion.section
+                      variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } }}
+                      className="pt-card p-6 dark:border-slate-700 dark:bg-slate-800"
+                    >
+                      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+                        <div>
+                          <h3 className="font-display text-lg font-extrabold">Evolución general</h3>
+                          <p className="mt-1 text-sm font-semibold text-slate-600 dark:text-slate-300">
+                            Tendencia del score por semana. Pulsa para ampliar.
+                          </p>
+                        </div>
+                        <span className="pt-chip dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
+                          Vista interactiva
+                        </span>
+                      </div>
+                      <GlobalChart data={filteredWeeks} onClick={() => setIsModalOpen(true)} />
+                    </motion.section>
+
+                    <motion.section variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } }}>
+                      <WeeklyHistory data={filteredWeeks} />
+                    </motion.section>
+                  </motion.div>
+                )}
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </main>
       </div>
 
       <ChartModal
