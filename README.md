@@ -1,3 +1,17 @@
+﻿# README
+
+Este archivo consolida los `.md` propios del proyecto y excluye documentación de dependencias externas como `node_modules`.
+
+## Índice
+- README.md
+- auditoria_readme_physiotrack.md
+- frontend base\README.md
+- gráfica\proyecto prácticas\README.md
+
+---
+
+## Archivo: README.md
+
 # PhysioTrack
 
 Plataforma web para seguimiento fisioterapéutico infantil orientada a profesionales sanitarios. El proyecto combina un backend en Spring Boot, un frontend clásico en HTML/CSS/JS para autenticación y navegación, y un dashboard moderno en React para visualización de estadísticas y progreso.
@@ -923,3 +937,320 @@ En resumen:
 
 - el problema de las gráficas no es una caída general de la integración,
 - sino una mezcla de desalineación de contrato, funcionalidad diaria no implementada y datos de prueba con anomalías temporales.
+
+---
+
+## Archivo: auditoria_readme_physiotrack.md
+
+# Auditoría de coherencia README vs. código real en PhysioTrack
+
+## Alcance y método
+
+Esta auditoría contrasta `README.md` con la implementación real del proyecto en:
+
+- `physiotrack/` para backend Spring Boot.
+- `frontend base/` para frontend clásico HTML/CSS/JS.
+- `gráfica/proyecto prácticas/` para dashboard React.
+
+Se han revisado especialmente:
+
+- `README.md`
+- `physiotrack/pom.xml`
+- `physiotrack/src/main/resources/application.properties`
+- `physiotrack/src/main/resources/datos_prueba.json`
+- `physiotrack/src/main/java/com/physiotrack/physiotrack/{config,controller,entity,repository,seeder,security,service}`
+- `frontend base/{index.html,inicio.html,alberto.html,alonso.html,js/*}`
+- `gráfica/proyecto prácticas/{package.json,vite.config.js,index.html,postcss.config.js,tailwind.config.cjs,src/**/*}`
+
+## Resumen ejecutivo
+
+El `README.md` es bastante bueno como mapa general del proyecto y acierta en la arquitectura híbrida, el stack principal del backend, el build integrado del dashboard React y la existencia del seed con datos demo.
+
+La deriva principal está concentrada en tres zonas:
+
+- el dashboard React ha evolucionado y el README conserva varios diagnósticos y limitaciones que ya no describen el flujo activo;
+- la documentación del frontend moderno se ha quedado corta respecto al stack real y a la estructura actual;
+- el propio `README.md` tiene problemas visibles de codificación de caracteres, lo que reduce claridad y credibilidad.
+
+Valoración general de coherencia:
+
+- arquitectura general: alta
+- backend y API principal: alta-media
+- frontend React y flujo real de datos: media
+- secciones de limitaciones y diagnóstico: baja-media
+
+## Coherencias verificadas
+
+- El backend usa Java 21 y Spring Boot `3.5.14`, coherente con la descripción general de Java 21 y Spring Boot 3.5.
+- El backend incluye `spring-boot-starter-web`, `spring-boot-starter-data-jpa`, `spring-boot-starter-security`, JWT (`jjwt-*`), MySQL, Lombok y Springdoc.
+- El backend escucha en puerto `9090` y toma `DB_PASSWORD` y `JWT_SECRET` desde configuración, tal como indica el README.
+- Existen `AuthController`, `PatientController`, `StatsController`, `SecurityConfig`, `JwtService`, `DataSeeder` y `OpenApiConfig`.
+- El modelo de datos principal coincide en lo esencial con `User`, `Patient`, `Session` y `SessionEvent`.
+- El dataset de prueba existe en `physiotrack/src/main/resources/datos_prueba.json`.
+- Las credenciales demo del seed son correctas: `fisio@sescam.es` / `password123`.
+- Los conteos del dataset descritos en el README son correctos:
+  - Alberto: 40 días con sesiones, 210 sesiones.
+  - Alonso: 9 días con sesiones, 88 sesiones.
+- El dashboard React usa Vite y compila en `frontend base/charts/` con `base: './'` y `outDir: ../../frontend base/charts`.
+- El frontend clásico sigue siendo la puerta de entrada real mediante `frontend base/index.html` e `inicio.html`.
+
+## Tabla de discrepancias
+
+| Sección del README | Descripción en README | Estado actual en código | Discrepancia/Hallazgo | Acción propuesta para README |
+| :-- | :-- | :-- | :-- | :-- |
+| Arquitectura backend / estructura de paquetes | Se refiere a `src/main/java/com/physiotrack/model/` para las entidades | Las entidades están en `physiotrack/src/main/java/com/physiotrack/physiotrack/entity/` | El paquete real es `entity`, no `model` | Sustituir toda referencia a `model/` por `entity/` |
+| Dashboard React / archivos importantes | Presenta `src/api.js` como cliente API principal | El cliente real está en `gráfica/proyecto prácticas/src/services/api.js`; `src/api.js` solo reexporta | El README señala el archivo equivocado como fuente de verdad del cliente HTTP | Documentar `src/services/api.js` como cliente principal y dejar `src/api.js` como alias/reexport opcional |
+| Flujo del usuario | El dashboard React se abre con `?patient=Nombre` y resuelve al paciente por nombre | `frontend base/js/inicio.js` navega con `charts/?patient=<id>`; `AuthContext` acepta tanto ID como nombre; subpáginas heredadas sí redirigen con nombres fijos | El contrato real del query param es mixto, no solo por nombre | Actualizar el flujo: el selector principal pasa ID; el resolver React soporta ID y nombre; páginas heredadas aún usan `Alberto`/`Alonso` |
+| Dashboard React / funcionalidades | Indica “historial reciente de sesiones” visible en el dashboard React | `RecentSessions.jsx` existe, pero `App.jsx` no lo monta; la UI actual renderiza `WeeklyHistory`, `WeeklyStats`, `WeeklyStatsTable`, `ProgressChart` y `GlobalChart` | La funcionalidad descrita no está en la pantalla principal actual | Reemplazar “historial reciente de sesiones” por “historial semanal desplegable con detalle diario derivado” |
+| Exportación | Describe exportación CSV | `ExportButton.jsx` exporta CSV, Excel (`.xls`) y vista imprimible PDF | El README se ha quedado corto | Ampliar la sección de exportación a CSV, Excel y PDF imprimible |
+| Limitación 1: navegación hardcodeada | Dice que el frontend clásico reconoce explícitamente solo Alberto y Alonso | `frontend base/js/inicio.js` construye la navegación al dashboard usando el ID del paciente seleccionado; solo algunas subpáginas heredadas están hardcodeadas a Alberto/Alonso | La limitación ya no aplica al flujo principal, solo a parte del legado | Reescribir la limitación: el selector principal es dinámico, pero sobreviven redirecciones legacy hardcodeadas |
+| Limitación 2: contrato React/backend | Afirma que el dashboard React espera `totalSessions` y `avgMovementTime` en `/api/stats/progress/{id}` y por eso muestra ceros | El flujo activo en `src/services/api.js` ya no depende de eso: usa `/stats/progress/{id}` para progreso y `/patients/{id}/sessions/week/{week}` para detalle semanal, luego adapta todo con `adaptSessionsToWeeklyLogs` | La desalineación descrita fue cierta antes, pero no representa el dashboard activo actual | Marcar esta sección como “problema histórico ya mitigado” o eliminarla y describir el adaptador actual |
+| Diagnóstico de gráficas y datos diarios | Indica que `DataFilter.jsx` existe pero no está montado en `App.jsx` | `App.jsx` sí monta `DataFilter` en la cabecera del dashboard | Diagnóstico desactualizado | Eliminar esa afirmación y actualizar la lista de componentes realmente montados |
+| Frontend moderno / stack | Lista React 19, Vite 8, Recharts y ESLint | Además usa `framer-motion`, `tailwindcss`, `postcss`, `autoprefixer` y un sistema de tema claro/oscuro | Faltan dependencias y capacidades de UI relevantes | Ampliar el stack del dashboard React con Framer Motion, Tailwind CSS, PostCSS, Autoprefixer y theme context |
+| Frontend clásico | Da a entender que `alberto.html` y `alonso.html` son páginas resumidas y que las subpáginas redirigen a React | `alberto.html` y `alonso.html` siguen siendo dashboards clásicos funcionales con Chart.js; las subpáginas internas sí redirigen a React | Se mezcla “resumen clásico” con “simple redirección” y no queda claro qué páginas siguen vivas | Aclarar que `alberto.html` y `alonso.html` siguen operativas como dashboards legacy y que solo algunas subpáginas internas redirigen |
+| Modelo de desarrollo frontend | `frontend base/charts/` se describe como artefacto generado, no origen manual | Es correcto conceptualmente, pero en la práctica el directorio generado está versionado en Git y forma parte del estado real del repo | No es un error funcional, pero sí una omisión operativa importante | Añadir una nota: es artefacto generado, pero actualmente está committeado y debe regenerarse tras cambios React |
+| Calidad documental | El README se presenta como documento de referencia operativo | El propio archivo contiene mojibake visible: `Ã©`, `â€”`, `grÃ¡fica`, etc. | La documentación está degradada por encoding | Corregir la codificación del README a UTF-8 limpio antes de cualquier revisión de contenido |
+
+## Omisiones importantes
+
+Aspectos implementados en código pero no bien documentados o no documentados:
+
+- El dashboard React usa `fetch`, no Axios. No hay interceptores de Axios.
+- Existe soporte de mock en React mediante `VITE_USE_MOCK` y `src/data/mockDailyData.js`.
+- El dashboard React resuelve paciente con `AuthContext`, recuerda el último paciente (`physiotrack_last_patient`) y acepta query por ID o nombre normalizado.
+- Existe tema claro/oscuro persistido en `localStorage` con `ThemeContext`.
+- El dashboard incluye una `Sidebar` visual y animaciones con Framer Motion.
+- El flujo de datos actual del dashboard React pasa por `adaptSessionsToWeeklyLogs`, que deriva `dailyLogs` a partir de sesiones semanales reales.
+- `frontend base/js/inicio.js` ya navega al dashboard por ID, no solo por nombre.
+- El backend tiene una prueba básica en `physiotrack/src/test/java/com/physiotrack/physiotrack/PhysiotrackApplicationTests.java`.
+- `SecurityConfig` permite CORS para `http://localhost:*`, `http://127.0.0.1:*` y origen `null`, detalle útil para servir el frontend clásico por HTTP local.
+- El backend no usa una capa de servicios de negocio en el flujo principal de stats/pacientes; la lógica activa vive sobre todo en controladores, repositorios y `PatientAccessHelper`.
+
+## Hallazgos de arquitectura y contrato
+
+### Backend
+
+- La arquitectura activa es más “controller + repository + helper” que “controller + service + repository”.
+- `StatsService.java` existe, pero no participa en el flujo principal actual. El README acierta al insinuar que hay clases auxiliares heredadas, pero conviene citar este caso explícitamente.
+- No existen DTOs dedicados en un paquete propio; las respuestas API se construyen con `record` internos en los controladores.
+
+### API REST
+
+- Los endpoints documentados en el README son correctos:
+  - `POST /api/auth/login`
+  - `GET /api/auth/me`
+  - `GET /api/patients`
+  - `GET /api/patients/{id}`
+  - `GET /api/patients/{id}/sessions/week/{week}`
+  - `GET /api/stats/weekly/{patientId}/{week}`
+  - `GET /api/stats/progress/{patientId}`
+- Sigue sin existir un endpoint diario real en backend.
+- `StatsController` sigue devolviendo en progreso:
+  - `week`
+  - `sessionCount`
+  - `avgDrivingScore`
+  - `avgStabilityScore`
+  - `level`
+- El dashboard activo ya compensa ese contrato combinando progreso con sesiones semanales.
+
+### Frontend React
+
+- El stack real ya no es solo React + Vite + Recharts.
+- La estructura actual sí contiene `components/`, `context/`, `hooks/`, `services/`, `styles/` y `data/`.
+- No existe directorio `pages/`; todo el dashboard se monta desde `App.jsx`.
+- Hay componentes sin uso actual en `App.jsx`, por ejemplo:
+  - `RecentSessions.jsx`
+  - `UsageChart.jsx`
+  - `StatsSummary.jsx`
+
+### Frontend clásico
+
+- El login, persistencia de JWT y carga del usuario autenticado sí están alineados con el README.
+- El selector de pacientes ya es más dinámico de lo que el README sugiere.
+- Las pantallas “por día” heredadas continúan consumiendo stats semanales, no diarias, tal como el README ya advertía.
+
+## Mejoras sugeridas para el README
+
+- Corregir primero la codificación del archivo. Ahora mismo el mayor problema de legibilidad no es conceptual, sino de encoding.
+- Separar con más claridad:
+  - “estado actual”
+  - “comportamiento legado”
+  - “diagnóstico histórico”
+- Acortar o mover a un anexo la gran sección de diagnóstico operativo. Hoy mezcla hechos vigentes con problemas ya mitigados.
+- Añadir una subsección “Contrato actual del dashboard React” con este flujo:
+  - `getPatients`
+  - resolución de paciente en `AuthContext`
+  - `getProgress`
+  - `getWeeklySessions`
+  - `adaptSessionsToWeeklyLogs`
+- Actualizar la lista de stack del dashboard React:
+  - React 19
+  - Vite 8
+  - Recharts
+  - Framer Motion
+  - Tailwind CSS
+  - PostCSS
+  - Autoprefixer
+  - ESLint
+- Aclarar el estado de `frontend base/charts/`: build generado, pero actualmente versionado.
+- Reescribir la sección de limitaciones para distinguir problemas vigentes de problemas ya resueltos.
+- Añadir una nota breve sobre componentes y clases no usados para que futuros colaboradores no los interpreten como parte obligatoria del flujo principal.
+
+## Propuesta de actualización priorizada
+
+Orden recomendado para actualizar el README:
+
+1. Corregir codificación UTF-8 del archivo.
+2. Actualizar stack y estructura real del dashboard React.
+3. Reescribir la sección de flujo del usuario para reflejar query por ID en el flujo principal.
+4. Revisar la sección de funcionalidades del dashboard React para eliminar “recent sessions” si no vuelve a montarse.
+5. Reescribir limitaciones y diagnóstico, marcando qué ya no aplica.
+6. Añadir una nota operativa sobre `src/services/api.js`, `AuthContext` y `adaptSessionsToWeeklyLogs`.
+
+## Evaluación general
+
+El `README.md` sigue siendo una buena base de onboarding porque describe bien la intención del proyecto, su forma híbrida y las piezas más importantes. El problema no es que esté “mal” en bloque, sino que mezcla:
+
+- documentación vigente,
+- deuda técnica real,
+- diagnósticos antiguos,
+- y detalles del dashboard React que ya han cambiado.
+
+Conclusión operativa:
+
+- si alguien entra nuevo al repo, el README todavía ayuda;
+- si alguien quiere desarrollar o depurar el dashboard React actual, el README ya no es suficientemente fiable en varias secciones clave;
+- la actualización más urgente está en frontend React, limitaciones y codificación del propio archivo.
+
+---
+
+## Archivo: frontend base\README.md
+
+# PhysioTrack - Frontend Base
+
+Frontend con Bootstrap para el sistema de gestión fisioterapéutica PhysioTrack.
+
+## 📋 Características
+
+- ✅ Sistema de autenticación con JWT
+- ✅ Selección dinámica de pacientes
+- ✅ Dashboard de información del paciente
+- ✅ Interfaz moderna y responsiva
+- ✅ Navegación fluida entre secciones
+- ✅ Estilos optimizados con Bootstrap 5
+
+## 🚀 Instalación
+
+### Requisitos
+- Backend de PhysioTrack corriendo en `http://localhost:9090`
+- Un servidor HTTP local
+
+### Opción 1: Python (Recomendado)
+
+```bash
+cd "frontend base"
+python -m http.server 8000
+```
+
+Luego abre: `http://localhost:8000`
+
+### Opción 2: Node.js
+
+```bash
+cd "frontend base"
+npx http-server -p 8000
+```
+
+Luego abre: `http://localhost:8000`
+
+### Opción 3: Live Server (VS Code)
+
+1. Instala la extensión "Live Server" en VS Code
+2. Click derecho en `index.html`
+3. Selecciona "Open with Live Server"
+
+## 🔑 Credenciales de Prueba
+
+Usa las credenciales en tu base de datos MySQL. El backend debe estar ejecutándose y la base de datos poblada.
+
+## 📁 Estructura de Archivos
+
+```
+frontend base/
+├── index.html              # Página de login
+├── inicio.html             # Selección de pacientes
+├── alberto.html            # Dashboard de Alberto
+├── alonso.html             # Dashboard de Alonso
+├── js/
+│   ├── api.js             # Cliente HTTP para comunicación con backend
+│   ├── common.js          # Funciones compartidas (autenticación)
+│   ├── index.js           # Lógica del login
+│   ├── inicio.js          # Lógica de selección de pacientes
+│   └── paciente.js        # Lógica del dashboard del paciente
+├── css/
+│   ├── login.css          # Estilos de la página de login
+│   ├── inicio.css         # Estilos de la página de inicio
+│   ├── paciente.css       # Estilos del dashboard
+│   ├── shared.css         # Estilos compartidos
+│   └── subpages.css       # Estilos de subpáginas
+└── galeria/               # Imágenes del proyecto
+```
+
+## 🎨 Características de Diseño
+
+- **Diseño Moderno**: Gradientes degradados, glassmorphism y animaciones suaves
+- **Responsive**: Funciona perfectamente en desktop, tablet y móvil
+- **Color Scheme**: Morado/azul (#667eea a #764ba2)
+- **Tipografía**: Inter Font Stack
+- **Animaciones**: Transiciones fluidas y efecto hover
+
+## 🔧 Configuración del Backend
+
+El frontend espera que el backend esté disponible en:
+```
+http://localhost:9090
+```
+
+Si necesitas cambiar esta URL, edita `js/api.js`:
+```javascript
+const API_BASE_URL = "http://localhost:9090";
+```
+
+## 📝 Endpoints del API Esperados
+
+- `POST /api/auth/login` - Autenticación
+- `GET /api/patients` - Obtener lista de pacientes (requiere autenticación)
+- `GET /api/stats/patient/{patientId}` - Obtener estadísticas del paciente
+
+## 🛠️ Notas de Desarrollo
+
+- Los datos del localStorage se guardan bajo las claves: `physiotrack_token` y `physiotrack_user_email`
+- La autenticación usa JWT (Bearer token)
+- Los errores de conexión con el API se muestran en mensajes de alerta
+- Los datos de prueba se cargan automáticamente si el API no responde
+
+## 📄 Licencia
+
+Este proyecto es parte de PhysioTrack para la gestión de terapias fisioterapéuticas.
+
+---
+
+## Archivo: gráfica\proyecto prácticas\README.md
+
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+
+## React Compiler
+
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
