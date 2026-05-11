@@ -1,0 +1,10 @@
+.env
+target/
+*.class
+desktop.ini
+*.zip
+frontend-mockups/
+.claude/
+node_modules/
+gráfica/proyecto prácticas/node_modules/
+gráfica/proyecto prácticas/dist/

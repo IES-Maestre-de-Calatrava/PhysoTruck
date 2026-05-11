@@ -1,0 +1,787 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PhysioTrack — Dashboard Pacientes</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --text:#1e293b;
+  --card-bg:rgba(255,255,255,0.72);
+  --sidebar:#ffffff;
+  --sidebar-text:#0f172a;
+  --box:#f8fbff;
+  --border:#dbeafe;
+}
+
+body.dark{
+  --text:#f1f5f9;
+  --card-bg:rgba(15,23,42,0.75);
+  --sidebar:#111827;
+  --sidebar-text:#f8fafc;
+  --box:#1e293b;
+  --border:#334155;
+
+  background:
+    radial-gradient(circle at top left,#0f766e 0%,transparent 25%),
+    radial-gradient(circle at bottom right,#0f172a 0%,transparent 20%),
+    linear-gradient(135deg,#020617,#111827);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  min-height:100vh;
+
+  background:
+    radial-gradient(circle at top left,#07c069 0%,transparent 25%),
+    radial-gradient(circle at bottom right,#0ee9d7 0%,transparent 20%),
+    linear-gradient(135deg,#f4f8ff,#eef4fb);
+
+  color:var(--text);
+
+  transition:0.35s ease;
+}
+
+/* LAYOUT */
+
+.app-layout{
+  display:flex;
+  min-height:100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+  width:280px;
+  background:var(--sidebar);
+
+  padding:30px 22px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+
+  border-right:1px solid rgba(255,255,255,0.08);
+
+  box-shadow:0 0 30px rgba(0,0,0,0.06);
+
+  position:fixed;
+  top:0;
+  left:0;
+  bottom:0;
+}
+
+.sidebar-top{
+  display:flex;
+  flex-direction:column;
+  gap:28px;
+}
+
+.logo{
+  font-size:28px;
+  font-weight:800;
+  color:#10b981;
+}
+
+.menu{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.menu-item{
+  display:flex;
+  align-items:center;
+  gap:14px;
+
+  padding:16px 18px;
+
+  border-radius:18px;
+
+  cursor:pointer;
+
+  color:var(--sidebar-text);
+
+  font-weight:600;
+
+  transition:0.3s;
+}
+
+.menu-item:hover{
+  background:rgba(37,99,235,0.08);
+  transform:translateX(4px);
+}
+
+.menu-item.active{
+  background:linear-gradient(135deg,#2563eb,#1d4ed8);
+  color:white;
+  box-shadow:0 10px 25px rgba(37,99,235,0.25);
+}
+
+/* THEME BUTTON */
+
+.theme-toggle{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:16px 18px;
+
+  border-radius:18px;
+
+  background:var(--box);
+
+  border:1px solid var(--border);
+
+  cursor:pointer;
+
+  transition:0.3s;
+}
+
+.theme-toggle:hover{
+  transform:translateY(-3px);
+}
+
+.toggle-switch{
+  width:52px;
+  height:28px;
+
+  background:#cbd5e1;
+
+  border-radius:999px;
+
+  position:relative;
+
+  transition:0.3s;
+}
+
+.toggle-switch::before{
+  content:'';
+
+  position:absolute;
+
+  width:22px;
+  height:22px;
+
+  border-radius:50%;
+
+  background:white;
+
+  top:3px;
+  left:3px;
+
+  transition:0.3s;
+}
+
+body.dark .toggle-switch{
+  background:#2563eb;
+}
+
+body.dark .toggle-switch::before{
+  left:27px;
+}
+
+/* MAIN */
+
+.main-content{
+  flex:1;
+  margin-left:280px;
+  padding:40px;
+}
+
+/* HEADER */
+
+.dashboard-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  margin-bottom:40px;
+}
+
+.dashboard-title h1{
+  font-size:42px;
+  font-weight:800;
+}
+
+.dashboard-title p{
+  margin-top:8px;
+  color:#64748b;
+  font-size:16px;
+}
+
+.dashboard-user{
+  background:var(--card-bg);
+  padding:14px 20px;
+  border-radius:18px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.06);
+
+  display:flex;
+  align-items:center;
+  gap:14px;
+
+  backdrop-filter:blur(16px);
+}
+
+.user-avatar{
+  width:52px;
+  height:52px;
+  border-radius:50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:linear-gradient(135deg,#25eb67,#d4dadd);
+
+  color:white;
+  font-weight:700;
+  font-size:18px;
+}
+
+/* GRID */
+
+.cards-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(430px,1fr));
+  gap:30px;
+}
+
+/* CARD */
+
+.patient-card{
+  overflow:hidden;
+
+  border-radius:30px;
+
+  background:var(--card-bg);
+
+  backdrop-filter:blur(16px);
+
+  border:1px solid rgba(255,255,255,0.2);
+
+  box-shadow:
+    0 20px 45px rgba(0,0,0,0.08);
+
+  transition:0.4s ease;
+}
+
+.patient-card:hover{
+  transform:
+    translateY(-10px)
+    scale(1.015);
+
+  box-shadow:
+    0 30px 55px rgba(37,99,235,0.18);
+}
+
+/* TOP */
+
+.card-top{
+  padding:30px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #25eb9f,
+      #099677
+    );
+
+  color:white;
+}
+
+.patient-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.patient-avatar{
+  width:78px;
+  height:78px;
+
+  border-radius:50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:28px;
+  font-weight:700;
+
+  background:rgba(255,255,255,0.18);
+}
+
+.patient-level{
+  padding:10px 16px;
+
+  border-radius:999px;
+
+  font-size:13px;
+  font-weight:700;
+
+  background:rgba(255,255,255,0.16);
+}
+
+.patient-name{
+  margin-top:20px;
+
+  font-size:28px;
+  font-weight:800;
+}
+
+.patient-diagnosis{
+  margin-top:10px;
+
+  opacity:0.95;
+
+  line-height:1.6;
+}
+
+/* BODY */
+
+.card-body{
+  padding:28px;
+}
+
+/* STATS */
+
+.stats-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.stat-box{
+  background:var(--box);
+
+  border:1px solid var(--border);
+
+  border-radius:20px;
+
+  padding:20px;
+
+  transition:0.3s;
+}
+
+.stat-box:hover{
+  transform:translateY(-4px);
+}
+
+.stat-label{
+  font-size:12px;
+
+  text-transform:uppercase;
+
+  letter-spacing:0.7px;
+
+  color:#64748b;
+
+  margin-bottom:8px;
+}
+
+.stat-value{
+  font-size:20px;
+  font-weight:800;
+}
+
+/* EVENTS */
+
+.section{
+  margin-top:28px;
+}
+
+.section h3{
+  margin-bottom:16px;
+
+  color:#2563eb;
+
+  font-size:19px;
+}
+
+.event-list{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.event-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  background:var(--box);
+
+  padding:15px 18px;
+
+  border-radius:16px;
+
+  border-left:5px solid #0a4ddf;
+
+  transition:0.3s;
+}
+
+.event-item:hover{
+  transform:translateX(6px);
+}
+
+/* NOTES */
+
+.notes{
+  width:100%;
+
+  min-height:130px;
+
+  resize:vertical;
+
+  border:none;
+
+  border-radius:18px;
+
+  padding:18px;
+
+  font-size:15px;
+
+  line-height:1.6;
+
+  background:var(--box);
+
+  border:1px solid var(--border);
+
+  transition:0.35s;
+
+  outline:none;
+
+  color:var(--text);
+}
+
+/* FOOTER */
+
+.card-footer{
+  margin-top:26px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.status{
+  padding:12px 18px;
+
+  border-radius:999px;
+
+  font-size:14px;
+  font-weight:700;
+
+  background:#dcfce7;
+  color:#166534;
+}
+
+.action-btn{
+  border:none;
+
+  padding:13px 22px;
+
+  border-radius:16px;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  color:white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #1d4ed8
+    );
+
+  transition:0.35s;
+}
+
+.action-btn:hover{
+  transform:translateY(-3px);
+
+  box-shadow:
+    0 10px 25px rgba(37,99,235,0.25);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px){
+
+  .sidebar{
+    width:100%;
+    height:auto;
+    position:relative;
+  }
+
+  .main-content{
+    margin-left:0;
+  }
+
+  .app-layout{
+    flex-direction:column;
+  }
+
+}
+
+@media(max-width:800px){
+
+  .main-content{
+    padding:20px;
+  }
+
+  .dashboard-header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:20px;
+  }
+
+  .cards-grid{
+    grid-template-columns:1fr;
+  }
+
+  .stats-grid{
+    grid-template-columns:1fr;
+  }
+
+  .card-footer{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:16px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="app-layout">
+
+  <aside class="sidebar">
+
+    <div class="sidebar-top">
+
+      <div class="logo">
+        PhysioTrack
+      </div>
+
+      <div class="menu">
+
+        <div class="menu-item active">
+          Resumen
+        </div>
+
+        <div class="menu-item">
+          Informes estadísticos
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="theme-toggle" onclick="toggleTheme()">
+
+      <span id="theme-text">Modo oscuro</span>
+
+      <div class="toggle-switch"></div>
+
+    </div>
+
+  </aside>
+
+  <main class="main-content">
+
+    <div class="dashboard-header">
+
+      <div class="dashboard-title">
+        <h1>Dashboard clínico</h1>
+        <p>Seguimiento terapéutico y análisis clínico de pacientes</p>
+      </div>
+
+
+    </div>
+
+    <div class="cards-grid">
+
+      <div class="patient-card">
+
+        <div class="card-top">
+
+          <div class="patient-head">
+
+            <div class="patient-avatar">
+              AG
+            </div>
+
+            <div class="patient-level">
+              Competente · 61/100
+            </div>
+
+          </div>
+
+          <div class="patient-name">
+            Alberto García López
+          </div>
+
+          <div class="patient-diagnosis">
+            Dificultad motora en miembros inferiores
+          </div>
+
+        </div>
+
+        <div class="card-body">
+
+          <div class="stats-grid">
+
+            <div class="stat-box">
+              <div class="stat-label">Nacimiento</div>
+              <div class="stat-value">15 Mar 2018</div>
+            </div>
+
+            <div class="stat-box">
+              <div class="stat-label">Inicio tratamiento</div>
+              <div class="stat-value">13 Ene 2025</div>
+            </div>
+
+            <div class="stat-box">
+              <div class="stat-label">Tiempo movimiento</div>
+              <div class="stat-value">980 seg</div>
+            </div>
+
+            <div class="stat-box">
+              <div class="stat-label">Estabilidad</div>
+              <div class="stat-value">72.5%</div>
+            </div>
+
+          </div>
+
+          <div class="section">
+
+            <h3>Observaciones fisioterapéuticas</h3>
+
+            <textarea id="notes" class="notes">Buena evolución general. Mejora en coordinación motora y estabilidad durante las sesiones.</textarea>
+
+          </div>
+
+          <div class="card-footer">
+
+            <div class="status">
+              Tratamiento activo
+            </div>
+
+            <button class="action-btn" onclick="saveNotes()">
+              Guardar comentarios
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</div>
+
+<script>
+
+/* ===== TEMA ===== */
+
+function applyTheme(theme){
+
+  const themeText = document.getElementById("theme-text");
+
+  if(theme === "dark"){
+    document.body.classList.add("dark");
+    themeText.innerHTML = "Modo claro";
+  }else{
+    document.body.classList.remove("dark");
+    themeText.innerHTML = "Modo oscuro";
+  }
+
+}
+
+function toggleTheme(){
+
+  const isDark = document.body.classList.contains("dark");
+
+  if(isDark){
+    localStorage.setItem("theme","light");
+    applyTheme("light");
+  }else{
+    localStorage.setItem("theme","dark");
+    applyTheme("dark");
+  }
+
+}
+
+/* ===== GUARDAR COMENTARIOS ===== */
+
+function saveNotes() {
+
+  // Obtener contenido del textarea
+  const notes = document.getElementById("notes").value;
+
+  // Guardar en localStorage
+  localStorage.setItem("physio_notes", notes);
+
+  // Feedback visual
+  const btn = document.querySelector(".action-btn");
+
+  btn.disabled = true;
+  btn.innerHTML = "Comentarios guardados";
+
+  setTimeout(() => {
+    btn.disabled = false;
+    btn.innerHTML = "Guardar comentarios";
+  }, 1500);
+
+}
+
+/* ===== CARGAR COMENTARIOS ===== */
+
+function loadNotes() {
+
+  const savedNotes = localStorage.getItem("physio_notes");
+
+  if(savedNotes){
+    document.getElementById("notes").value = savedNotes;
+  }
+
+}
+
+/* ===== INIT ===== */
+
+window.addEventListener("DOMContentLoaded", () => {
+
+  const savedTheme = localStorage.getItem("theme") || "light";
+
+  applyTheme(savedTheme);
+
+  loadNotes();
+
+});
+
+</script>
+
+</body>
+</html>

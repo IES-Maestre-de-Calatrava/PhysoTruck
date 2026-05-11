@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhysioTrack - Paciente</title>
+  <link rel="stylesheet" href="css/paciente.css">
+</head>
+<body data-default-name="Alonso">
+
+<div class="app-layout">
+
+  <!-- ── Sidebar ─────────────────────────────── -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="sidebar-logo-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+        </svg>
+      </span>
+      PhysioTrack
+    </div>
+
+    <div class="sidebar-profile">
+      <div class="sidebar-avatar" id="sidebarAvatar">?</div>
+      <div class="sidebar-profile-info">
+        <strong id="sidebarName">Cargando...</strong>
+        <span id="sidebarProfessionalId">ID Profesional</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-link" href="inicio.html">
+        <span class="sidebar-link-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        </span> Pacientes
+      </a>
+      <a class="sidebar-link sidebar-link-active" href="#">
+        <span class="sidebar-link-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </span> Resumen
+      </a>
+      <a class="sidebar-link" href="#">
+        <span class="sidebar-link-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </span> Informes
+      </a>
+      <a class="sidebar-link" href="#">
+        <span class="sidebar-link-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </span> Agenda
+      </a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <a class="sidebar-link" href="#">
+        <span class="sidebar-link-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        </span> Configuración
+      </a>
+      <button class="sidebar-logout" id="logoutBtn">
+        <span class="sidebar-link-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        </span> Cerrar sesión
+      </button>
+    </div>
+  </aside>
+
+  <!-- ── Contenido principal ────────────────── -->
+  <main class="pt-main" id="mainContent">
+
+    <div class="pt-patient-header">
+      <div class="pt-patient-title">
+        <h1 id="patientName">Cargando...</h1>
+        <span class="pt-level-badge" id="levelBadge">—</span>
+      </div>
+      <button class="pt-back-btn" onclick="history.back()">← Volver</button>
+    </div>
+    <p class="pt-patient-meta">
+      ID: <strong id="patientId">—</strong>
+      &nbsp;·&nbsp;
+      Inicio tratamiento: <strong id="treatmentStart">—</strong>
+    </p>
+
+    <div class="pt-section">
+      <div class="pt-section-header">
+        <span class="pt-section-label">LÍNEA DE RECUPERACIÓN</span>
+        <span class="pt-section-right" id="weekLabel">Semana 1 de 12</span>
+      </div>
+      <div class="pt-timeline" id="weekTimeline"></div>
+    </div>
+
+    <div class="pt-stats-grid">
+      <div class="pt-stat-card">
+        <div class="pt-stat-label">TIEMPO TOTAL</div>
+        <div class="pt-stat-value" id="statTotalTime">—</div>
+        <div class="pt-stat-sub" id="statTimesSub"></div>
+      </div>
+      <div class="pt-stat-card">
+        <div class="pt-stat-label">TIEMPO MEDIO</div>
+        <div class="pt-stat-value" id="statAvgTime">—</div>
+        <div class="pt-stat-sub">por sesión</div>
+      </div>
+      <div class="pt-stat-card">
+        <div class="pt-stat-label">SESIONES</div>
+        <div class="pt-stat-value" id="statSessions">—</div>
+        <div class="pt-stat-progress">
+          <div class="pt-stat-progress-bar" id="statSessionsBar"></div>
+        </div>
+      </div>
+      <div class="pt-stat-card">
+        <div class="pt-stat-label">SCORE MEDIO</div>
+        <div class="pt-stat-value" id="statScore">—</div>
+        <div class="pt-stat-sub pt-stat-sub-good" id="statScoreSub"></div>
+      </div>
+    </div>
+
+    <div class="pt-section pt-chart-section">
+      <div class="pt-section-header">
+        <span class="pt-section-label">ANÁLISIS DE PROGRESO — SEMANAS</span>
+        <div class="pt-chart-legend">
+          <span class="pt-legend-dot pt-legend-blue"></span> Score
+          <span class="pt-legend-line"></span> Estabilidad
+        </div>
+      </div>
+      <div class="pt-chart-wrap">
+        <canvas id="progressChart"></canvas>
+      </div>
+    </div>
+
+    <p class="pt-error d-none" id="pageError"></p>
+  </main>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/common.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+<script src="js/paciente.js"></script>
+</body>
+</html>

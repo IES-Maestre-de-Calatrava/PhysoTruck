@@ -1,0 +1,356 @@
+@import url('./design-system.css');
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--c-navy);
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+body.login-success .login-container {
+  animation: loginFadeOut 0.45s ease forwards;
+}
+
+body.login-shake .login-form-wrap {
+  animation: loginShake 0.35s ease;
+}
+
+@keyframes loginFadeOut {
+  to {
+    opacity: 0;
+    transform: scale(0.98) translateY(8px);
+  }
+}
+
+@keyframes loginShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-7px); }
+  40% { transform: translateX(7px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+}
+
+/* ── Contenedor ─────────────────────────────────────────── */
+.login-container {
+  display: flex;
+  width: 900px;
+  max-width: 96vw;
+  min-height: 540px;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.06);
+  animation: fadeUp 0.4s ease-out;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Panel izquierdo — identidad institucional ──────────── */
+.login-brand {
+  width: 320px;
+  flex-shrink: 0;
+  background: linear-gradient(170deg, var(--c-navy-mid) 0%, var(--c-navy) 100%);
+  border-right: 1px solid rgba(255,255,255,0.08);
+  padding: 3rem 2.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-brand::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 260px; height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(99,102,241,0.30) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.login-brand::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; left: -60px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(99,102,241,0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.login-brand-inner { position: relative; z-index: 1; }
+
+/* Cabecera institucional */
+.login-brand-top {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  margin-bottom: 2rem;
+}
+
+.login-brand-top-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(99,102,241,0.20);
+  border: 1px solid rgba(99,102,241,0.35);
+  border-radius: var(--r-sm);
+}
+
+.login-brand-top-text {
+  font-size: 0.72rem;
+  font-weight: 600;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+}
+
+.login-brand h1 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 0.5rem;
+  line-height: 1.15;
+}
+
+.login-brand-tagline {
+  font-size: 0.84rem;
+  opacity: 0.7;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 2.4rem;
+}
+
+.login-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.login-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  font-size: 0.82rem;
+  opacity: 0.82;
+}
+
+.login-feature-icon {
+  width: 26px;
+  height: 26px;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--r-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Pie del panel izquierdo */
+.login-brand-footer {
+  position: relative;
+  z-index: 1;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.7rem;
+  opacity: 0.5;
+  letter-spacing: 0.04em;
+}
+
+/* ── Panel derecho — formulario ─────────────────────────── */
+.login-form-panel {
+  flex: 1;
+  background: var(--c-surface);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem 3rem;
+}
+
+.login-form-wrap { width: 100%; max-width: 360px; }
+
+/* Cabecera del formulario */
+.login-form-header { margin-bottom: 2rem; }
+
+.login-form-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--c-text);
+  margin-bottom: 0.3rem;
+  letter-spacing: -0.3px;
+}
+
+.login-form-header p {
+  font-size: 0.86rem;
+  color: var(--c-text-light);
+}
+
+/* Separador */
+.login-divider {
+  height: 1px;
+  background: var(--c-border-light);
+  margin-bottom: 1.8rem;
+}
+
+/* Campos */
+.login-field { margin-bottom: 1.2rem; }
+
+.login-field label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--c-text-mid);
+  margin-bottom: 0.42rem;
+  letter-spacing: 0.01em;
+}
+
+.login-field input {
+  width: 100%;
+  padding: 0.74rem 1rem;
+  border: 1.5px solid var(--c-border);
+  border-radius: var(--r-md);
+  font-size: 0.93rem;
+  font-family: var(--font);
+  color: var(--c-text);
+  background: var(--c-surface-alt);
+  transition: border-color var(--t-fast), box-shadow var(--t-fast), background var(--t-fast);
+  outline: none;
+}
+
+.login-field input:focus {
+  border-color: var(--c-primary);
+  box-shadow: 0 0 0 3px var(--c-primary-faint);
+  background: white;
+}
+
+.login-field input::placeholder { color: var(--c-text-muted); }
+
+/* Recordar sesión */
+.login-remember {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.login-remember input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  accent-color: var(--c-primary);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.login-remember label {
+  font-size: 0.82rem;
+  color: var(--c-text-mid);
+  cursor: pointer;
+}
+
+/* Botón */
+#loginBtn {
+  width: 100%;
+  padding: 0.84rem;
+  background: var(--c-primary);
+  color: white;
+  border: none;
+  border-radius: var(--r-md);
+  font-size: 0.93rem;
+  font-weight: 600;
+  font-family: var(--font);
+  cursor: pointer;
+  transition: background var(--t-fast), transform var(--t-fast), box-shadow var(--t-fast);
+  letter-spacing: 0.02em;
+}
+
+#loginBtn:hover:not(:disabled) {
+  background: var(--c-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px var(--c-primary-glow);
+}
+
+#loginBtn:active { transform: translateY(0); box-shadow: none; }
+
+#loginBtn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+/* Mensaje */
+#msg {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.84rem;
+  font-weight: 500;
+  min-height: 1.4rem;
+  color: var(--c-danger);
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.24s ease, transform 0.24s ease;
+}
+
+#msg.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.login-success-tick {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.4);
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: var(--c-success);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.1rem;
+  font-weight: 800;
+  box-shadow: 0 18px 36px rgba(54, 179, 126, 0.32);
+  opacity: 0;
+  pointer-events: none;
+}
+
+body.login-success .login-success-tick {
+  animation: successTick 0.55s cubic-bezier(.2,1.25,.35,1) forwards;
+}
+
+@keyframes successTick {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.4); }
+  65% { opacity: 1; transform: translate(-50%, -50%) scale(1.12); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Pie */
+.login-footer {
+  margin-top: 2rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--c-border-light);
+  font-size: 0.72rem;
+  color: var(--c-text-muted);
+  letter-spacing: 0.02em;
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 660px) {
+  .login-brand { display: none; }
+  .login-form-panel { padding: 2.5rem 2rem; }
+  .login-container { border-radius: var(--r-md); }
+}

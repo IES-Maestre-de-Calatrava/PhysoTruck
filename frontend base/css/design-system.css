@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* ── Primary — Indigo ── */
+  --c-primary:        #6366F1;
+  --c-primary-dark:   #4F46E5;
+  --c-primary-mid:    #818CF8;
+  --c-primary-light:  #EEF2FF;
+  --c-primary-faint:  rgba(99,102,241,0.10);
+  --c-primary-glow:   rgba(99,102,241,0.28);
+
+  /* ── Dark sidebar / nav ── */
+  --c-navy:           #0F172A;
+  --c-navy-mid:       #1E293B;
+  --c-navy-light:     rgba(255,255,255,0.08);
+  --c-navy-hover:     rgba(255,255,255,0.06);
+
+  /* ── Backgrounds ── */
+  --c-bg:             #F0F4F8;
+  --c-surface:        #FFFFFF;
+  --c-surface-alt:    #F8FAFC;
+
+  /* ── Borders ── */
+  --c-border:         #E2E8F0;
+  --c-border-light:   #F1F5F9;
+
+  /* ── Text ── */
+  --c-text:           #0F172A;
+  --c-text-mid:       #334155;
+  --c-text-light:     #64748B;
+  --c-text-muted:     #94A3B8;
+
+  /* ── States ── */
+  --c-danger:         #EF4444;
+  --c-danger-bg:      #FEF2F2;
+  --c-danger-bdr:     #FECACA;
+  --c-warning:        #F59E0B;
+  --c-warning-bg:     #FFFBEB;
+  --c-success:        #10B981;
+  --c-success-bg:     #ECFDF5;
+
+  /* ── Radii ── */
+  --r-xs:   4px;
+  --r-sm:   8px;
+  --r-md:   12px;
+  --r-lg:   16px;
+  --r-xl:   20px;
+  --r-full: 999px;
+
+  /* ── Shadows ── */
+  --sh-xs: 0 1px 3px rgba(15,23,42,0.04), 0 2px 8px rgba(15,23,42,0.03);
+  --sh-sm: 0 1px 3px rgba(15,23,42,0.05), 0 4px 16px rgba(15,23,42,0.04);
+  --sh-md: 0 4px 16px rgba(15,23,42,0.07);
+  --sh-lg: 0 12px 40px rgba(15,23,42,0.10);
+
+  /* ── Typography ── */
+  --font:         'Inter', 'Segoe UI', system-ui, sans-serif;
+  --font-heading: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+
+  /* ── Transitions ── */
+  --t-fast:   0.15s ease;
+  --t-normal: 0.22s ease;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  color: var(--c-text);
+  background: var(--c-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+a { text-decoration: none; }
+button { font-family: var(--font); }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
