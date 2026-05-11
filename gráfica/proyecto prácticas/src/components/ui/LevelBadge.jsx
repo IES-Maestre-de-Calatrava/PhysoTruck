@@ -1,43 +1,40 @@
 function getLevelInfo(score) {
-  if (score < 60) {
-    return { label: 'Necesita apoyo', color: '#ef4444' };
-  }
-  if (score < 80) {
-    return { label: 'En progreso', color: '#3b82f6' };
-  }
-  if (score < 90) {
-    return { label: 'Buen avance', color: '#14b8a6' };
-  }
-  return { label: 'Alto rendimiento', color: '#22c55e' };
+  if (score < 60) return { label: 'Necesita apoyo', color: '#EF4444', bg: '#FEF2F2', border: '#FECACA' };
+  if (score < 80) return { label: 'En progreso',    color: '#6366F1', bg: '#EEF2FF', border: '#C7D2FE' };
+  if (score < 90) return { label: 'Buen avance',    color: '#0D9488', bg: '#F0FDFA', border: '#99F6E4' };
+  return              { label: 'Alto rendimiento', color: '#10B981', bg: '#ECFDF5', border: '#A7F3D0' };
 }
 
 export function LevelBadge({ score = 0 }) {
-  const { label, color } = getLevelInfo(score);
+  const { label, color, bg, border } = getLevelInfo(score);
 
   return (
     <div
       style={{
         display: 'inline-flex',
         alignItems: 'center',
-        padding: '8px 14px',
+        gap: '6px',
+        padding: '5px 12px',
         borderRadius: '999px',
-        backgroundColor: `${color}16`,
-        border: `1px solid ${color}55`,
+        background: bg,
+        border: `1px solid ${border}`,
         color,
         fontWeight: 700,
-        fontSize: '13px',
+        fontSize: '12px',
+        whiteSpace: 'nowrap',
       }}
     >
       <span
         style={{
-          width: '8px',
-          height: '8px',
+          width: '7px',
+          height: '7px',
           borderRadius: '50%',
-          backgroundColor: color,
-          marginRight: '8px',
+          background: color,
+          flexShrink: 0,
+          boxShadow: `0 0 4px ${color}80`,
         }}
       />
-      {label} ({score} pts)
+      {label}
     </div>
   );
 }

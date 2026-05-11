@@ -1,25 +1,25 @@
 import { useState } from 'react';
 import { WeekChart } from '../charts/WeekChart';
+import { useTokens } from '../../design/tokens';
 
 const STATUS_STYLES = {
-  'Muchos errores': { bg: '#fff1f2', text: '#be123c', dot: '#e11d48' },
-  'Dia inestable': { bg: '#fff7ed', text: '#c2410c', dot: '#f97316' },
-  'Buen progreso': { bg: '#ecfeff', text: '#0f766e', dot: '#14b8a6' },
-  'Progreso claro': { bg: '#eff6ff', text: '#1d4ed8', dot: '#2563eb' },
+  'Muchos errores': { color: '#EF4444', bg: '#FEF2F2', dot: '#EF4444' },
+  'Dia inestable':  { color: '#F59E0B', bg: '#FFFBEB', dot: '#F59E0B' },
+  'Buen progreso':  { color: '#0D9488', bg: '#F0FDFA', dot: '#14B8A6' },
+  'Progreso claro': { color: '#6366F1', bg: '#EEF2FF', dot: '#818CF8' },
 };
 
-function MiniBar({ value, color }) {
+function getScoreColor(score) {
+  if (score >= 90) return { color: '#10B981', bg: '#ECFDF5' };
+  if (score >= 75) return { color: '#0D9488', bg: '#F0FDFA' };
+  if (score >= 60) return { color: '#F59E0B', bg: '#FFFBEB' };
+  return               { color: '#EF4444', bg: '#FEF2F2' };
+}
+
+function MiniBar({ value, color, t }) {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-      <div
-        style={{
-          flex: 1,
-          height: '6px',
-          background: '#e5edf6',
-          borderRadius: '999px',
-          overflow: 'hidden',
-        }}
-      >
+    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+      <div style={{ flex: 1, height: '6px', background: t.divider, borderRadius: '999px', overflow: 'hidden' }}>
         <div
           style={{
             width: `${Math.max(0, Math.min(100, value))}%`,
@@ -29,14 +29,14 @@ function MiniBar({ value, color }) {
           }}
         />
       </div>
-      <span style={{ fontSize: '12px', fontWeight: 700, color: '#334155', minWidth: '30px' }}>
+      <span style={{ fontSize: '12px', fontWeight: 700, color: t.text, minWidth: '32px', textAlign: 'right' }}>
         {value}
       </span>
     </div>
   );
 }
 
-function EventTag({ label, value }) {
+function EventTag({ label, value, t }) {
   const zero = value === 0;
   return (
     <div
@@ -44,36 +44,38 @@ function EventTag({ label, value }) {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        gap: '2px',
-        padding: '8px 12px',
-        minWidth: '74px',
-        background: zero ? '#f0fdf4' : '#fff1f2',
-        border: `1px solid ${zero ? '#bbf7d0' : '#fecdd3'}`,
-        borderRadius: '10px',
+        gap: '3px',
+        padding: '9px 14px',
+        minWidth: '80px',
+        background: zero ? '#ECFDF5' : '#FEF2F2',
+        border: `1px solid ${zero ? '#A7F3D0' : '#FECACA'}`,
+        borderRadius: '12px',
       }}
     >
-      <span style={{ fontSize: '18px', fontWeight: 700, color: zero ? '#059669' : '#e11d48' }}>
+      <span style={{ fontSize: '18px', fontWeight: 800, color: zero ? '#10B981' : '#EF4444', fontFamily: "'Space Grotesk', sans-serif" }}>
         {value}
       </span>
-      <span style={{ fontSize: '10px', color: '#64748b', textAlign: 'center', lineHeight: 1.2 }}>
+      <span style={{ fontSize: '10px', color: t.textMuted, textAlign: 'center', lineHeight: 1.2, fontWeight: 600 }}>
         {label}
       </span>
     </div>
   );
 }
 
-function DayRow({ day }) {
+function DayRow({ day, t }) {
   const [open, setOpen] = useState(false);
   const status = STATUS_STYLES[day.estado] ?? STATUS_STYLES['Buen progreso'];
+  const sc = getScoreColor(day.score);
 
   return (
     <div
       style={{
-        border: '1px solid #e5edf6',
-        borderRadius: '12px',
+        border: `1px solid ${t.cardBorder}`,
+        borderRadius: '14px',
         overflow: 'hidden',
-        boxShadow: open ? '0 10px 25px rgba(15, 23, 42, 0.08)' : 'none',
+        boxShadow: open ? t.cardShadow : 'none',
         transition: 'box-shadow 0.2s ease',
+        background: t.cardBg,
       }}
     >
       <button
@@ -83,16 +85,16 @@ function DayRow({ day }) {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          padding: '12px 14px',
-          background: open ? '#f8fbff' : '#ffffff',
+          padding: '12px 16px',
+          background: 'transparent',
           border: 'none',
           cursor: 'pointer',
           textAlign: 'left',
           gap: '12px',
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flex: 1, flexWrap: 'wrap' }}>
-          <span style={{ fontSize: '13px', fontWeight: 700, color: '#10233c', minWidth: '90px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: 1, flexWrap: 'wrap' }}>
+          <span style={{ fontSize: '13px', fontWeight: 700, color: t.text, minWidth: '90px', fontFamily: "'Space Grotesk', sans-serif" }}>
             {day.fecha}
           </span>
           <span
@@ -102,145 +104,94 @@ function DayRow({ day }) {
               padding: '4px 10px',
               borderRadius: '999px',
               background: status.bg,
-              color: status.text,
+              color: status.color,
               display: 'inline-flex',
               alignItems: 'center',
               gap: '6px',
             }}
           >
-            <span
-              style={{
-                width: '6px',
-                height: '6px',
-                borderRadius: '50%',
-                background: status.dot,
-                display: 'inline-block',
-              }}
-            />
+            <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: status.dot, display: 'inline-block' }} />
             {day.estado}
           </span>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <span style={{ fontSize: '12px', color: '#64748b' }}>{day.tiempo} min</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
+          <span style={{ fontSize: '12px', color: t.textMuted }}>{day.tiempo} min</span>
           <span
             style={{
-              fontSize: '13px',
-              fontWeight: 700,
-              color: '#10233c',
-              background: '#eff6ff',
+              fontSize: '13px', fontWeight: 700,
+              color: sc.color,
+              background: sc.bg,
               padding: '4px 10px',
               borderRadius: '8px',
             }}
           >
             {day.score}
           </span>
-          <span
-            style={{
-              fontSize: '16px',
-              color: '#94a3b8',
-              display: 'inline-block',
-              transform: open ? 'rotate(180deg)' : 'none',
-              transition: 'transform 0.25s ease',
-            }}
+          <svg
+            width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={t.textMuted} strokeWidth="2.5"
+            style={{ transform: open ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s ease', flexShrink: 0 }}
           >
-            ▾
-          </span>
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
         </div>
       </button>
 
-      {open ? (
+      {open && (
         <div
           style={{
-            padding: '14px 16px',
-            borderTop: '1px solid #edf2f7',
-            background: '#f8fbff',
+            padding: '16px',
+            borderTop: `1px solid ${t.cardBorder}`,
+            background: t.cardBgAlt,
             display: 'flex',
             flexDirection: 'column',
-            gap: '14px',
+            gap: '16px',
           }}
         >
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
             <div>
-              <div
-                style={{
-                  fontSize: '11px',
-                  color: '#94a3b8',
-                  marginBottom: '6px',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.06em',
-                }}
-              >
+              <div style={{ fontSize: '11px', color: t.textMuted, marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.07em', fontWeight: 600 }}>
                 Score
               </div>
-              <MiniBar value={day.score} color="#2563eb" />
+              <MiniBar value={day.score} color="#6366F1" t={t} />
             </div>
             <div>
-              <div
-                style={{
-                  fontSize: '11px',
-                  color: '#94a3b8',
-                  marginBottom: '6px',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.06em',
-                }}
-              >
+              <div style={{ fontSize: '11px', color: t.textMuted, marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.07em', fontWeight: 600 }}>
                 Estabilidad
               </div>
-              <MiniBar value={day.estabilidad} color="#14b8a6" />
+              <MiniBar value={day.estabilidad} color="#14B8A6" t={t} />
             </div>
           </div>
           <div>
-            <div
-              style={{
-                fontSize: '11px',
-                color: '#94a3b8',
-                marginBottom: '8px',
-                textTransform: 'uppercase',
-                letterSpacing: '0.06em',
-              }}
-            >
+            <div style={{ fontSize: '11px', color: t.textMuted, marginBottom: '10px', textTransform: 'uppercase', letterSpacing: '0.07em', fontWeight: 600 }}>
               Eventos
             </div>
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-              <EventTag label="Colisiones" value={day.eventos.colisiones} />
-              <EventTag label="Aceleraciones" value={day.eventos.aceleraciones} />
-              <EventTag label="Frenadas" value={day.eventos.frenadas} />
+              <EventTag label="Colisiones"     value={day.eventos.colisiones}     t={t} />
+              <EventTag label="Aceleraciones"  value={day.eventos.aceleraciones}  t={t} />
+              <EventTag label="Frenadas"       value={day.eventos.frenadas}       t={t} />
             </div>
           </div>
         </div>
-      ) : null}
+      )}
     </div>
   );
 }
 
-function getScoreStyle(score) {
-  if (score >= 90) {
-    return { bg: '#eff6ff', text: '#1d4ed8' };
-  }
-  if (score >= 75) {
-    return { bg: '#ecfeff', text: '#0f766e' };
-  }
-  if (score >= 60) {
-    return { bg: '#fff7ed', text: '#c2410c' };
-  }
-  return { bg: '#fff1f2', text: '#be123c' };
-}
-
-function WeekCard({ week }) {
+function WeekCard({ week, t }) {
   const [open, setOpen] = useState(false);
-  const scoreStyle = getScoreStyle(week.score);
+  const sc = getScoreColor(week.score);
   const firstScore = week.dailyLogs[0]?.score ?? week.score;
-  const lastScore = week.dailyLogs.at(-1)?.score ?? week.score;
+  const lastScore  = week.dailyLogs.at(-1)?.score ?? week.score;
   const trend = lastScore - firstScore;
 
   return (
     <div
       style={{
-        background: '#ffffff',
-        border: '1px solid #dbe4f0',
-        borderRadius: '18px',
+        background: t.cardBg,
+        border: `1px solid ${t.cardBorder}`,
+        borderRadius: '20px',
         overflow: 'hidden',
-        boxShadow: open ? '0 12px 28px rgba(15, 23, 42, 0.08)' : '0 4px 10px rgba(15, 23, 42, 0.03)',
+        boxShadow: open ? t.cardShadow : 'none',
         transition: 'box-shadow 0.25s ease',
       }}
     >
@@ -250,141 +201,108 @@ function WeekCard({ week }) {
           width: '100%',
           display: 'flex',
           alignItems: 'center',
-          padding: '16px 20px',
-          background: open ? '#f8fbff' : '#ffffff',
+          padding: '18px 20px',
+          background: 'transparent',
           border: 'none',
           cursor: 'pointer',
           textAlign: 'left',
           gap: '16px',
         }}
       >
+        {/* Week number bubble */}
         <div
           style={{
-            width: '46px',
-            height: '46px',
-            borderRadius: '12px',
-            background: '#eff6ff',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
+            width: '48px', height: '48px',
+            borderRadius: '14px',
+            background: open ? 'linear-gradient(135deg,#6366F1,#4F46E5)' : t.primaryBg,
+            display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
             flexShrink: 0,
+            transition: 'background 0.2s ease',
           }}
         >
-          <span style={{ fontSize: '9px', color: '#64748b', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+          <span style={{ fontSize: '9px', color: open ? 'rgba(255,255,255,0.7)' : t.textMuted, textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>
             Sem
           </span>
-          <span style={{ fontSize: '18px', fontWeight: 800, color: '#10233c', lineHeight: 1 }}>
+          <span style={{ fontSize: '18px', fontWeight: 800, color: open ? '#fff' : t.primary, lineHeight: 1, fontFamily: "'Space Grotesk', sans-serif" }}>
             {week.semana}
           </span>
         </div>
+
+        {/* Info */}
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
-          <span
-            style={{
-              fontSize: '13px',
-              fontWeight: 700,
-              padding: '4px 12px',
-              borderRadius: '999px',
-              background: scoreStyle.bg,
-              color: scoreStyle.text,
-            }}
-          >
+          <span style={{ fontSize: '13px', fontWeight: 700, padding: '4px 12px', borderRadius: '999px', background: sc.bg, color: sc.color }}>
             Score {week.score}
           </span>
-          <span style={{ fontSize: '12px', color: '#334155' }}>{week.tiempo} min</span>
-          <span style={{ fontSize: '12px', color: '#334155' }}>{week.sesiones} sesiones</span>
-          {trend !== 0 ? (
-            <span
-              style={{
-                fontSize: '11px',
-                color: trend > 0 ? '#059669' : '#e11d48',
-                fontWeight: 700,
-              }}
-            >
+          <span style={{ fontSize: '13px', color: t.textSec, fontWeight: 500 }}>{week.tiempo} min</span>
+          <span style={{ fontSize: '13px', color: t.textSec, fontWeight: 500 }}>{week.sesiones} ses.</span>
+          {trend !== 0 && (
+            <span style={{ fontSize: '12px', fontWeight: 700, color: trend > 0 ? '#10B981' : '#EF4444' }}>
               {trend > 0 ? '↑' : '↓'} {Math.abs(trend)} pts
             </span>
-          ) : null}
+          )}
         </div>
-        <span
-          style={{
-            fontSize: '18px',
-            color: '#94a3b8',
-            display: 'inline-block',
-            transform: open ? 'rotate(180deg)' : 'none',
-            transition: 'transform 0.25s ease',
-            flexShrink: 0,
-          }}
+
+        <svg
+          width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={t.textMuted} strokeWidth="2.5"
+          style={{ transform: open ? 'rotate(180deg)' : 'none', transition: 'transform 0.25s ease', flexShrink: 0 }}
         >
-          ▾
-        </span>
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
       </button>
 
-      {open ? (
-        <div style={{ borderTop: '1px solid #edf2f7' }}>
+      {open && (
+        <div style={{ borderTop: `1px solid ${t.cardBorder}` }}>
           <div style={{ padding: '16px 20px 8px' }}>
-            <p
-              style={{
-                fontSize: '11px',
-                color: '#94a3b8',
-                textTransform: 'uppercase',
-                letterSpacing: '0.06em',
-                margin: '0 0 10px',
-              }}
-            >
+            <p style={{ fontSize: '11px', color: t.textMuted, textTransform: 'uppercase', letterSpacing: '0.07em', margin: '0 0 12px', fontWeight: 600 }}>
               Rendimiento diario
             </p>
             <WeekChart dailyLogs={week.dailyLogs} />
           </div>
           <div style={{ padding: '8px 16px 16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            <p
-              style={{
-                fontSize: '11px',
-                color: '#94a3b8',
-                textTransform: 'uppercase',
-                letterSpacing: '0.06em',
-                margin: '0 0 2px',
-              }}
-            >
-              Detalle por dia
+            <p style={{ fontSize: '11px', color: t.textMuted, textTransform: 'uppercase', letterSpacing: '0.07em', margin: '0 0 4px', fontWeight: 600 }}>
+              Detalle por día
             </p>
-            {week.dailyLogs.map((day, index) => (
-              <DayRow key={`${week.id}-${day.fecha}-${index}`} day={day} />
+            {week.dailyLogs.map((day, i) => (
+              <DayRow key={`${week.id}-${day.fecha}-${i}`} day={day} t={t} />
             ))}
           </div>
         </div>
-      ) : null}
+      )}
     </div>
   );
 }
 
 export function WeeklyHistory({ data }) {
-  if (!data?.length) {
-    return null;
-  }
+  const t = useTokens();
+
+  if (!data?.length) return null;
 
   return (
     <div>
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          marginBottom: '14px',
-          gap: '12px',
-          flexWrap: 'wrap',
-        }}
-      >
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px', gap: '12px', flexWrap: 'wrap' }}>
         <div>
-          <h3 style={{ margin: '0 0 4px', fontSize: '18px', color: '#10233c' }}>Historial semanal</h3>
-          <p style={{ margin: 0, color: '#64748b', fontSize: '13px' }}>
+          <h3 style={{ margin: '0 0 4px', fontSize: '17px', color: t.text, fontFamily: "'Space Grotesk', sans-serif" }}>
+            Historial semanal
+          </h3>
+          <p style={{ margin: 0, color: t.textMuted, fontSize: '13px' }}>
             Despliega cada semana para ver el detalle diario.
           </p>
         </div>
-        <span style={{ fontSize: '11px', color: '#94a3b8' }}>{data.length} semanas registradas</span>
+        <span
+          style={{
+            fontSize: '12px', fontWeight: 600,
+            padding: '5px 12px',
+            borderRadius: '999px',
+            background: t.primaryBg,
+            color: t.primaryText,
+          }}
+        >
+          {data.length} semanas
+        </span>
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
         {data.map((week) => (
-          <WeekCard key={week.id} week={week} />
+          <WeekCard key={week.id} week={week} t={t} />
         ))}
       </div>
     </div>

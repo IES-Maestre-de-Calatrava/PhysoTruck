@@ -9,6 +9,9 @@ import org.springframework.data.repository.query.Param;
 
 public interface PatientRepository extends JpaRepository<Patient, Long> {
 
+    @Query("select count(p) > 0 from Patient p where p.fullName = :name and p.therapist.email = :email")
+    boolean existsByFullNameAndTherapistEmail(@Param("name") String name, @Param("email") String email);
+
     @Query("select p from Patient p where p.therapist.id = :therapistId")
     List<Patient> findByTherapistId(@Param("therapistId") Long therapistId);
 

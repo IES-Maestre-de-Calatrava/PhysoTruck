@@ -2189,12 +2189,13 @@
           "timestamp": 1776041400
         }
       }
-    }
+    },
+    "diagnostico": "Cervicalgia mecánica con limitación funcional del raquis cervical"
   },
   "Alonso": {
     "movimiento": {
-      "2001-11-02": {
-        "tiempo": 20777
+      "2026-04-09": {
+        "tiempo": 69492
       },
       "2026-03-10": {
         "tiempo": 100000
@@ -2280,9 +2281,6 @@
       "2026-04-06": {
         "tiempo": 102365
       },
-      "2026-04-09": {
-        "tiempo": 69492
-      },
       "2026-04-10": {
         "tiempo": 1505
       }
@@ -2291,7 +2289,7 @@
       "codigo": "0689"
     },
     "sesiones": {
-      "2001-11-02": {
+      "2026-04-09": {
         "-Ops0Tbb6koeBd_nu4ET": {
           "aceleraciones_bruscas": 4,
           "colisiones": 1,
@@ -3187,6 +3185,1520 @@
           "score": 100,
           "tiempo_movimiento": 502,
           "timestamp": 1775844653
+        }
+      }
+    },
+    "diagnostico": "Gonalgia bilateral por síndrome patelofemoral con condromalacia grado II"
+  },
+  "Laura Martínez García": {
+    "diagnostico": "Lumbalgia crónica con irradiación ciática derecha (L4-L5)",
+    "movimiento": {
+      "2026-03-10": {
+        "tiempo": 68000
+      },
+      "2026-03-12": {
+        "tiempo": 74000
+      },
+      "2026-03-17": {
+        "tiempo": 91000
+      },
+      "2026-03-19": {
+        "tiempo": 86000
+      },
+      "2026-03-24": {
+        "tiempo": 113000
+      },
+      "2026-03-26": {
+        "tiempo": 105000
+      },
+      "2026-04-02": {
+        "tiempo": 135000
+      },
+      "2026-04-04": {
+        "tiempo": 118000
+      },
+      "2026-04-10": {
+        "tiempo": 122000
+      }
+    },
+    "sesiones": {
+      "2026-03-10": {
+        "-LM0100": {
+          "aceleraciones_bruscas": 16,
+          "colisiones": 3,
+          "estabilidad": 67,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 62,
+          "tiempo_movimiento": 15800,
+          "timestamp": 1773100800
+        },
+        "-LM0101": {
+          "aceleraciones_bruscas": 15,
+          "colisiones": 3,
+          "estabilidad": 68,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 63,
+          "tiempo_movimiento": 16600,
+          "timestamp": 1773101400
+        },
+        "-LM0102": {
+          "aceleraciones_bruscas": 14,
+          "colisiones": 2,
+          "estabilidad": 69,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 64,
+          "tiempo_movimiento": 17400,
+          "timestamp": 1773102000
+        },
+        "-LM0103": {
+          "aceleraciones_bruscas": 13,
+          "colisiones": 2,
+          "estabilidad": 70,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 65,
+          "tiempo_movimiento": 18200,
+          "timestamp": 1773102600
+        }
+      },
+      "2026-03-12": {
+        "-LM1100": {
+          "aceleraciones_bruscas": 13,
+          "colisiones": 2,
+          "estabilidad": 71,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 66,
+          "tiempo_movimiento": 16600,
+          "timestamp": 1773273600
+        },
+        "-LM1101": {
+          "aceleraciones_bruscas": 12,
+          "colisiones": 2,
+          "estabilidad": 72,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 67,
+          "tiempo_movimiento": 17400,
+          "timestamp": 1773274200
+        },
+        "-LM1102": {
+          "aceleraciones_bruscas": 11,
+          "colisiones": 1,
+          "estabilidad": 73,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 68,
+          "tiempo_movimiento": 18200,
+          "timestamp": 1773274800
+        },
+        "-LM1103": {
+          "aceleraciones_bruscas": 10,
+          "colisiones": 1,
+          "estabilidad": 74,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 69,
+          "tiempo_movimiento": 19000,
+          "timestamp": 1773275400
+        }
+      },
+      "2026-03-17": {
+        "-LM2100": {
+          "aceleraciones_bruscas": 10,
+          "colisiones": 1,
+          "estabilidad": 74,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 70,
+          "tiempo_movimiento": 19000,
+          "timestamp": 1773705600
+        },
+        "-LM2101": {
+          "aceleraciones_bruscas": 9,
+          "colisiones": 1,
+          "estabilidad": 75,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 71,
+          "tiempo_movimiento": 19800,
+          "timestamp": 1773706200
+        },
+        "-LM2102": {
+          "aceleraciones_bruscas": 8,
+          "colisiones": 0,
+          "estabilidad": 76,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 72,
+          "tiempo_movimiento": 20600,
+          "timestamp": 1773706800
+        },
+        "-LM2103": {
+          "aceleraciones_bruscas": 7,
+          "colisiones": 0,
+          "estabilidad": 77,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 73,
+          "tiempo_movimiento": 21400,
+          "timestamp": 1773707400
+        },
+        "-LM2104": {
+          "aceleraciones_bruscas": 6,
+          "colisiones": 0,
+          "estabilidad": 78,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 74,
+          "tiempo_movimiento": 22200,
+          "timestamp": 1773708000
+        }
+      },
+      "2026-03-19": {
+        "-LM3100": {
+          "aceleraciones_bruscas": 7,
+          "colisiones": 1,
+          "estabilidad": 77,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 74,
+          "tiempo_movimiento": 21800,
+          "timestamp": 1773878400
+        },
+        "-LM3101": {
+          "aceleraciones_bruscas": 6,
+          "colisiones": 1,
+          "estabilidad": 78,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 75,
+          "tiempo_movimiento": 22600,
+          "timestamp": 1773879000
+        },
+        "-LM3102": {
+          "aceleraciones_bruscas": 5,
+          "colisiones": 0,
+          "estabilidad": 79,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 76,
+          "tiempo_movimiento": 23400,
+          "timestamp": 1773879600
+        },
+        "-LM3103": {
+          "aceleraciones_bruscas": 4,
+          "colisiones": 0,
+          "estabilidad": 80,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 77,
+          "tiempo_movimiento": 24200,
+          "timestamp": 1773880200
+        }
+      },
+      "2026-03-24": {
+        "-LM4100": {
+          "aceleraciones_bruscas": 5,
+          "colisiones": 0,
+          "estabilidad": 80,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 77,
+          "tiempo_movimiento": 24000,
+          "timestamp": 1774310400
+        },
+        "-LM4101": {
+          "aceleraciones_bruscas": 4,
+          "colisiones": 0,
+          "estabilidad": 81,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 78,
+          "tiempo_movimiento": 24800,
+          "timestamp": 1774311000
+        },
+        "-LM4102": {
+          "aceleraciones_bruscas": 3,
+          "colisiones": 0,
+          "estabilidad": 82,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 79,
+          "tiempo_movimiento": 25600,
+          "timestamp": 1774311600
+        },
+        "-LM4103": {
+          "aceleraciones_bruscas": 2,
+          "colisiones": 0,
+          "estabilidad": 83,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 80,
+          "tiempo_movimiento": 26400,
+          "timestamp": 1774312200
+        },
+        "-LM4104": {
+          "aceleraciones_bruscas": 1,
+          "colisiones": 0,
+          "estabilidad": 84,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 81,
+          "tiempo_movimiento": 27200,
+          "timestamp": 1774312800
+        }
+      },
+      "2026-03-26": {
+        "-LM5100": {
+          "aceleraciones_bruscas": 4,
+          "colisiones": 0,
+          "estabilidad": 83,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 81,
+          "tiempo_movimiento": 25200,
+          "timestamp": 1774483200
+        },
+        "-LM5101": {
+          "aceleraciones_bruscas": 3,
+          "colisiones": 0,
+          "estabilidad": 84,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 82,
+          "tiempo_movimiento": 26000,
+          "timestamp": 1774483800
+        },
+        "-LM5102": {
+          "aceleraciones_bruscas": 2,
+          "colisiones": 0,
+          "estabilidad": 85,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 83,
+          "tiempo_movimiento": 26800,
+          "timestamp": 1774484400
+        },
+        "-LM5103": {
+          "aceleraciones_bruscas": 1,
+          "colisiones": 0,
+          "estabilidad": 86,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 84,
+          "tiempo_movimiento": 27600,
+          "timestamp": 1774485000
+        }
+      },
+      "2026-04-02": {
+        "-LM6100": {
+          "aceleraciones_bruscas": 2,
+          "colisiones": 0,
+          "estabilidad": 86,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 84,
+          "tiempo_movimiento": 27400,
+          "timestamp": 1775088000
+        },
+        "-LM6101": {
+          "aceleraciones_bruscas": 1,
+          "colisiones": 0,
+          "estabilidad": 87,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 85,
+          "tiempo_movimiento": 28200,
+          "timestamp": 1775088600
+        },
+        "-LM6102": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 88,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 86,
+          "tiempo_movimiento": 29000,
+          "timestamp": 1775089200
+        },
+        "-LM6103": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 89,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 87,
+          "tiempo_movimiento": 29800,
+          "timestamp": 1775089800
+        },
+        "-LM6104": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 90,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 88,
+          "tiempo_movimiento": 30600,
+          "timestamp": 1775090400
+        }
+      },
+      "2026-04-04": {
+        "-LM7100": {
+          "aceleraciones_bruscas": 2,
+          "colisiones": 0,
+          "estabilidad": 88,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 86,
+          "tiempo_movimiento": 28600,
+          "timestamp": 1775260800
+        },
+        "-LM7101": {
+          "aceleraciones_bruscas": 1,
+          "colisiones": 0,
+          "estabilidad": 89,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 87,
+          "tiempo_movimiento": 29400,
+          "timestamp": 1775261400
+        },
+        "-LM7102": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 90,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 88,
+          "tiempo_movimiento": 30200,
+          "timestamp": 1775262000
+        },
+        "-LM7103": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 91,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 89,
+          "tiempo_movimiento": 31000,
+          "timestamp": 1775262600
+        }
+      },
+      "2026-04-10": {
+        "-LM8100": {
+          "aceleraciones_bruscas": 1,
+          "colisiones": 0,
+          "estabilidad": 89,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 87,
+          "tiempo_movimiento": 30000,
+          "timestamp": 1775779200
+        },
+        "-LM8101": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 90,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 88,
+          "tiempo_movimiento": 30800,
+          "timestamp": 1775779800
+        },
+        "-LM8102": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 91,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 89,
+          "tiempo_movimiento": 31600,
+          "timestamp": 1775780400
+        },
+        "-LM8103": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 92,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 90,
+          "tiempo_movimiento": 32400,
+          "timestamp": 1775781000
+        }
+      }
+    }
+  },
+  "Carlos Ruiz Fernández": {
+    "diagnostico": "Síndrome de hombro congelado post-fractura de clavícula izquierda",
+    "movimiento": {
+      "2026-03-08": {
+        "tiempo": 54000
+      },
+      "2026-03-11": {
+        "tiempo": 49000
+      },
+      "2026-03-16": {
+        "tiempo": 71000
+      },
+      "2026-03-19": {
+        "tiempo": 58000
+      },
+      "2026-03-23": {
+        "tiempo": 83000
+      },
+      "2026-03-26": {
+        "tiempo": 68000
+      },
+      "2026-03-30": {
+        "tiempo": 98000
+      },
+      "2026-04-06": {
+        "tiempo": 80000
+      }
+    },
+    "sesiones": {
+      "2026-03-08": {
+        "-CR0100": {
+          "aceleraciones_bruscas": 22,
+          "colisiones": 5,
+          "estabilidad": 61,
+          "nivel": "Principiante perfeccionando",
+          "paradas_bruscas": 3,
+          "score": 52,
+          "tiempo_movimiento": 12400,
+          "timestamp": 1772928000
+        },
+        "-CR0101": {
+          "aceleraciones_bruscas": 21,
+          "colisiones": 5,
+          "estabilidad": 62,
+          "nivel": "Principiante perfeccionando",
+          "paradas_bruscas": 3,
+          "score": 53,
+          "tiempo_movimiento": 13200,
+          "timestamp": 1772928600
+        },
+        "-CR0102": {
+          "aceleraciones_bruscas": 20,
+          "colisiones": 4,
+          "estabilidad": 63,
+          "nivel": "Principiante perfeccionando",
+          "paradas_bruscas": 3,
+          "score": 54,
+          "tiempo_movimiento": 14000,
+          "timestamp": 1772929200
+        },
+        "-CR0103": {
+          "aceleraciones_bruscas": 19,
+          "colisiones": 4,
+          "estabilidad": 64,
+          "nivel": "Principiante perfeccionando",
+          "paradas_bruscas": 2,
+          "score": 55,
+          "tiempo_movimiento": 14800,
+          "timestamp": 1772929800
+        }
+      },
+      "2026-03-11": {
+        "-CR1100": {
+          "aceleraciones_bruscas": 17,
+          "colisiones": 3,
+          "estabilidad": 67,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 58,
+          "tiempo_movimiento": 14800,
+          "timestamp": 1773187200
+        },
+        "-CR1101": {
+          "aceleraciones_bruscas": 16,
+          "colisiones": 3,
+          "estabilidad": 68,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 59,
+          "tiempo_movimiento": 15600,
+          "timestamp": 1773187800
+        },
+        "-CR1102": {
+          "aceleraciones_bruscas": 15,
+          "colisiones": 2,
+          "estabilidad": 69,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 60,
+          "tiempo_movimiento": 16400,
+          "timestamp": 1773188400
+        }
+      },
+      "2026-03-16": {
+        "-CR2100": {
+          "aceleraciones_bruscas": 14,
+          "colisiones": 2,
+          "estabilidad": 70,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 62,
+          "tiempo_movimiento": 16600,
+          "timestamp": 1773619200
+        },
+        "-CR2101": {
+          "aceleraciones_bruscas": 13,
+          "colisiones": 2,
+          "estabilidad": 71,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 63,
+          "tiempo_movimiento": 17400,
+          "timestamp": 1773619800
+        },
+        "-CR2102": {
+          "aceleraciones_bruscas": 12,
+          "colisiones": 1,
+          "estabilidad": 72,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 64,
+          "tiempo_movimiento": 18200,
+          "timestamp": 1773620400
+        },
+        "-CR2103": {
+          "aceleraciones_bruscas": 11,
+          "colisiones": 1,
+          "estabilidad": 73,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 65,
+          "tiempo_movimiento": 19000,
+          "timestamp": 1773621000
+        }
+      },
+      "2026-03-19": {
+        "-CR3100": {
+          "aceleraciones_bruscas": 11,
+          "colisiones": 1,
+          "estabilidad": 73,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 66,
+          "tiempo_movimiento": 18800,
+          "timestamp": 1773878400
+        },
+        "-CR3101": {
+          "aceleraciones_bruscas": 10,
+          "colisiones": 1,
+          "estabilidad": 74,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 67,
+          "tiempo_movimiento": 19600,
+          "timestamp": 1773879000
+        },
+        "-CR3102": {
+          "aceleraciones_bruscas": 9,
+          "colisiones": 0,
+          "estabilidad": 75,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 68,
+          "tiempo_movimiento": 20400,
+          "timestamp": 1773879600
+        }
+      },
+      "2026-03-23": {
+        "-CR4100": {
+          "aceleraciones_bruscas": 10,
+          "colisiones": 1,
+          "estabilidad": 75,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 69,
+          "tiempo_movimiento": 20600,
+          "timestamp": 1774224000
+        },
+        "-CR4101": {
+          "aceleraciones_bruscas": 9,
+          "colisiones": 1,
+          "estabilidad": 76,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 70,
+          "tiempo_movimiento": 21400,
+          "timestamp": 1774224600
+        },
+        "-CR4102": {
+          "aceleraciones_bruscas": 8,
+          "colisiones": 0,
+          "estabilidad": 77,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 71,
+          "tiempo_movimiento": 22200,
+          "timestamp": 1774225200
+        },
+        "-CR4103": {
+          "aceleraciones_bruscas": 7,
+          "colisiones": 0,
+          "estabilidad": 78,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 72,
+          "tiempo_movimiento": 23000,
+          "timestamp": 1774225800
+        }
+      },
+      "2026-03-26": {
+        "-CR5100": {
+          "aceleraciones_bruscas": 8,
+          "colisiones": 0,
+          "estabilidad": 78,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 72,
+          "tiempo_movimiento": 22200,
+          "timestamp": 1774483200
+        },
+        "-CR5101": {
+          "aceleraciones_bruscas": 7,
+          "colisiones": 0,
+          "estabilidad": 79,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 73,
+          "tiempo_movimiento": 23000,
+          "timestamp": 1774483800
+        },
+        "-CR5102": {
+          "aceleraciones_bruscas": 6,
+          "colisiones": 0,
+          "estabilidad": 80,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 74,
+          "tiempo_movimiento": 23800,
+          "timestamp": 1774484400
+        }
+      },
+      "2026-03-30": {
+        "-CR6100": {
+          "aceleraciones_bruscas": 7,
+          "colisiones": 0,
+          "estabilidad": 79,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 74,
+          "tiempo_movimiento": 23600,
+          "timestamp": 1774828800
+        },
+        "-CR6101": {
+          "aceleraciones_bruscas": 6,
+          "colisiones": 0,
+          "estabilidad": 80,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 75,
+          "tiempo_movimiento": 24400,
+          "timestamp": 1774829400
+        },
+        "-CR6102": {
+          "aceleraciones_bruscas": 5,
+          "colisiones": 0,
+          "estabilidad": 81,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 76,
+          "tiempo_movimiento": 25200,
+          "timestamp": 1774830000
+        },
+        "-CR6103": {
+          "aceleraciones_bruscas": 4,
+          "colisiones": 0,
+          "estabilidad": 82,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 77,
+          "tiempo_movimiento": 26000,
+          "timestamp": 1774830600
+        }
+      },
+      "2026-04-06": {
+        "-CR7100": {
+          "aceleraciones_bruscas": 5,
+          "colisiones": 0,
+          "estabilidad": 81,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 77,
+          "tiempo_movimiento": 26000,
+          "timestamp": 1775433600
+        },
+        "-CR7101": {
+          "aceleraciones_bruscas": 4,
+          "colisiones": 0,
+          "estabilidad": 82,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 78,
+          "tiempo_movimiento": 26800,
+          "timestamp": 1775434200
+        },
+        "-CR7102": {
+          "aceleraciones_bruscas": 3,
+          "colisiones": 0,
+          "estabilidad": 83,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 79,
+          "tiempo_movimiento": 27600,
+          "timestamp": 1775434800
+        }
+      }
+    }
+  },
+  "Elena Torres Vidal": {
+    "diagnostico": "Tendinopatía rotuliana bilateral por sobrecarga deportiva",
+    "movimiento": {
+      "2026-03-12": {
+        "tiempo": 108000
+      },
+      "2026-03-14": {
+        "tiempo": 99000
+      },
+      "2026-03-19": {
+        "tiempo": 133000
+      },
+      "2026-03-21": {
+        "tiempo": 118000
+      },
+      "2026-03-26": {
+        "tiempo": 152000
+      },
+      "2026-03-28": {
+        "tiempo": 128000
+      },
+      "2026-04-04": {
+        "tiempo": 170000
+      },
+      "2026-04-10": {
+        "tiempo": 143000
+      }
+    },
+    "sesiones": {
+      "2026-03-12": {
+        "-ET0100": {
+          "aceleraciones_bruscas": 8,
+          "colisiones": 2,
+          "estabilidad": 75,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 70,
+          "tiempo_movimiento": 20400,
+          "timestamp": 1773273600
+        },
+        "-ET0101": {
+          "aceleraciones_bruscas": 7,
+          "colisiones": 2,
+          "estabilidad": 76,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 71,
+          "tiempo_movimiento": 21200,
+          "timestamp": 1773274200
+        },
+        "-ET0102": {
+          "aceleraciones_bruscas": 6,
+          "colisiones": 1,
+          "estabilidad": 77,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 72,
+          "tiempo_movimiento": 22000,
+          "timestamp": 1773274800
+        },
+        "-ET0103": {
+          "aceleraciones_bruscas": 5,
+          "colisiones": 1,
+          "estabilidad": 78,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 73,
+          "tiempo_movimiento": 22800,
+          "timestamp": 1773275400
+        },
+        "-ET0104": {
+          "aceleraciones_bruscas": 4,
+          "colisiones": 1,
+          "estabilidad": 79,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 74,
+          "tiempo_movimiento": 23600,
+          "timestamp": 1773276000
+        }
+      },
+      "2026-03-14": {
+        "-ET1100": {
+          "aceleraciones_bruscas": 5,
+          "colisiones": 1,
+          "estabilidad": 79,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 74,
+          "tiempo_movimiento": 23000,
+          "timestamp": 1773446400
+        },
+        "-ET1101": {
+          "aceleraciones_bruscas": 4,
+          "colisiones": 1,
+          "estabilidad": 80,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 75,
+          "tiempo_movimiento": 23800,
+          "timestamp": 1773447000
+        },
+        "-ET1102": {
+          "aceleraciones_bruscas": 3,
+          "colisiones": 0,
+          "estabilidad": 81,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 76,
+          "tiempo_movimiento": 24600,
+          "timestamp": 1773447600
+        },
+        "-ET1103": {
+          "aceleraciones_bruscas": 2,
+          "colisiones": 0,
+          "estabilidad": 82,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 77,
+          "tiempo_movimiento": 25400,
+          "timestamp": 1773448200
+        }
+      },
+      "2026-03-19": {
+        "-ET2100": {
+          "aceleraciones_bruscas": 4,
+          "colisiones": 0,
+          "estabilidad": 82,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 77,
+          "tiempo_movimiento": 25600,
+          "timestamp": 1773878400
+        },
+        "-ET2101": {
+          "aceleraciones_bruscas": 3,
+          "colisiones": 0,
+          "estabilidad": 83,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 78,
+          "tiempo_movimiento": 26400,
+          "timestamp": 1773879000
+        },
+        "-ET2102": {
+          "aceleraciones_bruscas": 2,
+          "colisiones": 0,
+          "estabilidad": 84,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 79,
+          "tiempo_movimiento": 27200,
+          "timestamp": 1773879600
+        },
+        "-ET2103": {
+          "aceleraciones_bruscas": 1,
+          "colisiones": 0,
+          "estabilidad": 85,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 80,
+          "tiempo_movimiento": 28000,
+          "timestamp": 1773880200
+        },
+        "-ET2104": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 86,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 81,
+          "tiempo_movimiento": 28800,
+          "timestamp": 1773880800
+        }
+      },
+      "2026-03-21": {
+        "-ET3100": {
+          "aceleraciones_bruscas": 3,
+          "colisiones": 0,
+          "estabilidad": 85,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 81,
+          "tiempo_movimiento": 27400,
+          "timestamp": 1774051200
+        },
+        "-ET3101": {
+          "aceleraciones_bruscas": 2,
+          "colisiones": 0,
+          "estabilidad": 86,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 82,
+          "tiempo_movimiento": 28200,
+          "timestamp": 1774051800
+        },
+        "-ET3102": {
+          "aceleraciones_bruscas": 1,
+          "colisiones": 0,
+          "estabilidad": 87,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 83,
+          "tiempo_movimiento": 29000,
+          "timestamp": 1774052400
+        },
+        "-ET3103": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 88,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 84,
+          "tiempo_movimiento": 29800,
+          "timestamp": 1774053000
+        }
+      },
+      "2026-03-26": {
+        "-ET4100": {
+          "aceleraciones_bruscas": 2,
+          "colisiones": 0,
+          "estabilidad": 87,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 84,
+          "tiempo_movimiento": 29200,
+          "timestamp": 1774483200
+        },
+        "-ET4101": {
+          "aceleraciones_bruscas": 1,
+          "colisiones": 0,
+          "estabilidad": 88,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 85,
+          "tiempo_movimiento": 30000,
+          "timestamp": 1774483800
+        },
+        "-ET4102": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 89,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 86,
+          "tiempo_movimiento": 30800,
+          "timestamp": 1774484400
+        },
+        "-ET4103": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 90,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 87,
+          "tiempo_movimiento": 31600,
+          "timestamp": 1774485000
+        },
+        "-ET4104": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 91,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 88,
+          "tiempo_movimiento": 32400,
+          "timestamp": 1774485600
+        }
+      },
+      "2026-03-28": {
+        "-ET5100": {
+          "aceleraciones_bruscas": 1,
+          "colisiones": 0,
+          "estabilidad": 89,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 87,
+          "tiempo_movimiento": 31000,
+          "timestamp": 1774656000
+        },
+        "-ET5101": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 90,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 88,
+          "tiempo_movimiento": 31800,
+          "timestamp": 1774656600
+        },
+        "-ET5102": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 91,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 89,
+          "tiempo_movimiento": 32600,
+          "timestamp": 1774657200
+        },
+        "-ET5103": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 92,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 90,
+          "tiempo_movimiento": 33400,
+          "timestamp": 1774657800
+        }
+      },
+      "2026-04-04": {
+        "-ET6100": {
+          "aceleraciones_bruscas": 1,
+          "colisiones": 0,
+          "estabilidad": 91,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 89,
+          "tiempo_movimiento": 32400,
+          "timestamp": 1775260800
+        },
+        "-ET6101": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 92,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 90,
+          "tiempo_movimiento": 33200,
+          "timestamp": 1775261400
+        },
+        "-ET6102": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 93,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 91,
+          "tiempo_movimiento": 34000,
+          "timestamp": 1775262000
+        },
+        "-ET6103": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 94,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 92,
+          "tiempo_movimiento": 34800,
+          "timestamp": 1775262600
+        },
+        "-ET6104": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 95,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 93,
+          "tiempo_movimiento": 35600,
+          "timestamp": 1775263200
+        }
+      },
+      "2026-04-10": {
+        "-ET7100": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 93,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 91,
+          "tiempo_movimiento": 33800,
+          "timestamp": 1775779200
+        },
+        "-ET7101": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 94,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 92,
+          "tiempo_movimiento": 34600,
+          "timestamp": 1775779800
+        },
+        "-ET7102": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 95,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 93,
+          "tiempo_movimiento": 35400,
+          "timestamp": 1775780400
+        },
+        "-ET7103": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 96,
+          "nivel": "Experto",
+          "paradas_bruscas": 0,
+          "score": 94,
+          "tiempo_movimiento": 36200,
+          "timestamp": 1775781000
+        }
+      }
+    }
+  },
+  "Miguel Sánchez Mora": {
+    "diagnostico": "Esguince grado II de tobillo derecho con rotura parcial del ligamento peroneoastragalino anterior",
+    "movimiento": {
+      "2026-03-15": {
+        "tiempo": 47000
+      },
+      "2026-03-18": {
+        "tiempo": 68000
+      },
+      "2026-03-22": {
+        "tiempo": 82000
+      },
+      "2026-03-25": {
+        "tiempo": 73000
+      },
+      "2026-03-29": {
+        "tiempo": 99000
+      },
+      "2026-04-01": {
+        "tiempo": 107000
+      },
+      "2026-04-06": {
+        "tiempo": 118000
+      },
+      "2026-04-12": {
+        "tiempo": 92000
+      }
+    },
+    "sesiones": {
+      "2026-03-15": {
+        "-MS0100": {
+          "aceleraciones_bruscas": 18,
+          "colisiones": 4,
+          "estabilidad": 63,
+          "nivel": "Competente",
+          "paradas_bruscas": 3,
+          "score": 56,
+          "tiempo_movimiento": 13600,
+          "timestamp": 1773532800
+        },
+        "-MS0101": {
+          "aceleraciones_bruscas": 17,
+          "colisiones": 4,
+          "estabilidad": 64,
+          "nivel": "Competente",
+          "paradas_bruscas": 3,
+          "score": 57,
+          "tiempo_movimiento": 14400,
+          "timestamp": 1773533400
+        },
+        "-MS0102": {
+          "aceleraciones_bruscas": 16,
+          "colisiones": 3,
+          "estabilidad": 65,
+          "nivel": "Competente",
+          "paradas_bruscas": 3,
+          "score": 58,
+          "tiempo_movimiento": 15200,
+          "timestamp": 1773534000
+        }
+      },
+      "2026-03-18": {
+        "-MS1100": {
+          "aceleraciones_bruscas": 15,
+          "colisiones": 3,
+          "estabilidad": 68,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 62,
+          "tiempo_movimiento": 15800,
+          "timestamp": 1773792000
+        },
+        "-MS1101": {
+          "aceleraciones_bruscas": 14,
+          "colisiones": 3,
+          "estabilidad": 69,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 63,
+          "tiempo_movimiento": 16600,
+          "timestamp": 1773792600
+        },
+        "-MS1102": {
+          "aceleraciones_bruscas": 13,
+          "colisiones": 2,
+          "estabilidad": 70,
+          "nivel": "Competente",
+          "paradas_bruscas": 2,
+          "score": 64,
+          "tiempo_movimiento": 17400,
+          "timestamp": 1773793200
+        },
+        "-MS1103": {
+          "aceleraciones_bruscas": 12,
+          "colisiones": 2,
+          "estabilidad": 71,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 65,
+          "tiempo_movimiento": 18200,
+          "timestamp": 1773793800
+        }
+      },
+      "2026-03-22": {
+        "-MS2100": {
+          "aceleraciones_bruscas": 11,
+          "colisiones": 2,
+          "estabilidad": 72,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 67,
+          "tiempo_movimiento": 18600,
+          "timestamp": 1774137600
+        },
+        "-MS2101": {
+          "aceleraciones_bruscas": 10,
+          "colisiones": 2,
+          "estabilidad": 73,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 68,
+          "tiempo_movimiento": 19400,
+          "timestamp": 1774138200
+        },
+        "-MS2102": {
+          "aceleraciones_bruscas": 9,
+          "colisiones": 1,
+          "estabilidad": 74,
+          "nivel": "Competente",
+          "paradas_bruscas": 1,
+          "score": 69,
+          "tiempo_movimiento": 20200,
+          "timestamp": 1774138800
+        },
+        "-MS2103": {
+          "aceleraciones_bruscas": 8,
+          "colisiones": 1,
+          "estabilidad": 75,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 70,
+          "tiempo_movimiento": 21000,
+          "timestamp": 1774139400
+        }
+      },
+      "2026-03-25": {
+        "-MS3100": {
+          "aceleraciones_bruscas": 8,
+          "colisiones": 1,
+          "estabilidad": 76,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 71,
+          "tiempo_movimiento": 21400,
+          "timestamp": 1774396800
+        },
+        "-MS3101": {
+          "aceleraciones_bruscas": 7,
+          "colisiones": 1,
+          "estabilidad": 77,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 72,
+          "tiempo_movimiento": 22200,
+          "timestamp": 1774397400
+        },
+        "-MS3102": {
+          "aceleraciones_bruscas": 6,
+          "colisiones": 0,
+          "estabilidad": 78,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 73,
+          "tiempo_movimiento": 23000,
+          "timestamp": 1774398000
+        }
+      },
+      "2026-03-29": {
+        "-MS4100": {
+          "aceleraciones_bruscas": 7,
+          "colisiones": 0,
+          "estabilidad": 78,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 74,
+          "tiempo_movimiento": 23200,
+          "timestamp": 1774742400
+        },
+        "-MS4101": {
+          "aceleraciones_bruscas": 6,
+          "colisiones": 0,
+          "estabilidad": 79,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 75,
+          "tiempo_movimiento": 24000,
+          "timestamp": 1774743000
+        },
+        "-MS4102": {
+          "aceleraciones_bruscas": 5,
+          "colisiones": 0,
+          "estabilidad": 80,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 76,
+          "tiempo_movimiento": 24800,
+          "timestamp": 1774743600
+        },
+        "-MS4103": {
+          "aceleraciones_bruscas": 4,
+          "colisiones": 0,
+          "estabilidad": 81,
+          "nivel": "Competente",
+          "paradas_bruscas": 0,
+          "score": 77,
+          "tiempo_movimiento": 25600,
+          "timestamp": 1774744200
+        }
+      },
+      "2026-04-01": {
+        "-MS5100": {
+          "aceleraciones_bruscas": 5,
+          "colisiones": 0,
+          "estabilidad": 81,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 77,
+          "tiempo_movimiento": 25400,
+          "timestamp": 1775001600
+        },
+        "-MS5101": {
+          "aceleraciones_bruscas": 4,
+          "colisiones": 0,
+          "estabilidad": 82,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 78,
+          "tiempo_movimiento": 26200,
+          "timestamp": 1775002200
+        },
+        "-MS5102": {
+          "aceleraciones_bruscas": 3,
+          "colisiones": 0,
+          "estabilidad": 83,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 79,
+          "tiempo_movimiento": 27000,
+          "timestamp": 1775002800
+        },
+        "-MS5103": {
+          "aceleraciones_bruscas": 2,
+          "colisiones": 0,
+          "estabilidad": 84,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 80,
+          "tiempo_movimiento": 27800,
+          "timestamp": 1775003400
+        }
+      },
+      "2026-04-06": {
+        "-MS6100": {
+          "aceleraciones_bruscas": 4,
+          "colisiones": 0,
+          "estabilidad": 83,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 80,
+          "tiempo_movimiento": 27200,
+          "timestamp": 1775433600
+        },
+        "-MS6101": {
+          "aceleraciones_bruscas": 3,
+          "colisiones": 0,
+          "estabilidad": 84,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 81,
+          "tiempo_movimiento": 28000,
+          "timestamp": 1775434200
+        },
+        "-MS6102": {
+          "aceleraciones_bruscas": 2,
+          "colisiones": 0,
+          "estabilidad": 85,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 82,
+          "tiempo_movimiento": 28800,
+          "timestamp": 1775434800
+        },
+        "-MS6103": {
+          "aceleraciones_bruscas": 1,
+          "colisiones": 0,
+          "estabilidad": 86,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 83,
+          "tiempo_movimiento": 29600,
+          "timestamp": 1775435400
+        }
+      },
+      "2026-04-12": {
+        "-MS7100": {
+          "aceleraciones_bruscas": 2,
+          "colisiones": 0,
+          "estabilidad": 86,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 83,
+          "tiempo_movimiento": 29000,
+          "timestamp": 1775952000
+        },
+        "-MS7101": {
+          "aceleraciones_bruscas": 1,
+          "colisiones": 0,
+          "estabilidad": 87,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 84,
+          "tiempo_movimiento": 29800,
+          "timestamp": 1775952600
+        },
+        "-MS7102": {
+          "aceleraciones_bruscas": 0,
+          "colisiones": 0,
+          "estabilidad": 88,
+          "nivel": "Aventajado",
+          "paradas_bruscas": 0,
+          "score": 85,
+          "tiempo_movimiento": 30600,
+          "timestamp": 1775953200
         }
       }
     }

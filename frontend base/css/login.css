@@ -73,7 +73,7 @@ body.login-shake .login-form-wrap {
   top: -80px; right: -80px;
   width: 260px; height: 260px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(26,86,160,0.35) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(99,102,241,0.30) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -83,7 +83,7 @@ body.login-shake .login-form-wrap {
   bottom: -60px; left: -60px;
   width: 200px; height: 200px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(26,86,160,0.2) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(99,102,241,0.18) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -100,8 +100,15 @@ body.login-shake .login-form-wrap {
 }
 
 .login-brand-top-icon {
-  font-size: 1.6rem;
-  line-height: 1;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(99,102,241,0.20);
+  border: 1px solid rgba(99,102,241,0.35);
+  border-radius: var(--r-sm);
 }
 
 .login-brand-top-text {
@@ -146,13 +153,12 @@ body.login-shake .login-form-wrap {
 .login-feature-icon {
   width: 26px;
   height: 26px;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.10);
   border: 1px solid rgba(255,255,255,0.15);
   border-radius: var(--r-sm);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.78rem;
   flex-shrink: 0;
   margin-top: 1px;
 }

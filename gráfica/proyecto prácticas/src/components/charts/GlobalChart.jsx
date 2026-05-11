@@ -1,83 +1,26 @@
 import {
-  CartesianGrid,
-  Line,
-  LineChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
+  Area, Bar, CartesianGrid, ComposedChart,
+  ResponsiveContainer, Tooltip, XAxis, YAxis,
 } from 'recharts';
+import { useTokens } from '../../design/tokens';
 
-const LEVELS = [
-  { name: 'Necesita apoyo', color: '#ef4444', min: 0 },
-  { name: 'En progreso', color: '#f97316', min: 40 },
-  { name: 'Buen avance', color: '#3b82f6', min: 70 },
-  { name: 'Alto rendimiento', color: '#10b981', min: 90 },
-];
-
-function getPointColor(score) {
-  const selected = [...LEVELS].reverse().find((level) => score >= level.min);
-  return selected?.color ?? '#ef4444';
-}
-
-function CustomTooltip({ active, payload }) {
-  if (!active || !payload?.length) {
-    return null;
-  }
-
-  const { score, tiempo, semana, sesiones } = payload[0].payload;
+function CustomTooltip({ active, payload, label, t }) {
+  if (!active || !payload?.length) return null;
   return (
     <div
       style={{
-        backgroundColor: '#ffffff',
-        padding: '12px 14px',
+        background: t.cardBg,
+        border: `1px solid ${t.cardBorder}`,
         borderRadius: '12px',
-        boxShadow: '0 10px 30px rgba(15, 23, 42, 0.12)',
+        padding: '10px 14px',
+        boxShadow: t.cardShadow,
         fontSize: '13px',
-        border: '1px solid #dbe4f0',
       }}
     >
-      <p style={{ margin: '0 0 6px', fontWeight: 700, color: '#10233c' }}>
-        Semana {semana}
-      </p>
-      <p style={{ margin: '0 0 4px', color: '#1d4ed8' }}>Score: {score}</p>
-      <p style={{ margin: '0 0 4px', color: '#334155' }}>Tiempo: {tiempo} min</p>
-      <p style={{ margin: 0, color: '#334155' }}>Sesiones: {sesiones}</p>
-    </div>
-  );
-}
-
-function LegendLevels() {
-  return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        gap: '12px',
-        marginBottom: '18px',
-        flexWrap: 'wrap',
-      }}
-    >
-      {LEVELS.map((level) => (
-        <div
-          key={level.name}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '6px',
-            fontSize: '11px',
-            color: '#64748b',
-          }}
-        >
-          <div
-            style={{
-              width: '9px',
-              height: '9px',
-              borderRadius: '50%',
-              backgroundColor: level.color,
-            }}
-          />
-          {level.name}
+      <div style={{ fontWeight: 700, color: t.text, marginBottom: '6px' }}>{label}</div>
+      {payload.map((entry) => (
+        <div key={entry.dataKey} style={{ color: entry.dataKey === 'score' ? '#6366F1' : '#14B8A6', fontWeight: 600, marginBottom: '2px' }}>
+          {entry.name}: {entry.value}
         </div>
       ))}
     </div>
@@ -85,55 +28,48 @@ function LegendLevels() {
 }
 
 export function GlobalChart({ data, onClick }) {
+  const t = useTokens();
+
+  if (!data?.length) {
+    return <p style={{ textAlign: 'center', color: t.textMuted, padding: '40px 0', margin: 0 }}>Sin datos</p>;
+  }
+
+  const normalized = data.map((w) => ({
+    name: `Sem ${w.semana}`,
+    score: w.score ?? 0,
+    sesiones: w.sesiones ?? 0,
+  }));
+
   return (
-    <div
-      onClick={onClick}
-      style={{
-        width: '100%',
-        height: 340,
-        cursor: onClick ? 'pointer' : 'default',
-      }}
-    >
-      <LegendLevels />
-      <ResponsiveContainer width="100%" height="82%">
-        <LineChart data={data} margin={{ top: 10, right: 24, left: 0, bottom: 10 }}>
-          <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e7eef7" />
-          <XAxis
-            dataKey="semana"
-            axisLine={false}
-            tickLine={false}
-            tick={{ fill: '#64748b', fontSize: 12 }}
-          />
-          <YAxis
-            domain={[0, 100]}
-            axisLine={false}
-            tickLine={false}
-            tick={{ fill: '#64748b', fontSize: 12 }}
-          />
-          <Tooltip content={<CustomTooltip />} />
-          <Line
+    <div style={{ width: '100%', height: 300, cursor: onClick ? 'pointer' : 'default' }} onClick={onClick}>
+      <ResponsiveContainer>
+        <ComposedChart data={normalized} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
+          <defs>
+            <linearGradient id="globalGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="5%"  stopColor="#6366F1" stopOpacity={0.20} />
+              <stop offset="95%" stopColor="#6366F1" stopOpacity={0.01} />
+            </linearGradient>
+          </defs>
+          <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={t.cardBorder} />
+          <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: t.textMuted }} />
+          <YAxis yAxisId="score" domain={[0, 100]} axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: t.textMuted }} width={28} />
+          <YAxis yAxisId="ses" orientation="right" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: t.textMuted }} width={24} />
+          <Tooltip content={<CustomTooltip t={t} />} />
+          <Bar yAxisId="ses" dataKey="sesiones" name="Sesiones" fill="#C7D2FE" radius={[6, 6, 0, 0]} barSize={16} />
+          <Area
+            yAxisId="score"
             type="monotone"
             dataKey="score"
-            stroke="#2563eb"
-            strokeWidth={3}
-            dot={({ cx, cy, payload }) => (
-              <circle
-                key={`point-${payload.semana}`}
-                cx={cx}
-                cy={cy}
-                r={6}
-                fill={getPointColor(payload.score)}
-                stroke="#ffffff"
-                strokeWidth={3}
-              />
-            )}
-            activeDot={{ r: 8, strokeWidth: 0 }}
+            name="Score"
+            stroke="#6366F1"
+            strokeWidth={2.5}
+            fillOpacity={1}
+            fill="url(#globalGrad)"
+            dot={{ r: 4, fill: '#6366F1', strokeWidth: 0 }}
+            activeDot={{ r: 6, fill: '#6366F1' }}
           />
-        </LineChart>
+        </ComposedChart>
       </ResponsiveContainer>
-      <p style={{ textAlign: 'center', color: '#94a3b8', fontSize: '12px', marginTop: '8px' }}>
-        Evolucion semanal del score
-      </p>
     </div>
   );
 }

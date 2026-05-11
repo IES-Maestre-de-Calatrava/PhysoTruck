@@ -31,10 +31,10 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class DataSeeder implements CommandLineRunner {
 
-    private static final String DATA_FILE = "datos_prueba.json";
-    private static final String DEFAULT_DIAGNOSIS = "Datos de prueba importados desde JSON";
+    private static final String DATA_FILE      = "datos_prueba.json";
+    private static final String THERAPIST_EMAIL = "fisio@physiotrack.es";
 
-    private final UserRepository userRepo;
+    private final UserRepository    userRepo;
     private final PatientRepository patientRepo;
     private final BCryptPasswordEncoder passwordEncoder;
     private final ObjectMapper objectMapper;
@@ -42,29 +42,39 @@ public class DataSeeder implements CommandLineRunner {
     @Override
     @Transactional
     public void run(String... args) throws Exception {
-        if (userRepo.count() > 0) {
-            return;
-        }
-
-        User therapist = userRepo.save(
-            User.builder()
-                .email("fisio@sescam.es")
-                .passwordHash(passwordEncoder.encode("password123"))
-                .fullName("Fisio Demo")
-                .sescamId("FISIO-DEMO")
-                .build()
-        );
+        User therapist = userRepo.findByEmail(THERAPIST_EMAIL)
+            .orElseGet(() -> userRepo.save(
+                User.builder()
+                    .email(THERAPIST_EMAIL)
+                    .passwordHash(passwordEncoder.encode("password123"))
+                    .fullName("Terapeuta")
+                    .sescamId("FT-001")
+                    .build()
+            ));
 
         JsonNode root = readSeedData();
         Iterator<Map.Entry<String, JsonNode>> patients = root.fields();
 
         while (patients.hasNext()) {
             Map.Entry<String, JsonNode> patientEntry = patients.next();
-            JsonNode sessionsByDate = patientEntry.getValue().path("sesiones");
-            List<Session> sessions = buildSessions(patientEntry.getKey(), sessionsByDate);
+            String patientName = patientEntry.getKey();
+
+            if (patientRepo.existsByFullNameAndTherapistEmail(patientName, THERAPIST_EMAIL)) {
+                continue;
+            }
+
+            JsonNode patientNode    = patientEntry.getValue();
+            JsonNode sessionsByDate = patientNode.path("sesiones");
+
+            String diagnosis = patientNode.path("diagnostico").asText(null);
+            if (diagnosis == null || diagnosis.isBlank()) {
+                diagnosis = "Sin diagnóstico registrado";
+            }
+
+            List<Session> sessions = buildSessions(patientName, sessionsByDate);
             LocalDate treatmentStart = sessions.stream()
                 .map(Session::getStartedAt)
-                .filter(startedAt -> startedAt != null)
+                .filter(s -> s != null)
                 .map(LocalDateTime::toLocalDate)
                 .min(LocalDate::compareTo)
                 .orElse(resolveTreatmentStart(sessionsByDate));
@@ -75,8 +85,8 @@ public class DataSeeder implements CommandLineRunner {
                 .orElse(null);
 
             Patient patient = Patient.builder()
-                .fullName(patientEntry.getKey())
-                .diagnosis(DEFAULT_DIAGNOSIS)
+                .fullName(patientName)
+                .diagnosis(diagnosis)
                 .treatmentStart(treatmentStart)
                 .currentLevel(currentLevel)
                 .therapist(therapist)
@@ -102,14 +112,12 @@ public class DataSeeder implements CommandLineRunner {
     private LocalDate resolveTreatmentStart(JsonNode sessionsByDate) {
         Iterator<String> dates = sessionsByDate.fieldNames();
         LocalDate earliestDate = null;
-
         while (dates.hasNext()) {
             LocalDate date = LocalDate.parse(dates.next());
             if (earliestDate == null || date.isBefore(earliestDate)) {
                 earliestDate = date;
             }
         }
-
         return earliestDate;
     }
 
@@ -124,8 +132,8 @@ public class DataSeeder implements CommandLineRunner {
 
             while (sessionEntries.hasNext()) {
                 Map.Entry<String, JsonNode> sessionEntry = sessionEntries.next();
-                JsonNode sessionNode = sessionEntry.getValue();
-                int score = sessionNode.path("score").asInt(0);
+                JsonNode sessionNode  = sessionEntry.getValue();
+                int score       = sessionNode.path("score").asInt(0);
                 int movementTime = sessionNode.path("tiempo_movimiento").asInt(0);
                 LocalDateTime startedAt = resolveStartedAt(sessionDate, sessionNode.path("timestamp").asLong(0L));
 
@@ -142,13 +150,9 @@ public class DataSeeder implements CommandLineRunner {
                     .sessionEvents(new ArrayList<>())
                     .build();
 
-                session.getSessionEvents().add(buildEvent("COLLISIONS", sessionNode.path("colisiones").asInt(0), session));
-                session.getSessionEvents().add(
-                    buildEvent("HARSH_ACCELERATIONS", sessionNode.path("aceleraciones_bruscas").asInt(0), session)
-                );
-                session.getSessionEvents().add(
-                    buildEvent("HARSH_STOPS", sessionNode.path("paradas_bruscas").asInt(0), session)
-                );
+                session.getSessionEvents().add(buildEvent("COLLISIONS",           sessionNode.path("colisiones").asInt(0),             session));
+                session.getSessionEvents().add(buildEvent("HARSH_ACCELERATIONS",  sessionNode.path("aceleraciones_bruscas").asInt(0),  session));
+                session.getSessionEvents().add(buildEvent("HARSH_STOPS",          sessionNode.path("paradas_bruscas").asInt(0),        session));
 
                 sessions.add(session);
             }
@@ -157,7 +161,7 @@ public class DataSeeder implements CommandLineRunner {
         sessions.sort(Comparator.comparing(Session::getStartedAt));
         if (!sessions.isEmpty()) {
             LocalDate treatmentStart = sessions.get(0).getStartedAt().toLocalDate();
-            sessions.forEach(session -> session.setWeekNumber(resolveWeekNumber(treatmentStart, session.getStartedAt())));
+            sessions.forEach(s -> s.setWeekNumber(resolveWeekNumber(treatmentStart, s.getStartedAt())));
         }
         return sessions;
     }
@@ -170,45 +174,26 @@ public class DataSeeder implements CommandLineRunner {
         if (timestampSeconds <= 0) {
             return sessionDate.atStartOfDay();
         }
-
-        return Instant.ofEpochSecond(timestampSeconds)
-            .atOffset(ZoneOffset.UTC)
-            .toLocalDateTime();
+        return Instant.ofEpochSecond(timestampSeconds).atOffset(ZoneOffset.UTC).toLocalDateTime();
     }
 
     private int resolveWeekNumber(LocalDate treatmentStart, LocalDateTime startedAt) {
-        if (treatmentStart == null) {
-            return 1;
-        }
+        if (treatmentStart == null) return 1;
         LocalDate sessionDate = startedAt != null ? startedAt.toLocalDate() : treatmentStart;
         int week = (int) ChronoUnit.WEEKS.between(treatmentStart, sessionDate) + 1;
         return Math.min(Math.max(week, 1), 12);
     }
 
     private String resolveDrivingLevel(int score) {
-        if (score <= 20) {
-            return "Novato";
-        }
-        if (score <= 40) {
-            return "Principiante";
-        }
-        if (score <= 50) {
-            return "Principiante perfeccionando";
-        }
-        if (score <= 75) {
-            return "Competente";
-        }
-        if (score <= 89) {
-            return "Aventajado";
-        }
+        if (score <= 20) return "Novato";
+        if (score <= 40) return "Principiante";
+        if (score <= 50) return "Principiante perfeccionando";
+        if (score <= 75) return "Competente";
+        if (score <= 89) return "Aventajado";
         return "Experto";
     }
 
     private SessionEvent buildEvent(String eventType, int count, Session session) {
-        return SessionEvent.builder()
-            .eventType(eventType)
-            .count(count)
-            .session(session)
-            .build();
+        return SessionEvent.builder().eventType(eventType).count(count).session(session).build();
     }
 }

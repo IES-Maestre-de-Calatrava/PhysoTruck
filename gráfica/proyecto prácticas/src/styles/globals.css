@@ -1,74 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  html {
-    font-family: Inter, system-ui, sans-serif;
+@layer components {
+  .pt-card {
+    @apply bg-white border border-slate-200 rounded-2xl shadow-sm;
   }
 
-  body {
-    background: #F0F2F5;
-    color: #212529;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  .pt-btn-primary {
+    @apply inline-flex items-center px-4 py-2 bg-blue-600 text-white text-sm font-bold rounded-xl no-underline transition-colors hover:bg-blue-700;
   }
 
-  html.dark body {
-    background: #1A202C;
-    color: #E2E8F0;
+  .pt-chip {
+    @apply inline-flex items-center px-3 py-1 text-xs font-semibold border border-slate-200 rounded-full bg-slate-50 text-slate-600;
   }
 }
-
-.pt-card {
-  border: 1px solid #DEE2E6;
-  border-radius: 16px;
-  background: #FFFFFF;
-  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.08);
-}
-
-.pt-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  border-radius: 12px;
-  padding: 10px 16px;
-  font-weight: 700;
-  transition: transform 150ms ease, background-color 150ms ease, box-shadow 150ms ease;
-}
-
-.pt-btn-primary {
-  background: #007BFF;
-  color: #FFFFFF;
-}
-.pt-btn-primary:hover {
-  background: #0056B3;
-  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.15);
-}
-.pt-btn-primary:active {
-  transform: scale(0.99);
-}
-
-.pt-btn-ghost {
-  background: transparent;
-  color: #007BFF;
-}
-.pt-btn-ghost:hover {
-  background: rgba(0, 123, 255, 0.10);
-}
-
-.pt-chip {
-  display: inline-flex;
-  align-items: center;
-  border-radius: 999px;
-  border: 1px solid #DEE2E6;
-  background: #FFFFFF;
-  padding: 6px 12px;
-  font-size: 12px;
-  font-weight: 700;
-  color: #6C757D;
-}
-
