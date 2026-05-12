@@ -1,0 +1,199 @@
+package com.physiotrack.physiotrack.seeder;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.physiotrack.physiotrack.entity.Patient;
+import com.physiotrack.physiotrack.entity.Session;
+import com.physiotrack.physiotrack.entity.SessionEvent;
+import com.physiotrack.physiotrack.entity.User;
+import com.physiotrack.physiotrack.repository.PatientRepository;
+import com.physiotrack.physiotrack.repository.UserRepository;
+import java.io.IOException;
+import java.io.InputStream;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import lombok.RequiredArgsConstructor;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+
+@Component
+@RequiredArgsConstructor
+public class DataSeeder implements CommandLineRunner {
+
+    private static final String DATA_FILE      = "datos_prueba.json";
+    private static final String THERAPIST_EMAIL = "fisio@physiotrack.es";
+
+    private final UserRepository    userRepo;
+    private final PatientRepository patientRepo;
+    private final BCryptPasswordEncoder passwordEncoder;
+    private final ObjectMapper objectMapper;
+
+    @Override
+    @Transactional
+    public void run(String... args) throws Exception {
+        User therapist = userRepo.findByEmail(THERAPIST_EMAIL)
+            .orElseGet(() -> userRepo.save(
+                User.builder()
+                    .email(THERAPIST_EMAIL)
+                    .passwordHash(passwordEncoder.encode("password123"))
+                    .fullName("Terapeuta")
+                    .sescamId("FT-001")
+                    .build()
+            ));
+
+        JsonNode root = readSeedData();
+        Iterator<Map.Entry<String, JsonNode>> patients = root.fields();
+
+        while (patients.hasNext()) {
+            Map.Entry<String, JsonNode> patientEntry = patients.next();
+            String patientName = patientEntry.getKey();
+
+            if (patientRepo.existsByFullNameAndTherapistEmail(patientName, THERAPIST_EMAIL)) {
+                continue;
+            }
+
+            JsonNode patientNode    = patientEntry.getValue();
+            JsonNode sessionsByDate = patientNode.path("sesiones");
+
+            String diagnosis = patientNode.path("diagnostico").asText(null);
+            if (diagnosis == null || diagnosis.isBlank()) {
+                diagnosis = "Sin diagnóstico registrado";
+            }
+
+            List<Session> sessions = buildSessions(patientName, sessionsByDate);
+            LocalDate treatmentStart = sessions.stream()
+                .map(Session::getStartedAt)
+                .filter(s -> s != null)
+                .map(LocalDateTime::toLocalDate)
+                .min(LocalDate::compareTo)
+                .orElse(resolveTreatmentStart(sessionsByDate));
+
+            String currentLevel = sessions.stream()
+                .max(Comparator.comparing(Session::getStartedAt))
+                .map(Session::getDrivingLevel)
+                .orElse(null);
+
+            Patient patient = Patient.builder()
+                .fullName(patientName)
+                .diagnosis(diagnosis)
+                .treatmentStart(treatmentStart)
+                .currentLevel(currentLevel)
+                .therapist(therapist)
+                .sessions(new ArrayList<>())
+                .build();
+
+            for (Session session : sessions) {
+                session.setPatient(patient);
+                patient.getSessions().add(session);
+            }
+
+            patientRepo.save(patient);
+        }
+    }
+
+    private JsonNode readSeedData() throws IOException {
+        ClassPathResource resource = new ClassPathResource(DATA_FILE);
+        try (InputStream inputStream = resource.getInputStream()) {
+            return objectMapper.readTree(inputStream);
+        }
+    }
+
+    private LocalDate resolveTreatmentStart(JsonNode sessionsByDate) {
+        Iterator<String> dates = sessionsByDate.fieldNames();
+        LocalDate earliestDate = null;
+        while (dates.hasNext()) {
+            LocalDate date = LocalDate.parse(dates.next());
+            if (earliestDate == null || date.isBefore(earliestDate)) {
+                earliestDate = date;
+            }
+        }
+        return earliestDate;
+    }
+
+    private List<Session> buildSessions(String patientName, JsonNode sessionsByDate) {
+        List<Session> sessions = new ArrayList<>();
+        Iterator<Map.Entry<String, JsonNode>> dateEntries = sessionsByDate.fields();
+
+        while (dateEntries.hasNext()) {
+            Map.Entry<String, JsonNode> dateEntry = dateEntries.next();
+            LocalDate sessionDate = LocalDate.parse(dateEntry.getKey());
+            Iterator<Map.Entry<String, JsonNode>> sessionEntries = dateEntry.getValue().fields();
+
+            while (sessionEntries.hasNext()) {
+                Map.Entry<String, JsonNode> sessionEntry = sessionEntries.next();
+                JsonNode sessionNode  = sessionEntry.getValue();
+                int score       = sessionNode.path("score").asInt(0);
+                int movementTime = sessionNode.path("tiempo_movimiento").asInt(0);
+                LocalDateTime startedAt = resolveStartedAt(sessionDate, sessionNode.path("timestamp").asLong(0L));
+
+                String nivel = sessionNode.path("nivel").asText(null);
+                Session session = Session.builder()
+                    .externalId(buildExternalId(patientName, sessionDate, sessionEntry.getKey()))
+                    .startedAt(startedAt)
+                    .endedAt(startedAt.plus(movementTime, ChronoUnit.MILLIS))
+                    .movementTime(movementTime)
+                    .stabilityScore(sessionNode.path("estabilidad").asDouble(0))
+                    .drivingScore((double) score)
+                    .drivingLevel(nivel != null && !nivel.isBlank() ? nivel : resolveDrivingLevel(score))
+                    .weekNumber(1)
+                    .sessionEvents(new ArrayList<>())
+                    .build();
+
+                session.getSessionEvents().add(buildEvent("COLLISIONS",           sessionNode.path("colisiones").asInt(0),             session));
+                session.getSessionEvents().add(buildEvent("HARSH_ACCELERATIONS",  sessionNode.path("aceleraciones_bruscas").asInt(0),  session));
+                session.getSessionEvents().add(buildEvent("HARSH_STOPS",          sessionNode.path("paradas_bruscas").asInt(0),        session));
+
+                sessions.add(session);
+            }
+        }
+
+        sessions.sort(Comparator.comparing(Session::getStartedAt));
+        if (!sessions.isEmpty()) {
+            LocalDate treatmentStart = sessions.get(0).getStartedAt().toLocalDate();
+            sessions.forEach(s -> s.setWeekNumber(resolveWeekNumber(treatmentStart, s.getStartedAt())));
+        }
+        return sessions;
+    }
+
+    private String buildExternalId(String patientName, LocalDate sessionDate, String sourceId) {
+        return patientName + "-" + sessionDate + "-" + sourceId;
+    }
+
+    private LocalDateTime resolveStartedAt(LocalDate sessionDate, long timestampSeconds) {
+        if (timestampSeconds <= 0) {
+            return sessionDate.atStartOfDay();
+        }
+        return Instant.ofEpochSecond(timestampSeconds).atOffset(ZoneOffset.UTC).toLocalDateTime();
+    }
+
+    private int resolveWeekNumber(LocalDate treatmentStart, LocalDateTime startedAt) {
+        if (treatmentStart == null) return 1;
+        LocalDate sessionDate = startedAt != null ? startedAt.toLocalDate() : treatmentStart;
+        int week = (int) ChronoUnit.WEEKS.between(treatmentStart, sessionDate) + 1;
+        return Math.min(Math.max(week, 1), 12);
+    }
+
+    private String resolveDrivingLevel(int score) {
+        if (score <= 20) return "Novato";
+        if (score <= 40) return "Principiante";
+        if (score <= 50) return "Principiante perfeccionando";
+        if (score <= 75) return "Competente";
+        if (score <= 89) return "Aventajado";
+        return "Experto";
+    }
+
+    private SessionEvent buildEvent(String eventType, int count, Session session) {
+        return SessionEvent.builder().eventType(eventType).count(count).session(session).build();
+    }
+}
