@@ -73,6 +73,38 @@ function renderPatients(patients) {
     card.addEventListener("click", () => navigateToPatient(card.dataset.id, card.dataset.name));
   });
 
+  grid.querySelectorAll(".pt-photo-box").forEach((box) => {
+    box.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const patientId = box.dataset.patientId;
+      const input = document.createElement("input");
+      input.type = "file";
+      input.accept = "image/*";
+      input.onchange = () => {
+        const file = input.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          const base64 = ev.target.result;
+          localStorage.setItem(`physiotrack_photo_${patientId}`, base64);
+          const img = box.querySelector("img");
+          const svg = box.querySelector("svg");
+          if (img) {
+            img.src = base64;
+          } else {
+            if (svg) svg.remove();
+            const newImg = document.createElement("img");
+            newImg.src = base64;
+            newImg.style.cssText = "width:100%;height:100%;object-fit:cover;border-radius:inherit;";
+            box.appendChild(newImg);
+          }
+        };
+        reader.readAsDataURL(file);
+      };
+      input.click();
+    });
+  });
+
   updateCount(patients.length, patients.length);
 }
 
@@ -155,8 +187,11 @@ function buildCard(patient, index) {
       </div>
 
       <div class="pt-card-body">
-        <div class="pt-photo-box">
-          <span class="pt-avatar-initials">${initials}</span>
+        <div class="pt-photo-box" data-patient-id="${patient.id}" title="Cambiar foto de perfil" style="cursor:pointer;position:relative;">
+          ${getPatientPhotoHtml(patient.id)}
+          <div style="position:absolute;bottom:4px;right:4px;width:18px;height:18px;background:rgba(0,0,0,0.45);border-radius:50%;display:flex;align-items:center;justify-content:center;pointer-events:none;">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          </div>
         </div>
         <div class="pt-card-data">
           <div class="pt-card-data-row">
@@ -220,6 +255,17 @@ function openStatsDashboard() {
 
   localStorage.setItem(LAST_PATIENT_KEY, fallbackId);
   window.location.href = `charts/?patient=${encodeURIComponent(fallbackId)}`;
+}
+
+function getPatientPhotoHtml(patientId) {
+  const photo = localStorage.getItem(`physiotrack_photo_${patientId}`);
+  if (photo) {
+    return `<img src="${photo}" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;" alt="Foto de perfil">`;
+  }
+  return `<svg width="44" height="44" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="8" r="4" fill="rgba(255,255,255,0.9)"/>
+    <path d="M4 20c0-4 3.582-7 8-7s8 3 8 7" fill="rgba(255,255,255,0.9)"/>
+  </svg>`;
 }
 
 function getInitials(fullName) {

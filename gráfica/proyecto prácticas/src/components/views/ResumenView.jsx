@@ -1,12 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useTheme } from '../../context/ThemeContext';
-
-function getInitials(fullName) {
-  if (!fullName) return '?';
-  const parts = fullName.trim().split(/\s+/);
-  if (parts.length === 1) return parts[0][0].toUpperCase();
-  return (parts[0][0] + parts[1][0]).toUpperCase();
-}
+import { PatientAvatar } from '../ui/PatientAvatar';
 
 function formatDate(dateStr) {
   if (!dateStr) return '—';
@@ -88,19 +82,12 @@ export function ResumenView({ patient, weeks }) {
         }}
       >
         {/* Avatar */}
-        <div
-          style={{
-            width: '56px', height: '56px', borderRadius: '16px',
-            background: 'rgba(255,255,255,0.18)',
-            backdropFilter: 'blur(8px)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: '20px', fontWeight: 800, color: 'white',
-            fontFamily: "'Space Grotesk', sans-serif",
-            flexShrink: 0,
-          }}
-        >
-          {getInitials(patient?.fullName)}
-        </div>
+        <PatientAvatar
+          patientId={patient?.id}
+          size={56}
+          borderRadius="16px"
+          style={{ background: 'rgba(255,255,255,0.18)', backdropFilter: 'blur(8px)' }}
+        />
 
         {/* Name + diagnosis */}
         <div style={{ flex: 1, minWidth: 0 }}>

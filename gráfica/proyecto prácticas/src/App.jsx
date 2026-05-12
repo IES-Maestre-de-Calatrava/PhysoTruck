@@ -8,6 +8,7 @@ import { ResumenView } from './components/views/ResumenView';
 import { EstadisticasView } from './components/views/EstadisticasView';
 import { InformesView } from './components/views/InformesView';
 import { LevelBadge } from './components/ui/LevelBadge';
+import { PatientAvatar } from './components/ui/PatientAvatar';
 
 /* ─── loading ───────────────────────────────────────────────────── */
 
@@ -161,16 +162,7 @@ export default function App() {
         >
           {/* Patient info */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px', minWidth: 0 }}>
-            <div
-              style={{
-                width: '36px', height: '36px', borderRadius: '10px',
-                background: 'linear-gradient(135deg,#6366F1,#4F46E5)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                color: 'white', fontSize: '13px', fontWeight: 700, flexShrink: 0,
-              }}
-            >
-              {patientName.split(' ').slice(0,2).map(w => w[0]).join('').toUpperCase()}
-            </div>
+            <PatientAvatar patientId={patient?.id} size={36} borderRadius="10px" />
             <div style={{ minWidth: 0 }}>
               <div style={{ fontSize: '11px', fontWeight: 600, color: textMuted, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '2px' }}>
                 Paciente activo
